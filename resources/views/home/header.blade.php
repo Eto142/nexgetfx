@@ -558,7 +558,18 @@ border: 1px solid #617AD0;
 <link rel="preload" href="../js.cdn.com/launcher-discovery-modern.7088be9d.js" as="script" />
 </head>
 
-
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'a27ac63c98e35faaa3ab6d95c8f7b1b13954d887';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
 
 <body class="home page-template page-template-templates page-template-template-flexible page-template-templatestemplate-flexible-php page page-id-28653968 page-parent exclusive-addons-elementor elementor-default elementor-kit-28690895">
 <script data-cfasync="false" data-no-defer="1" data-no-minify="1" data-no-optimize="1">if(typeof ewww_webp_supported==="undefined"){var ewww_webp_supported=!1}if(ewww_webp_supported){document.body.classList.add("webp-support")}</script>
