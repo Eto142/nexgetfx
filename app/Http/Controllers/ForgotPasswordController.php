@@ -39,7 +39,7 @@ class ForgotPasswordController extends Controller
         Click the link below to reset your password.";
 
         Mail::send('emails.forgetPassword', ['action_link' => $action_link, 'body' => $body], function ($message) use ($request) {
-            $message->from('support@nexgetfx.online', 'nexgetfx');
+            $message->from('support@nexgetcpt.online', 'NexgetCpt');
             $message->to($request->email)
                     ->subject('Reset Password');
         });

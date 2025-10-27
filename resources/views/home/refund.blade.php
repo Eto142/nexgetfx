@@ -5,7 +5,7 @@
 <div class="container">
     <div class="content-single-page content-page">
     <div class="page-hero-img">
-    <img fetchpriority="high" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYsAAAEsAQMAAAAINw2eAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAACZJREFUaN7twTEBAAAAwqD1T20JT6AAAAAAAAAAAAAAAAAAAICnATvEAAEnf54JAAAAAElFTkSuQmCC" alt="Group (6)" width="395" height="300" data-src="https://NexgetFX.online/wp-content/uploads/2023/07/Group-6.svg" decoding="async" class="lazyload" data-eio-rwidth="395" data-eio-rheight="300" /><noscript><img fetchpriority="high"   src="../wp-content/uploads/2023/07/Group-6.svg"  alt="Group (6)" width="395" height="300" data-eio="l" /></noscript> </div>
+    <img fetchpriority="high" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYsAAAEsAQMAAAAINw2eAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAACZJREFUaN7twTEBAAAAwqD1T20JT6AAAAAAAAAAAAAAAAAAAICnATvEAAEnf54JAAAAAElFTkSuQmCC" alt="Group (6)" width="395" height="300" data-src="https://nexgetcpt.online/wp-content/uploads/2023/07/Group-6.svg" decoding="async" class="lazyload" data-eio-rwidth="395" data-eio-rheight="300" /><noscript><img fetchpriority="high"   src="../wp-content/uploads/2023/07/Group-6.svg"  alt="Group (6)" width="395" height="300" data-eio="l" /></noscript> </div>
     <h1 class="page-title">
     <span class="-c-accent">Refund</span> Policy </h1>
     <article id="post-28690371" class="post-28690371 page type-page status-publish hentry">

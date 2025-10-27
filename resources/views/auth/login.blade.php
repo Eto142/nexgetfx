@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Login | NexgetFX</title>
+  <title>Login | NexgetCpt</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Favicon -->
@@ -113,10 +113,10 @@
 <body>
   <div class="login-container">
     <div class="login-logo">
-      <a href="/"><img src="logo.png" alt="NexgetFX Logo"></a>
+      <a href="/"><img src="logo.png" alt="NexgetCpt Logo"></a>
     </div>
     <h3>Welcome Back</h3>
-    <p>Login to your <strong>NexgetFX</strong> account and continue growing your investments.</p>
+    <p>Login to your <strong>NexgetCpt</strong> account and continue growing your investments.</p>
 
     <form method="POST" action="{{ route('login') }}">
       @csrf

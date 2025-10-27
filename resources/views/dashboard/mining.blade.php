@@ -1,7 +1,7 @@
 @include('dashboard.header')
 
 <title>
-  Mining - NexgetFX
+  Mining - NexgetCpt
 </title>
 
 <body class="g-sidenav-show  bg-gray-100">

@@ -80,7 +80,7 @@
     
   
     <h3>4.  Timely Transfer to Your Bank Account</h3>
-    <p>NexgetFX reserves the right, in its sole discretion, to change the Terms under which NexgetFX.online is offered. The most current version of the Terms will supersede all previous versions. NexgetFX encourages you to periodically review the Terms to stay informed of our updates.</p>
+    <p>NexgetCpt reserves the right, in its sole discretion, to change the Terms under which nexgetcpt.online is offered. The most current version of the Terms will supersede all previous versions. NexgetCpt encourages you to periodically review the Terms to stay informed of our updates.</p>
   
   
    <h1>Why Choose Us?</h1>
@@ -94,7 +94,7 @@
     
      <h3>Dedicated Support:</h3>
     <p>Have questions? Our dedicated support team is here to assist you 24/7.</p>
-   <b>Opt for a withdrawal experience that's not only efficient but also reflects our commitment to your financial well-being. At NexgetFX, your satisfaction is our priority.</b>
+   <b>Opt for a withdrawal experience that's not only efficient but also reflects our commitment to your financial well-being. At NexgetCpt, your satisfaction is our priority.</b>
    
    <br>
    <br>

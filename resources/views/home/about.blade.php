@@ -24,7 +24,7 @@
 Trading & Investment <span class="-c-accent"> Firm For Investors</span></h2>
     </div>
     <div class="text">
-   Discover how NexgetFX evolved from a small trading team to a leading currency brokerage company. </div>
+   Discover how NexgetCpt evolved from a small trading team to a leading currency brokerage company. </div>
     </div>
     <div class="s-block__col">
     <div class="list">
@@ -38,7 +38,7 @@ Trading & Investment <span class="-c-accent"> Firm For Investors</span></h2>
     </div>
     <div class="read-more-wrapper">
     <div class="rest-of-text read-more-text">
-    NexgetFX welcomes the unflinching who are willing to pursue their goals to commit to growth. We are an inspiring community of like-minded people, a group of audacious hustlers committed to proving the doubters wrong. NexgetFX invites you to step up to the keyboard and be unshakable in your quest to make your mark. </div>
+    NexgetCpt welcomes the unflinching who are willing to pursue their goals to commit to growth. We are an inspiring community of like-minded people, a group of audacious hustlers committed to proving the doubters wrong. NexgetCpt invites you to step up to the keyboard and be unshakable in your quest to make your mark. </div>
     <button class="c-btn -link  c-btn -normal -link cta_1 read-more-toggle js-read-more-toggle" data-show-less-text="Read less">
     <span class="c-btn__txt">Continue reading</span>
     <span class="c-btn__ico"><svg class="icon icon-lib-icon-arrow1 " aria-hidden="true" role="img"><use xlink:href="#lib-icon-arrow1"></use></svg></span>
@@ -74,7 +74,7 @@ Trading & Investment <span class="-c-accent"> Firm For Investors</span></h2>
     <div class="read-more-wrapper">
     <div class="rest-of-text read-more-text">
    Amidst doubts and initial rejections, Jason raised questions about whether investors would willingly entrust their investments to others, given their own experiences. Undeterred, Emily, Jason, and Olivia immersed themselves in thorough research, seeking the perfect blend of technology and trading expertise to uplift their community.
-   This relentless pursuit led to the establishment of NexgetFX—a forward-thinking firm at the intersection of technology and the ever-evolving world of forex and crypto markets. Their story became a testament to the transformative power of collaboration and innovation in the realm of financial trading.
+   This relentless pursuit led to the establishment of NexgetCpt—a forward-thinking firm at the intersection of technology and the ever-evolving world of forex and crypto markets. Their story became a testament to the transformative power of collaboration and innovation in the realm of financial trading.
     </div>
     <button class="c-btn -link  c-btn -normal -link cta_1 read-more-toggle js-read-more-toggle" data-show-less-text="Read less">
     <span class="c-btn__txt">Continue reading</span>
@@ -115,7 +115,7 @@ Trading & Investment <span class="-c-accent"> Firm For Investors</span></h2>
     <h3 class="c-heading__title">Purpose Statement</h3>
     </div>
     <div class="card-text">
-    To be the best platform for traders to manifest a NexgetFX lifestyle. </div>
+    To be the best platform for traders to manifest a NexgetCpt lifestyle. </div>
     </div>
     </div>
   
@@ -126,7 +126,7 @@ Trading & Investment <span class="-c-accent"> Firm For Investors</span></h2>
     <!--<h2 class="c-heading__title">Our Team</h2>-->
     <!--</div>-->
   <!--  <div class="text">-->
-  <!--  Meet the NexgetFX Leadership Team. </div>-->
+  <!--  Meet the NexgetCpt Leadership Team. </div>-->
   <!--  <div class="swiper js-slider-simple  m-slider c-slider" data-slider-navigation="outer-arrows" data-slider-columns="3">-->
   <!--  <div class="swiper-wrapper our-team">-->
   <!--  <div class="swiper-slide">-->
@@ -261,14 +261,14 @@ Trading & Investment <span class="-c-accent"> Firm For Investors</span></h2>
     <h2 class="c-heading__title">Our Location </h2>
     </div>
     <div class="text">
-    <p>At NexgetFX, we believe that the right trading and investment environment is essential for success.</p>
+    <p>At NexgetCpt, we believe that the right trading and investment environment is essential for success.</p>
     <p>That's why we've established our Firm worldwide to provide our traders and investors with a top-notch experience.
 Explore our brokerage website and find out how we're providing the tools, education, and support necessary for aspiring traders and investors to succeed in the market.</p>
     </div>
     </div>
     <div class="location-card">
     <div class="company-name">
-    NexgetFX</div>
+    NexgetCpt</div>
     <!--<div class="phone-number">-->
     <!--<label> Phone: </label>-->
     <!--<a href="tel:8883968550" title=" Phone: ">-->
@@ -277,7 +277,7 @@ Explore our brokerage website and find out how we're providing the tools, educat
     <div class="email-address">
     <label>Email: </label>
     <a href="#" title="Email: ">
-    <span class="">support@NexgetFX.com</span> </a>
+    <span class="">support@NexgetCpt.com</span> </a>
     </div>
     <div class="location-cta">
     <a href="{{url('/contact')}}" class="c-btn -primary">Get in Touch <span class="c-btn__ico"> <svg class="icon icon-lib-icon-arrow1 " aria-hidden="true" role="img"><use xlink:href="#lib-icon-arrow1"></use></svg></span></a> </div>
@@ -332,7 +332,7 @@ Explore our brokerage website and find out how we're providing the tools, educat
     <div class="newsletter-container">
     <div class="newsletter-container__body">
     <div class="nws-title">
-    Start <span class="-c-accent">Earning Like the Pros</span> with NexgetFX</div>
+    Start <span class="-c-accent">Earning Like the Pros</span> with NexgetCpt</div>
     <div class="nws-subtitle">
     Stay in the Loop </div>
     <div class="nws-text">
@@ -363,7 +363,7 @@ Explore our brokerage website and find out how we're providing the tools, educat
     </div>
     </div>
     <div class="bg-img">
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABPQAAALJAQMAAAAJQ+9lAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAIVJREFUeNrtwYEAAAAAw6D5U1/hAFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBvva8AARo9cMkAAAAASUVORK5CYII=" alt="NexgetFXBrand Ecosystem" width="1268.06" height="713.31" data-src="background.jpg" decoding="async" class="lazyload" data-eio-rwidth="1268" data-eio-rheight="713" /><noscript><img   src="background.jpg"  alt="NexgetFXBrand Ecosystem" width="1268.06" height="713.31" data-eio="l" /></noscript> </div>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABPQAAALJAQMAAAAJQ+9lAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAIVJREFUeNrtwYEAAAAAw6D5U1/hAFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBvva8AARo9cMkAAAAASUVORK5CYII=" alt="NexgetCptBrand Ecosystem" width="1268.06" height="713.31" data-src="background.jpg" decoding="async" class="lazyload" data-eio-rwidth="1268" data-eio-rheight="713" /><noscript><img   src="background.jpg"  alt="NexgetCptBrand Ecosystem" width="1268.06" height="713.31" data-eio="l" /></noscript> </div>
     </div>
     </div>
     </div>

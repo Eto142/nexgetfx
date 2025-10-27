@@ -72,7 +72,7 @@ SECURITY OF FUNDS </button>
 </div>
 <div class="js-acc-content">
 <div class="c-accordion__content is-wysiwyg">
-At NexgetFX, we prioritize the security of your funds so that you can trade or invest with confidence. We recognize that successful traders need to focus on trading without concerns about fund safety. That's why we've implemented extra measures to guarantee the security of your funds. </div>
+At NexgetCpt, we prioritize the security of your funds so that you can trade or invest with confidence. We recognize that successful traders need to focus on trading without concerns about fund safety. That's why we've implemented extra measures to guarantee the security of your funds. </div>
 </div>
 </div>
 <div class="c-accordion__item js-acc-item  text-dark" style="background-color: #ffa16c">
@@ -98,7 +98,7 @@ View Insurance Ceritificate </button>
 <div class="c-accordion__item js-acc-item  text-dark" style="background-color: #ffa16c">
 <div class="c-accordion__title-wrap">
 <button class="js-acc-button c-accordion__title icons-arrows">
-NexgetFX brand has emerged as a worldwide frontrunner in online trading and investment, focusing on forex, derivatives on US and UK stocks, cryptocurrencies, commodities, spot metals, and indices. Emphasizing client fund security as an integral part of our philosophy, we offer unparalleled trading conditions and customer support. With a global reputation for excellence, a strong track record, and multiple award-winning services, our clients can trust that their funds are securely held. </button>
+NexgetCpt brand has emerged as a worldwide frontrunner in online trading and investment, focusing on forex, derivatives on US and UK stocks, cryptocurrencies, commodities, spot metals, and indices. Emphasizing client fund security as an integral part of our philosophy, we offer unparalleled trading conditions and customer support. With a global reputation for excellence, a strong track record, and multiple award-winning services, our clients can trust that their funds are securely held. </button>
 </div>
 <div class="js-acc-content">
 <!--<div class="c-accordion__content is-wysiwyg">-->
@@ -113,7 +113,7 @@ Account With Major Banks </button>
 </div>
 <div class="js-acc-content">
 <div class="c-accordion__content is-wysiwyg">
-NexgetFX has chosen to exclusively engage with prominent, top-tier global banking institutions. The robust international reputation and standing of the Epitome brand empower the company to offer liquidity through these major banks.</div>
+NexgetCpt has chosen to exclusively engage with prominent, top-tier global banking institutions. The robust international reputation and standing of the Epitome brand empower the company to offer liquidity through these major banks.</div>
 </div>
 </div>
 </div>
@@ -225,7 +225,7 @@ Segregation of Funds </div>
 <div class="pretitle">
 Negative Balance Protection </div>
 
-<p>Market volatility is a common occurrence.  NexgetFX negative balance protection policy ensures that even during highly volatile conditions when margin calls and stopouts fail to operate correctly, no client is held accountable for settling a negative balance.</p>
+<p>Market volatility is a common occurrence.  NexgetCpt negative balance protection policy ensures that even during highly volatile conditions when margin calls and stopouts fail to operate correctly, no client is held accountable for settling a negative balance.</p>
 <br>
 <div class="pretitle">
 Risk Management </div>
@@ -1947,7 +1947,7 @@ Why Trade with Us? </span>
 <h2 class="c-heading__title">Your Path to <span class="-c-accent">Financial Independence</span> Through Trading</h2>
 </div>
 <div class="text" style='color:black'>
-Discover the benefits of trading with NexgetFX and how we can help you achieve your financial goals.  </div>
+Discover the benefits of trading with NexgetCpt and how we can help you achieve your financial goals.  </div>
 <div class="cta">
 <a href="{{route('register')}}" class="c-btn -primary">Start Trading Today <span class="c-btn__ico"> <svg class="icon icon-lib-icon-arrow1 " aria-hidden="true" role="img"><use xlink:href="#lib-icon-arrow1"></use></svg></span></a> </div>
 </div>

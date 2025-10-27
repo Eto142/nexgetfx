@@ -32,7 +32,7 @@
                         <div class="nk-block-text">
                                 <h4 class="title title-md">How to Trade Bitcoin CFDs in 3 Easy Steps</h4>
                                 <ul class="list list-check">
-                                    <li><a href="src/auths/register.html">Opening an account</a> with  NexgetFX</li>
+                                    <li><a href="src/auths/register.html">Opening an account</a> with  NexgetCpt</li>
                                     <li>Fund your account</li>
                                     <li>BUY Bitcoin (go long) or SELL it (go short)</li>
                                    
@@ -100,7 +100,7 @@
                             <div class="gap-3x"></div>
                             <!-- Text block -->
                             <div class="nk-block-text">
-                                <h4 class="title title-md">Why Trade Bitcoin with  NexgetFX</h4>
+                                <h4 class="title title-md">Why Trade Bitcoin with  NexgetCpt</h4>
                                 <p>At EpitomeTrade, you can trade Bitcoin as a CFD. Here is why you should trade Bitcoin with us:</p>
                                 <ul class="list list-check">
                                     <li>
@@ -132,7 +132,7 @@
                                         <p>Bitcoin is an exciting yet volatile currency. This is why we offer various handy trading resources to help stay on top of your Bitcoin trading. We have a comprehensive education section where there are numerous relevant crypto eBooks and videos to help you gain the necessary knowledge to navigate the crypto market. We also have an Economic Calendar that will help you stay on top of news and events that may impact your crypto portfolio.</p>
                                     </li>
                                     <li>
-                                        <strong>NexgetFX</strong>
+                                        <strong>NexgetCpt</strong>
                                         <p>Trade Bitcoin with the exclusive Infimnox protect Risk Management. This unique feature gives you your money back on losing trades during the protected time period.</p>
                                     </li>
                                     <li>

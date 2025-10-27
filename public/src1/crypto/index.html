@@ -10,7 +10,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Dashboard |  NexgetFXs</title>
+    <title>Dashboard |  NexgetCpts</title>
     <!-- StyleSheets  -->
     
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.0.0">
@@ -417,7 +417,7 @@
                         <a href="crypto/index.php" class="logo-link nk-sidebar-logo">
                             
 
-<img class="logo-dark" style="width:192px; height:62px;" src="https:// NexgetFXs.net/io.png"/>
+<img class="logo-dark" style="width:192px; height:62px;" src="https:// NexgetCpts.net/io.png"/>
 
 
 
@@ -583,7 +583,7 @@
                                                
                                                 <li class="nk-menu-item">
                                                     <a href="crypto/BOT.php" class="nk-menu-link">
-                                                        <span class="nk-menu-text">NexgetFX BOT 3.5</span>
+                                                        <span class="nk-menu-text">NexgetCpt BOT 3.5</span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -672,7 +672,7 @@
                             <div class="nk-header-brand d-xl-none">
                                 <a href="crypto/index.php" class="logo-link">
                                                             
-<img class="logo-dark" style="width:192px; height:62px;" src="https:// NexgetFXs.net/io.png"/>
+<img class="logo-dark" style="width:192px; height:62px;" src="https:// NexgetCpts.net/io.png"/>
 
 
                                 </a>
@@ -1144,7 +1144,7 @@
                 <div class="nk-footer">
                     <div class="container-fluid">
                         <div class="nk-footer-wrap">
-                            <div class="nk-footer-copyright"> &copy; 2024  NexgetFX.
+                            <div class="nk-footer-copyright"> &copy; 2024  NexgetCpt.
                             </div>
                             
                         </div>
@@ -1161,7 +1161,7 @@
      <!--Email fixed -->
            <div id="mybutton">
 
-<a href="mailto:'support@ NexgetFXs.net'"><img src="../../emailpng.png" class="feedback" alt="email"/></a>
+<a href="mailto:'support@ NexgetCpts.net'"><img src="../../emailpng.png" class="feedback" alt="email"/></a>
 </div>
         <style>
          .feedback {

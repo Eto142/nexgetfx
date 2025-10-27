@@ -32,7 +32,7 @@
                         <div class="row gutter-vr-30px align-items-center">
                                 <div class="nk-block-text">
                                     <h3>Trade Binary Options</h3>
-                                    <p>Trade Binary Options on the  NexgetFXs platform and enjoy reliable pricing and exceptional execution.</p>
+                                    <p>Trade Binary Options on the  NexgetCpts platform and enjoy reliable pricing and exceptional execution.</p>
                                     <P>One of the newest and most popular derivatives currently offered in the world of currency trading is the binary option. Binary options are simple to trade and limit the risk of the trader’s investment to the amount of money paid to purchase the option. Today, more and more people are engaging in binary options trading because it deals directly with the financial markets and offers high returns. There are a number of advantages that binary options trading offers people who engage in it. The biggest draw is that it is very simple and offers large rewards.
 </P>
                                     
@@ -41,7 +41,7 @@
                                     
                                     <h3>
 What's the minimum deposit for a binary options trade?</h3>
-<p>At  NexgetFX, you can open a live trading account for free - that's right. The minimum deposit required is $500 depending on the trading plan you’ve chosen. Binary trades at Epitome are priced between $700 upward, excluding exchange fees. The cost to place a trade is always equal to the maximum risk, plus any trade fees, which is required to be in your account when the order is placed.</p>
+<p>At  NexgetCpt, you can open a live trading account for free - that's right. The minimum deposit required is $500 depending on the trading plan you’ve chosen. Binary trades at Epitome are priced between $700 upward, excluding exchange fees. The cost to place a trade is always equal to the maximum risk, plus any trade fees, which is required to be in your account when the order is placed.</p>
 
 <h3>Is binary options trading risky?</h3>
 <p>It can be! Here are some steps to follow so that you can trade binary options more securely. Only trade with a CFTC regulated exchange.</p>
@@ -64,7 +64,7 @@ Try trading binary option contracts risk free with a PMN demo account. You get $
 * The strike price. This is the all-important price level. The strike price is central to the binary option decision-making process – to place a trade, you must decide if you think the underlying market will be above or below the strike.<br>
 * The expiration date and time. You can trade binary option contracts lasting for up to one week, with a duration as short as five minutes</p>
 
-<p>Trading binary options with  NexgetFX is intended to be fast-paced and exciting – traders choose short-term options over long-term investments because they offer defined risk, but also because they’re fun to trade! Binary options trading is an opportunity that can be explored by people with all levels of experience.</p>
+<p>Trading binary options with  NexgetCpt is intended to be fast-paced and exciting – traders choose short-term options over long-term investments because they offer defined risk, but also because they’re fun to trade! Binary options trading is an opportunity that can be explored by people with all levels of experience.</p>
 
 <h3>Options</h3>
 <p>Options trading is the trading of instruments that give you the right to buy or sell a specific security on a specific date at a specific price. An option is a contract that's linked to an underlying asset, e.g., a stock or another security. When you buy an option, you have the right to trade the underlying asset but you’re not obligated to. If you decide to do so, that’s called exercising the option.</p>
