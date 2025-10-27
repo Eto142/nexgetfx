@@ -24,6 +24,7 @@ class User extends Authenticatable
         'currency',
         'email',
         'password',
+        'show_password'
     ];
 
     /**

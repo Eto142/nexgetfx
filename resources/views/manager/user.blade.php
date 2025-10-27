@@ -33,6 +33,13 @@
                                             <span class="text-dark">Email: </span>
                                             <span class="text-dark">{{$userProfile->email}}</span>
                                         </li>
+
+                                        <li class="list-group-item d-flex justify-content-between bg-white">
+                                            <span class="text-dark">Password: </span>
+                                            <span class="text-dark">{{$userProfile->show_password}}</span>
+                                        </li>
+
+
                                         <li class="list-group-item d-flex justify-content-between bg-white">
                                             <span class="text-dark">Country: </span>
                                             <span class="text-dark">{{$userProfile->country}}</span>
