@@ -9,7 +9,7 @@
                                     <div class="col-xl-6 col-lg-9">
                                         <div class="banner-caption cpn tc-light text-center">
                                             <div class="cpn-head">
-                                                <h2 class="title ttu">COPY TRADING WITH  NexgetCpt </h2>
+                                                <h2 class="title ttu">COPY TRADING WITH  Nexglobmarket </h2>
                                             </div>
                                         </div>
                                     </div>
@@ -144,7 +144,7 @@ Money management</h4>
 <h4>
 Who Are Trading Signals Providers?</h4>
 <p>They can be identified by either humans or by algorithms, which are like pieces of code programmed to identify signals, when ample market conditions are reached.
-Here at Epitome, we use tried and tested resources and services for our signals and copy trading products. However, once again remember that all trading comes with the risk of loss and you should only trade with what you can afford to lose. Our signal creators include hedge funds, expert brokers, and money managers. This means that if you use copy or mirror trading with  NexgetCpt, you are essentially gaining valuable access to the minds of seasoned traders. This allows you to copy their trades and hopefully benefit from their experience. The combination of  NexgetCpt global reputation, coupled with some experienced signal providers, gives you the security in knowing that you can trade or automate your trades with a reliable broker.</p>
+Here at Epitome, we use tried and tested resources and services for our signals and copy trading products. However, once again remember that all trading comes with the risk of loss and you should only trade with what you can afford to lose. Our signal creators include hedge funds, expert brokers, and money managers. This means that if you use copy or mirror trading with  Nexglobmarket, you are essentially gaining valuable access to the minds of seasoned traders. This allows you to copy their trades and hopefully benefit from their experience. The combination of  Nexglobmarket global reputation, coupled with some experienced signal providers, gives you the security in knowing that you can trade or automate your trades with a reliable broker.</p>
 
 <h3>Do I need prior trading experience to engage in copy trading?</h3>
 <p>If your plan is only to follow and copy other traders there is no experience required, although it can be helpful in analysing and selecting a good trader to copy. In reality it is often the traders with no experience who like to use copy trading. It can be a good way to begin growing an account, and if you take the time to analyse the trades being made by those you follow it can also be a very good way to learn about trading too. If you’re a new trader and are worried about losing money with copy trading you could always try it with a demo account first before funding your account</p>

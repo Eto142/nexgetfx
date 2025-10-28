@@ -139,7 +139,7 @@
                             
                             <div class="nk-block-text">
                                 <h3 class="title title-md"><strong>Start Trading CFDs with Epitome</strong></h3>
-                                <p>If you think you know which way the markets will go and you want to start trading – it’s time to join Epitome and enjoy the best CFD trading experience! Still not sure? Take a look at the  NexgetCpt Reviews by our clients.</p>
+                                <p>If you think you know which way the markets will go and you want to start trading – it’s time to join Epitome and enjoy the best CFD trading experience! Still not sure? Take a look at the  Nexglobmarket Reviews by our clients.</p>
                                 <div class="row">
                                     <div class="section-head text-center wide-auto-sm " style="margin-top: 25px;">
                                         <p style="font-size: 17px" class="title title-lg"><strong>Register for a trading account now to enter the markets,</strong><br><strong>or try our risk-free demo account.</strong></p>

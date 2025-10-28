@@ -135,7 +135,7 @@ With exclusive updates, industry insights, and exciting offers. Join 100,000+ ot
 </div>
 </div>
 <div class="bg-img">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABPQAAALJAQMAAAAJQ+9lAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAIVJREFUeNrtwYEAAAAAw6D5U1/hAFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBvva8AARo9cMkAAAAASUVORK5CYII=" alt="NexgetCpt Brand Ecosystem" width="1268.06" height="713.31" data-src="background.jpg" decoding="async" class="lazyload" data-eio-rwidth="1268" data-eio-rheight="713" /><noscript><img   src="background.jpg"  alt="NexgetCpt Brand Ecosystem" width="1268.06" height="713.31" data-eio="l" /></noscript> </div>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABPQAAALJAQMAAAAJQ+9lAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAIVJREFUeNrtwYEAAAAAw6D5U1/hAFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBvva8AARo9cMkAAAAASUVORK5CYII=" alt="Nexglobmarket Brand Ecosystem" width="1268.06" height="713.31" data-src="background.jpg" decoding="async" class="lazyload" data-eio-rwidth="1268" data-eio-rheight="713" /><noscript><img   src="background.jpg"  alt="Nexglobmarket Brand Ecosystem" width="1268.06" height="713.31" data-eio="l" /></noscript> </div>
 </div>
 </div>
 </div>

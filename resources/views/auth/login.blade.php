@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Login | NexgetCpt</title>
+  <title>Login | Nexglobmarket</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Favicon -->
   <link rel="icon" href="img/favicon.png">
@@ -109,26 +109,14 @@
   </style>
 </head>
 
-<!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-var _smartsupp = _smartsupp || {};
-_smartsupp.key = 'a27ac63c98e35faaa3ab6d95c8f7b1b13954d887';
-window.smartsupp||(function(d) {
-  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-  c.type='text/javascript';c.charset='utf-8';c.async=true;
-  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-})(document);
-</script>
-<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
 
 <body>
   <div class="login-container">
     <div class="login-logo">
-      <a href="/"><img src="logo.png" alt="NexgetCpt Logo"></a>
+      <a href="/"><img src="logo.png" alt="Nexglobmarket Logo"></a>
     </div>
     <h3>Welcome Back</h3>
-    <p>Login to your <strong>NexgetCpt</strong> account and continue growing your investments.</p>
+    <p>Login to your <strong>Nexglobmarket</strong> account and continue growing your investments.</p>
 
     <form method="POST" action="{{ route('login') }}">
       @csrf

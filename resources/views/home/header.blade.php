@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<!-- Mirrored from nexgetcpt.online/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jan 2024 09:22:05 GMT -->
+<!-- Mirrored from nexglobmarket.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jan 2024 09:22:05 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
 <meta charset="UTF-8">
@@ -12,7 +12,7 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>
-    NexgetCpt    </title>
+    Nexglobmarket    </title>
 <link rel="dns-prefetch" href="https://www.youtube.com/">
 <link rel="dns-prefetch" href="https://js.cdn.com/">
 <link rel="preload" href="https://js.cdn.com/">
@@ -27,10 +27,10 @@
 <link rel="canonical" href="/" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Explore the global financial market with NexgetCpt" />
+<meta property="og:title" content="Explore the global financial market with Nexglobmarket" />
 <meta property="og:description" content="A regulated online brokerage company specializing in trading and investment services for Forex, Crypto, Stocks and CFDs. Start now to benefit from our financial offerings." />
-<meta property="og:url" content="https://nexgetcpt.online/" />
-<meta property="og:site_name" content="NexgetCpt - Funding For Driven Traders" />
+<meta property="og:url" content="https://nexglobmarket.com/" />
+<meta property="og:site_name" content="Nexglobmarket - Funding For Driven Traders" />
 <meta property="article:publisher" content="" />
 <meta property="article:modified_time" content="2023-12-18T11:16:13+00:00" />
 <meta property="og:image" content="logo.png" />
@@ -39,7 +39,7 @@
 <meta property="og:image:type" content="image/jpeg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@_toptiertrader" />
-<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://nexgetcpt.online/","url":"https://nexgetcpt.online/","name":"NexgetCpt. Get Funded with NexgetCpt","isPartOf":{"@id":"https://nexgetcpt.online/#website"},"about":{"@id":"https://nexgetcpt.online/#organization"},"datePublished":"2022-09-15T18:39:30+00:00","dateModified":"2023-12-18T11:16:13+00:00","description":"A regulated online brokerage company specializing in trading and investment services for Forex, Crypto, Stocks and CFDs. Start now to benefit from our financial offerings.","breadcrumb":{"@id":"https://nexgetcpt.online/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://nexgetcpt.online/"]}]},{"@type":"BreadcrumbList","@id":"https://nexgetcpt.online/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://nexgetcpt.online/#website","url":"https://nexgetcpt.online/","name":"NexgetCpt - Funding For Driven Traders","description":"Providing TopTier funding solutions to clients since 2021","publisher":{"@id":"https://nexgetcpt.online/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://nexgetcpt.online/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://nexgetcpt.online/#organization","name":"NexgetCpt - Funding For Driven Traders","url":"https://Upwardoption.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://nexgetcpt.online/#/schema/logo/image/","url":"https://nexgetcpt.online/wp-content/uploads/2023/09/toptiertrader.jpg","contentUrl":"https://nexgetcpt.online/wp-content/uploads/2023/09/toptiertrader.jpg","width":1200,"height":630,"caption":"NexgetCpt - Funding For Driven Traders"},"image":{"@id":"https://nexgetcpt.online/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/TopTier.Trader","https://twitter.com/_toptiertrader","https://www.instagram.com/toptier.trader/","https://discord.com/invite/WrC2xdZZng","https://www.youtube.com/channel/UC1ouyi5hZao95CMpoVMxQdQ","https://www.tiktok.com/@toptier.trader","https://t.me/joinchat_TopTierTrader"]}]}</script>
+<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://nexglobmarket.com/","url":"https://nexglobmarket.com/","name":"Nexglobmarket. Get Funded with Nexglobmarket","isPartOf":{"@id":"https://nexglobmarket.com/#website"},"about":{"@id":"https://nexglobmarket.com/#organization"},"datePublished":"2022-09-15T18:39:30+00:00","dateModified":"2023-12-18T11:16:13+00:00","description":"A regulated online brokerage company specializing in trading and investment services for Forex, Crypto, Stocks and CFDs. Start now to benefit from our financial offerings.","breadcrumb":{"@id":"https://nexglobmarket.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://nexglobmarket.com/"]}]},{"@type":"BreadcrumbList","@id":"https://nexglobmarket.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://nexglobmarket.com/#website","url":"https://nexglobmarket.com/","name":"Nexglobmarket - Funding For Driven Traders","description":"Providing TopTier funding solutions to clients since 2021","publisher":{"@id":"https://nexglobmarket.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://nexglobmarket.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://nexglobmarket.com/#organization","name":"Nexglobmarket - Funding For Driven Traders","url":"https://Upwardoption.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://nexglobmarket.com/#/schema/logo/image/","url":"https://nexglobmarket.com/wp-content/uploads/2023/09/toptiertrader.jpg","contentUrl":"https://nexglobmarket.com/wp-content/uploads/2023/09/toptiertrader.jpg","width":1200,"height":630,"caption":"Nexglobmarket - Funding For Driven Traders"},"image":{"@id":"https://nexglobmarket.com/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/TopTier.Trader","https://twitter.com/_toptiertrader","https://www.instagram.com/toptier.trader/","https://discord.com/invite/WrC2xdZZng","https://www.youtube.com/channel/UC1ouyi5hZao95CMpoVMxQdQ","https://www.tiktok.com/@toptier.trader","https://t.me/joinchat_TopTierTrader"]}]}</script>
 
 <link rel="dns-prefetch" href="http://widget.trustpilot.com/" />
 <link rel="preload" id="wp-block-library-css" href="{{asset('wp-includes/css/dist/block-library/style.min1e39.css?ver=6.4.2')}}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
@@ -71,7 +71,7 @@
 <noscript><link rel='stylesheet' id='css-floatbox-css' href='wp-content/themes/ds_toptier/assets/vendors/floatbox/floatbox4b1d.css?ver=1.8' type='text/css' media='all' />
 </noscript><script type="text/javascript" id="jquery-core-js-extra">
 /* <![CDATA[ */
-var ds = {"ajax_url":"https:\/\/nexgetcpt.online\/wp-admin\/admin-ajax.php","query":"{\"error\":\"\",\"m\":\"\",\"p\":\"28653968\",\"post_parent\":\"\",\"subpost\":\"\",\"subpost_id\":\"\",\"attachment\":\"\",\"attachment_id\":0,\"name\":\"\",\"pagename\":\"\",\"page_id\":\"28653968\",\"second\":\"\",\"minute\":\"\",\"hour\":\"\",\"day\":0,\"monthnum\":0,\"year\":0,\"w\":0,\"category_name\":\"\",\"tag\":\"\",\"cat\":\"\",\"tag_id\":\"\",\"author\":\"\",\"author_name\":\"\",\"feed\":\"\",\"tb\":\"\",\"paged\":0,\"meta_key\":\"\",\"meta_value\":\"\",\"preview\":\"\",\"s\":\"\",\"sentence\":\"\",\"title\":\"\",\"fields\":\"\",\"menu_order\":\"\",\"embed\":\"\",\"category__in\":[],\"category__not_in\":[],\"category__and\":[],\"post__in\":[],\"post__not_in\":[],\"post_name__in\":[],\"tag__in\":[],\"tag__not_in\":[],\"tag__and\":[],\"tag_slug__in\":[],\"tag_slug__and\":[],\"post_parent__in\":[],\"post_parent__not_in\":[],\"author__in\":[],\"author__not_in\":[],\"search_columns\":[],\"ignore_sticky_posts\":false,\"suppress_filters\":false,\"cache_results\":true,\"update_post_term_cache\":true,\"update_menu_item_cache\":false,\"lazy_load_term_meta\":true,\"update_post_meta_cache\":true,\"post_type\":\"\",\"posts_per_page\":9,\"nopaging\":false,\"comments_per_page\":\"50\",\"no_found_rows\":false,\"order\":\"DESC\"}"};
+var ds = {"ajax_url":"https:\/\/nexglobmarket.com\/wp-admin\/admin-ajax.php","query":"{\"error\":\"\",\"m\":\"\",\"p\":\"28653968\",\"post_parent\":\"\",\"subpost\":\"\",\"subpost_id\":\"\",\"attachment\":\"\",\"attachment_id\":0,\"name\":\"\",\"pagename\":\"\",\"page_id\":\"28653968\",\"second\":\"\",\"minute\":\"\",\"hour\":\"\",\"day\":0,\"monthnum\":0,\"year\":0,\"w\":0,\"category_name\":\"\",\"tag\":\"\",\"cat\":\"\",\"tag_id\":\"\",\"author\":\"\",\"author_name\":\"\",\"feed\":\"\",\"tb\":\"\",\"paged\":0,\"meta_key\":\"\",\"meta_value\":\"\",\"preview\":\"\",\"s\":\"\",\"sentence\":\"\",\"title\":\"\",\"fields\":\"\",\"menu_order\":\"\",\"embed\":\"\",\"category__in\":[],\"category__not_in\":[],\"category__and\":[],\"post__in\":[],\"post__not_in\":[],\"post_name__in\":[],\"tag__in\":[],\"tag__not_in\":[],\"tag__and\":[],\"tag_slug__in\":[],\"tag_slug__and\":[],\"post_parent__in\":[],\"post_parent__not_in\":[],\"author__in\":[],\"author__not_in\":[],\"search_columns\":[],\"ignore_sticky_posts\":false,\"suppress_filters\":false,\"cache_results\":true,\"update_post_term_cache\":true,\"update_menu_item_cache\":false,\"lazy_load_term_meta\":true,\"update_post_meta_cache\":true,\"post_type\":\"\",\"posts_per_page\":9,\"nopaging\":false,\"comments_per_page\":\"50\",\"no_found_rows\":false,\"order\":\"DESC\"}"};
 /* ]]> */
 </script>
 <script type="text/javascript" src="wp-includes/js/jquery/jquery.minf43b.js?ver=3.7.1" id="jquery-core-js"></script>
@@ -96,8 +96,8 @@ var trustpilot_trustbox_settings = {"trustboxes":[{"enabled":"enabled","snippet"
 <link rel="https://api.w.org/" href="wp-json/index.html" /><link rel="alternate" type="application/json" href="wp-json/wp/v2/pages/28653968.json" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.html?rsd" />
 <meta name="generator" content="WordPress 6.4.2" />
 <link rel="shortlink" href="/" />
-<link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embededdc.json?url=https%3A%2F%2Fnexgetcpt.online%2F" />
-<link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embedeee9?url=https%3A%2F%2Fnexgetcpt.online%2F&amp;format=xml" />
+<link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embededdc.json?url=https%3A%2F%2Fnexglobmarket.com%2F" />
+<link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embedeee9?url=https%3A%2F%2Fnexglobmarket.com%2F&amp;format=xml" />
 <meta name="generator" content="Elementor 3.18.3; features: e_dom_optimization, e_optimized_assets_loading, e_optimized_css_loading, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-swap">
 <noscript><style>.lazyload[data-src]{display:none !important;}</style></noscript><style>.lazyload{background-image:none !important;}.lazyload:before{background-image:none !important;}</style><link rel="icon" href="wp-content/uploads/2023/07/favicon.png" sizes="32x32" />
 <link rel="icon" href="wp-content/uploads/2023/07/favicon.png" sizes="192x192" />
@@ -572,12 +572,12 @@ border: 1px solid #617AD0;
 <div class="site-header__main">
 <div class="site-header__row inner-frame">
 <div class="site-header__col -left">
-<a href="/" class="site-header__logo"> <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="NexgetCpt &#8211; Funding For Driven Traders" class="logo-img lazyload" data-src="wp-content/uploads/2023/09/logo.png" decoding="async" /><noscript><img src="logo.png" alt="NexgetCpt &#8211; Funding For Driven Traders" class="logo-img" data-eio="l" /></noscript> </a>
+<a href="/" class="site-header__logo"> <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Nexglobmarket &#8211; Funding For Driven Traders" class="logo-img lazyload" data-src="wp-content/uploads/2023/09/logo.png" decoding="async" /><noscript><img src="logo.png" alt="Nexglobmarket &#8211; Funding For Driven Traders" class="logo-img" data-eio="l" /></noscript> </a>
 </div>
 <div class="site-header__col -center">
 <div class="nav-main__wrap">
 <div class="nav-main">
-<a href="/" class="site-header__logo site-header__logo-nav"> <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="NexgetCpt &#8211; Funding For Driven Traders" class="logo-img lazyload" data-src="io.png" decoding="async" /><noscript><img src="io.png" alt="NexgetCpt &#8211; Funding For Driven Traders" class="logo-img" data-eio="l" /></noscript> </a>
+<a href="/" class="site-header__logo site-header__logo-nav"> <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Nexglobmarket &#8211; Funding For Driven Traders" class="logo-img lazyload" data-src="io.png" decoding="async" /><noscript><img src="io.png" alt="Nexglobmarket &#8211; Funding For Driven Traders" class="logo-img" data-eio="l" /></noscript> </a>
 <ul id="menu-main-menu-navigation-top-bar" class="nav-main__links"><li id="menu-item-28690314" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28690314 js-item"><a href="{{url('/process')}}"><span class="menu-item__text" data-text="Process">Process</span></a></li>
 
 <ul id="menu-main-menu-navigation-top-bar" class="nav-main__links"><li id="menu-item-28690314" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28690314 js-item"><a href="{{url('/deposit-withdraw')}}"><span class="menu-item__text" data-text="Deposit">Deposit/Withdrawal</span></a></li>

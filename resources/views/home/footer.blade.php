@@ -66,7 +66,7 @@
         <div class="footer-bottom__inner container">
             <div class="footer-disclaimer">
                 <p>
-                    All content published and distributed by NexgetCpt, LLC and its affiliates (collectively, the Company) 
+                    All content published and distributed by Nexglobmarket, LLC and its affiliates (collectively, the Company) 
                     is to be treated as general information only. None of the information provided by the Company or contained herein 
                     is intended as investment advice, an offer or solicitation of an offer to buy or sell, or a recommendation, 
                     endorsement, or sponsorship of any security, company, or fund.
@@ -143,7 +143,7 @@
     <script type="text/javascript" defer src="wp-content/plugins/exclusive-addons-for-elementor/assets/vendor/js/jquery.sticky-sidebar91ac.js?ver=2.6.8" id="exad-sticky-jquery-js"></script>
     <script type="text/javascript" id="exad-main-script-js-extra">
     /* <![CDATA[ */
-    var exad_ajax_object = {"ajax_url":"https:\/\/nexgetcpt.online\/wp-admin\/admin-ajax.php","nonce":"8b254d499b"};
+    var exad_ajax_object = {"ajax_url":"https:\/\/nexglobmarket.com\/wp-admin\/admin-ajax.php","nonce":"8b254d499b"};
     /* ]]> */
     </script>
     <script type="text/javascript" defer src="wp-content/plugins/exclusive-addons-for-elementor/assets/js/exad-scripts.min91ac.js?ver=2.6.8" id="exad-main-script-js"></script>
@@ -157,11 +157,11 @@
     /* <![CDATA[ */
     window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {};window.gtranslateSettings['25662229'] = {"default_language":"en","languages":["en","fr","de","pt","es"],"url_structure":"sub_directory","flag_style":"3d","flag_size":24,"wrapper_selector":"#gt-wrapper-25662229","alt_flags":{"en":"usa","pt":"brazil"},"switcher_open_direction":"top","switcher_horizontal_position":"inline","switcher_text_color":"#666","switcher_arrow_color":"#666","switcher_border_color":"#ccc","switcher_background_color":"#fff","switcher_background_shadow_color":"#efefef","switcher_background_hover_color":"#fff","dropdown_text_color":"#000","dropdown_hover_color":"#fff","dropdown_background_color":"#eee","custom_css":"li.menu-item.menu-item-gtranslate {\r\n    display: none !important;\r\n}\r\nselect.gt_selector.notranslate {\r\n    background-color: aliceblue;\r\n    padding: 10px;\r\n}\r\n.gt_switcher_wrapper {\r\n    right: 8% !important;\r\n}","flags_location":"\/wp-content\/plugins\/gtranslate\/flags\/"};
     /* ]]> */
-    </script><script defer src="wp-content/plugins/gtranslate/js/dwf1e39.js?ver=6.4.2" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/" data-gt-orig-domain="nexgetcpt.online" data-gt-widget-id="25662229" defer></script><script type="text/javascript" id="gt_widget_script_23575691-js-before">
+    </script><script defer src="wp-content/plugins/gtranslate/js/dwf1e39.js?ver=6.4.2" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/" data-gt-orig-domain="nexglobmarket.com" data-gt-widget-id="25662229" defer></script><script type="text/javascript" id="gt_widget_script_23575691-js-before">
     /* <![CDATA[ */
     window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {};window.gtranslateSettings['23575691'] = {"default_language":"en","languages":["en","fr","de","pt","es"],"url_structure":"sub_directory","flag_style":"3d","flag_size":24,"wrapper_selector":"#gt-wrapper-23575691","alt_flags":{"en":"usa","pt":"brazil"},"switcher_open_direction":"top","switcher_horizontal_position":"inline","switcher_text_color":"#666","switcher_arrow_color":"#666","switcher_border_color":"#ccc","switcher_background_color":"#fff","switcher_background_shadow_color":"#efefef","switcher_background_hover_color":"#fff","dropdown_text_color":"#000","dropdown_hover_color":"#fff","dropdown_background_color":"#eee","custom_css":"li.menu-item.menu-item-gtranslate {\r\n    display: none !important;\r\n}\r\nselect.gt_selector.notranslate {\r\n    background-color: aliceblue;\r\n    padding: 10px;\r\n}\r\n.gt_switcher_wrapper {\r\n    right: 8% !important;\r\n}","flags_location":"\/wp-content\/plugins\/gtranslate\/flags\/"};
     /* ]]> */
-    </script><script defer src="wp-content/plugins/gtranslate/js/dwf1e39.js?ver=6.4.2" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/" data-gt-orig-domain="nexgetcpt.online" data-gt-widget-id="23575691" defer></script><script type="text/javascript" defer src="wp-includes/js/dist/vendor/wp-polyfill-inert.min0226.js?ver=3.1.2" id="wp-polyfill-inert-js"></script>
+    </script><script defer src="wp-content/plugins/gtranslate/js/dwf1e39.js?ver=6.4.2" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/" data-gt-orig-domain="nexglobmarket.com" data-gt-widget-id="23575691" defer></script><script type="text/javascript" defer src="wp-includes/js/dist/vendor/wp-polyfill-inert.min0226.js?ver=3.1.2" id="wp-polyfill-inert-js"></script>
     <script type="text/javascript" defer src="wp-includes/js/dist/vendor/regenerator-runtime.min6c85.js?ver=0.14.0" id="regenerator-runtime-js"></script>
     <script type="text/javascript" defer src="wp-includes/js/dist/vendor/wp-polyfill.min2c7c.js?ver=3.15.0" id="wp-polyfill-js"></script>
     <script type="text/javascript" defer src="wp-includes/js/dist/dom-ready.minded6.js?ver=392bdd43726760d1f3ca" id="wp-dom-ready-js"></script>
@@ -178,8 +178,8 @@
     /* <![CDATA[ */
     var gform_i18n = {"datepicker":{"days":{"monday":"Mo","tuesday":"Tu","wednesday":"We","thursday":"Th","friday":"Fr","saturday":"Sa","sunday":"Su"},"months":{"january":"January","february":"February","march":"March","april":"April","may":"May","june":"June","july":"July","august":"August","september":"September","october":"October","november":"November","december":"December"},"firstDay":1,"iconText":"Select date"}};
     var gf_legacy_multi = [];
-    var gform_gravityforms = {"strings":{"invalid_file_extension":"This type of file is not allowed. Must be one of the following:","delete_file":"Delete this file","in_progress":"in progress","file_exceeds_limit":"File exceeds size limit","illegal_extension":"This type of file is not allowed.","max_reached":"Maximum number of files reached","unknown_error":"There was a problem while saving the file on the server","currently_uploading":"Please wait for the uploading to complete","cancel":"Cancel","cancel_upload":"Cancel this upload","cancelled":"Cancelled"},"vars":{"images_url":"https:\/\/nexgetcpt.online\/wp-content\/plugins\/gravityforms\/images"}};
-    var gf_global = {"gf_currency_config":{"name":"U.S. Dollar","symbol_left":"$","symbol_right":"","symbol_padding":"","thousand_separator":",","decimal_separator":".","decimals":2,"code":"USD"},"base_url":"https:\/\/nexgetcpt.online\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"https:\/\/nexgetcpt.online\/wp-content\/plugins\/gravityforms\/images\/spinner.svg","version_hash":"0e172467d6799f0864f697ef6939d671","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
+    var gform_gravityforms = {"strings":{"invalid_file_extension":"This type of file is not allowed. Must be one of the following:","delete_file":"Delete this file","in_progress":"in progress","file_exceeds_limit":"File exceeds size limit","illegal_extension":"This type of file is not allowed.","max_reached":"Maximum number of files reached","unknown_error":"There was a problem while saving the file on the server","currently_uploading":"Please wait for the uploading to complete","cancel":"Cancel","cancel_upload":"Cancel this upload","cancelled":"Cancelled"},"vars":{"images_url":"https:\/\/nexglobmarket.com\/wp-content\/plugins\/gravityforms\/images"}};
+    var gf_global = {"gf_currency_config":{"name":"U.S. Dollar","symbol_left":"$","symbol_right":"","symbol_padding":"","thousand_separator":",","decimal_separator":".","decimals":2,"code":"USD"},"base_url":"https:\/\/nexglobmarket.com\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"https:\/\/nexglobmarket.com\/wp-content\/plugins\/gravityforms\/images\/spinner.svg","version_hash":"0e172467d6799f0864f697ef6939d671","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
     /* ]]> */
     </script>
     <script type="text/javascript" defer="defer" defer src="wp-content/plugins/gravityforms/js/gravityforms.min1102.js?ver=2.8.1" id="gform_gravityforms-js"></script>
@@ -188,7 +188,7 @@
     <script type="text/javascript" defer="defer" defer src="wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.minca9e.js?ver=54e7080aa7a02c83aa61fae430b9d869" id="gform_gravityforms_theme_vendors-js"></script>
     <script type="text/javascript" id="gform_gravityforms_theme-js-extra">
     /* <![CDATA[ */
-    var gform_theme_config = {"common":{"form":{"honeypot":{"version_hash":"0e172467d6799f0864f697ef6939d671"}}},"hmr_dev":"","public_path":"https:\/\/nexgetcpt.online\/wp-content\/plugins\/gravityforms\/assets\/js\/dist\/"};
+    var gform_theme_config = {"common":{"form":{"honeypot":{"version_hash":"0e172467d6799f0864f697ef6939d671"}}},"hmr_dev":"","public_path":"https:\/\/nexglobmarket.com\/wp-content\/plugins\/gravityforms\/assets\/js\/dist\/"};
     /* ]]> */
     </script>
     <script type="text/javascript" defer="defer" defer src="wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min00af.js?ver=bab19fd84843dabc070e73326d787910" id="gform_gravityforms_theme-js"></script>
@@ -209,5 +209,5 @@
     
     </body>
     
-    <!-- Mirrored from nexgetcpt.online/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jan 2024 09:23:00 GMT -->
+    <!-- Mirrored from nexglobmarket.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Jan 2024 09:23:00 GMT -->
     </html>

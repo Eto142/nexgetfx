@@ -1101,7 +1101,7 @@ $("input").intlTelInput({
                             <div class="nk-block nk-block-middle nk-auth-body">
                                 <div class="brand-logo pb-5">
                                     <a href="html/index.html" class="logo-link">
-                                       <img class="logo-dark" style="width:192px; height:62px;" src="https:// NexgetCpts.net/io.png"/>
+                                       <img class="logo-dark" style="width:192px; height:62px;" src="https:// Nexglobmarkets.net/io.png"/>
 
                                         
                                     </a>
@@ -1157,7 +1157,7 @@ $("input").intlTelInput({
                                     <div class="form-gronup">
                                         <div class="custom-control custom-control-xs custom-checkbox">
                                             <input type="checkbox" required class="custom-control-input" id="checkbox">
-                                            <label class="custom-control-label" for="checkbox">I agree to  NexgetCpts <a tabindex="-1" href="https:// NexgetCpts.net/privacy.html">Privacy Policy</a> &amp; <a tabindex="-1" href="https:// NexgetCpts.net/terms.html"> Terms.</a></label>
+                                            <label class="custom-control-label" for="checkbox">I agree to  Nexglobmarkets <a tabindex="-1" href="https:// Nexglobmarkets.net/privacy.html">Privacy Policy</a> &amp; <a tabindex="-1" href="https:// Nexglobmarkets.net/terms.html"> Terms.</a></label>
                                         </div>
                                     </div>
                                     <br>
@@ -1173,13 +1173,13 @@ $("input").intlTelInput({
                                 <div class="nk-block-between">
                                     <ul class="nav nav-sm">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="https:// NexgetCpts.net/terms.html">Terms & Condition</a>
+                                            <a class="nav-link" href="https:// Nexglobmarkets.net/terms.html">Terms & Condition</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="https:// NexgetCpts.net/privacy.html">Privacy Policy</a>
+                                            <a class="nav-link" href="https:// Nexglobmarkets.net/privacy.html">Privacy Policy</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="https:// NexgetCpts.net/contact.html">Contact Us</a>
+                                            <a class="nav-link" href="https:// Nexglobmarkets.net/contact.html">Contact Us</a>
                                         </li>
                                         <li class="nav-item dropup">
                                             <a class="dropdown-toggle dropdown-indicator has-indicator nav-link" data-bs-toggle="dropdown" data-offset="0,10"><small>English</small></a>
@@ -1215,7 +1215,7 @@ $("input").intlTelInput({
                                     </ul><!-- nav -->
                                 </div>
                                 <div class="mt-3">
-                                    <p>&copy; 2024  NexgetCpts. All Rights Reserved.</p>
+                                    <p>&copy; 2024  Nexglobmarkets. All Rights Reserved.</p>
                                 </div>
                             </div><!-- nk-block -->
                         </div><!-- nk-split-content -->

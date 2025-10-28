@@ -118,7 +118,7 @@
                             <div class="gap-3x"></div>
                             <!-- Text block -->
                             <div class="nk-block-text">
-                                <h4 class="title title-md"> NexgetCpt’s Economic Calendar</h4>
+                                <h4 class="title title-md"> Nexglobmarket’s Economic Calendar</h4>
                                 <p>It is would be wise for all traders, regardless of the instrument, to follow up closely the Economic Calendar. As seen in the example given, any event might affect several instruments. Trading side by side the calendar will help you understand the market and stay on top of it. Accompanied by time and practice, the calendar can improve your fundamental analysis and predictions based on upcoming financial events.</p>
                             </div><!-- .nk-block @e -->
 
@@ -149,7 +149,7 @@
                             
                             <div class="nk-block-text">
                                 <h3 class="title title-md"><strong>Start Trading CFDs with Epitome</strong></h3>
-                                <p>If you think you know which way the markets will go and you want to start trading – it’s time to join Epitome and enjoy the best CFD trading experience! Still not sure? Take a look at the  NexgetCpt Reviews by our clients.</p>
+                                <p>If you think you know which way the markets will go and you want to start trading – it’s time to join Epitome and enjoy the best CFD trading experience! Still not sure? Take a look at the  Nexglobmarket Reviews by our clients.</p>
                                 <div class="row">
                                     <div class="section-head text-center wide-auto-sm " style="margin-top: 25px;">
                                         <p style="font-size: 17px" class="title title-lg"><strong>Register for a trading account now to enter the markets,</strong><br><strong>or try our risk-free demo account.</strong></p>

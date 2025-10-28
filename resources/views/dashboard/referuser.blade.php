@@ -41,8 +41,8 @@
               <!--<form action="" method="post">-->
                 <!--<input type="text" name="Your Name" placeholder="Your Friend Name">-->
                 <!--<input type="email" name="Your Email" placeholder="Your Friend Email">--><br>
-                <input type="text" id="refer" value="https:// NexgetCpts.net/src/auths/register.php?refer=94388539" disabled>
-                <!--<input type="text" id="refer" value="https:// NexgetCpt.com/src/auths/register.php?refer=94388539">-->
+                <input type="text" id="refer" value="https:// Nexglobmarkets.net/src/auths/register.php?refer=94388539" disabled>
+                <!--<input type="text" id="refer" value="https:// Nexglobmarket.com/src/auths/register.php?refer=94388539">-->
                 <!--<p>-->
                 <!--  <label class="container-checkbox">i have read and accept the T & C and privacy policy-->
                 <!--    <input type="checkbox">-->

@@ -9,7 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet'>
     <!--<![endif]-->
 
-    <title>NexgetCpt</title>
+    <title>Nexglobmarket</title>
 
     <style type='text/css'>
         body {
@@ -185,12 +185,12 @@
                                         <br>
                                         <p style='line-height: 24px; margin-bottom:20px;'>
                                             Connect with our media personnel if you are running into problems at
-                                             <a href='mailto:support@nexgetcpt.online ' style='color: blue; font-size: 20px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;'>support@nexgetcpt.online </a>
+                                             <a href='mailto:support@nexglobmarket.com ' style='color: blue; font-size: 20px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;'>support@nexglobmarket.com </a>
                                         </p>
                                         <br/> 
                                         <p style='line-height: 24px'>
                                             Kind Regards,</br>
-                                           NexgetCpt
+                                           Nexglobmarket
                                         </p>
 
                                     </td>
