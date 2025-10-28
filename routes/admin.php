@@ -1,8 +1,40 @@
 
 
-<?php 
-use Illuminate\Support\Facades\Auth;
+
+
+<?php
+use App\Http\Controllers\Admin\AddRefferalController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\CreditDebitController;
+use App\Http\Controllers\Admin\DebitProfitController;
+use App\Http\Controllers\Admin\DepositController;
+use App\Http\Controllers\Admin\MailController;
+use App\Http\Controllers\Admin\ManageDepositController;
+use App\Http\Controllers\Admin\ManageEscrowController;
+use App\Http\Controllers\Admin\ManageLoanController;
+use App\Http\Controllers\Admin\ManagePaymentController;
+use App\Http\Controllers\Admin\ManageUserController;
+use App\Http\Controllers\Admin\ProfitController;
+use App\Http\Controllers\Admin\SendEmailController;
+use App\Http\Controllers\Admin\WalletController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
+
+
+
+
+     Route::middleware(['web'])->prefix('admin')->name('admin.')->group(function () {
+
+    Route::middleware('guest:admin')->group(function () {
+        Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('login');
+        Route::post('/login', [AdminLoginController::class, 'login'])->name('login.post');
+    });
+
+    Route::middleware('auth:admin')->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+        Route::post('/logout', [AdminLoginController::class, 'logout'])->name('logout');
+    });
 
 // manger user details from admin
 Route::get('/users', 'App\Http\Controllers\UserManagementController@viewUser');
@@ -56,3 +88,5 @@ Route::get('/clear-account/{id}', 'App\Http\Controllers\UserManagementController
 Route::get('/manage-withdrawal','App\Http\Controllers\UserManagementController@manageWithdrawal')->name('manage-withdrawal');
 Route::get('/manage-deposit','App\Http\Controllers\UserManagementController@manageDeposit')->name('manage-deposit');
 Route::get('/{user}/suspension', 'App\Http\Controllers\UserManagementController@userSuspension')->name('user.suspension');
+});
+

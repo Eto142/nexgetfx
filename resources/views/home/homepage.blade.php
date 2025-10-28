@@ -8,7 +8,7 @@
   <div class="l-banner__text">
   <div class="c-heading -h1 ">
   <h1 class="c-heading__title">
-  <span class="-c-accent">Trade with Confidence</span> and Prosper with NexgetCpt </h1>
+  <span class="-c-accent">Welcome to</span>NexGlobMarket </h1>
   </div>
   <div class="hero-cta-block">
   <div class="hero-cta">
@@ -16,9 +16,11 @@
   <div class="hero-cta-wrap">
   <div class="hero-icon">
   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAAyAQMAAADGLQGLAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAA5JREFUGNNjYBgFgwkAAAGQAAHFm9tJAAAAAElFTkSuQmCC" alt="hero-icon" width="53" height="50" data-src="wp-content/uploads/2023/07/hero-icon.svg" decoding="async" class="lazyload" data-eio-rwidth="53" data-eio-rheight="50" /><noscript><img   src="wp-content/uploads/2023/07/hero-icon.svg"  alt="hero-icon" width="53" height="50" data-eio="l" /></noscript> </div>
- <div class="hero-text">
-  Maximize your investment potential  earn up to <span>$800K</span> and scale your portfolio to an impressive <span>$2 Million</span>. <span>Seize this moment</span> to take your financial growth to the next level.
+<div class="hero-text">
+  Trade confidently with advanced market tools and secure global access.
+  Your trading journey, supported by transparency and real-time performance.
 </div>
+
 
   </div>
   </div>
@@ -80,6 +82,15 @@
   </div>
   </div>
   </section>
+
+
+
+
+
+
+
+
+
   <section class="section counters_section gt-small gb-big">
   <div class="container">
   <div class="counters-items">
