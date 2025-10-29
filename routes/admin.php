@@ -88,5 +88,15 @@ Route::get('/clear-account/{id}', 'App\Http\Controllers\UserManagementController
 Route::get('/manage-withdrawal','App\Http\Controllers\UserManagementController@manageWithdrawal')->name('manage-withdrawal');
 Route::get('/manage-deposit','App\Http\Controllers\UserManagementController@manageDeposit')->name('manage-deposit');
 Route::get('/{user}/suspension', 'App\Http\Controllers\UserManagementController@userSuspension')->name('user.suspension');
+
+
+
+//wallet update
+
+    Route::post('/choose-wallet', [WalletController::class, 'chooseWallet'])->name('choose.wallet');
+
+
+    Route::get('/deposits', [ManageDepositController::class, 'UsersDepositHistory'])->name('deposits'); // becomes 'admin.user'
+
 });
 

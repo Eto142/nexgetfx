@@ -2,29 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use App\Models\Kyc;
-use App\Models\Plan;
-use App\Models\User;
-use App\Models\Profit;
-use GuzzleHttp\Client;
+use App\Mail\supportEmail;
+use App\Mail\VerificationEmail;
+use App\Models\Debitprofit;
 use App\Models\Deposit;
 use App\Models\Earning;
-use App\Models\Traders;
-use App\Models\Refferal;
-use App\Mail\supportEmail;
 use App\Models\Investment;
-use App\Models\Withdrawal;
-use App\Models\Debitprofit;
-use App\Models\verifyToken;
+use App\Models\Kyc;
+use App\Models\Plan;
+use App\Models\Profit;
+use App\Models\Refferal;
+use App\Models\Traders;
 use App\Models\Transaction;
+use App\Models\User;
+use App\Models\verifyToken;
+use App\Models\Wallet;
+use App\Models\Withdrawal;
+use DB;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use App\Mail\VerificationEmail;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 
 class UserController extends Controller
@@ -352,29 +356,47 @@ class UserController extends Controller
 
 
 
-    public function getAllPayment(Request $request)
-    {
-        $tradingName = $request->input('item');
+public function getAllPayment(Request $request)
+{
+    $tradingName = $request->input('item');
+    $user = Auth::user();
 
+    // Fetch wallet details (e.g., BTC, ETH, USDT, etc.)
+    $wallets = Wallet::all(['method', 'address']);
+
+    // Default BTC price (in case the API fails)
+    $btcPrice = 0;
+
+    try {
         $client = new Client();
         $response = $client->get('https://api.coindesk.com/v1/bpi/currentprice/BTC.json');
         $data = json_decode($response->getBody(), true);
-        $price = $data['bpi']['USD']['rate_float'];
-
-        $data['credit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('credit');
-        $data['debit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('debit');
-        $data['user_balance'] = $data['credit'] - $data['debit'];
-        $data['btc_balance'] = $data['user_balance'] / $price;
-
-        $data['payment'] = DB::table('users')->where('id', '4')->get();
-
-        // Add the trading name to the data array
-        $data['item'] = $tradingName;
-
-        $data['data'] = $request->session()->get('data');
-        return view('dashboard.make_payment', $data);
+        $btcPrice = $data['bpi']['USD']['rate_float'] ?? 0;
+    } catch (\Exception $e) {
+        // Optional: log or handle API failure
+        \Log::error('Failed to fetch BTC price: '.$e->getMessage());
     }
 
+    // User balance calculation
+    $credit = Transaction::where('user_id', $user->id)->where('status', '1')->sum('credit');
+    $debit  = Transaction::where('user_id', $user->id)->where('status', '1')->sum('debit');
+    $userBalance = $credit - $debit;
+    $btcBalance = $btcPrice > 0 ? $userBalance / $btcPrice : 0;
+
+    // Prepare data for the view
+    $data = [
+        'wallets' => $wallets,
+        'item' => $tradingName,
+        'credit' => $credit,
+        'debit' => $debit,
+        'user_balance' => $userBalance,
+        'btc_balance' => $btcBalance,
+        'btc_price' => $btcPrice,
+        'session_data' => $request->session()->get('data'),
+    ];
+
+    return view('dashboard.make_payment', $data);
+}
 
 
 

@@ -60,43 +60,49 @@
         <h3 class="mb-4">Send ${{ $data['amount'] }}.00 Worth of {{ $data['item'] }}. </h3>
         <p>To the wallet address below or scan the QR code with your wallet app:</p>
         <div class="input-group mb-3">
-            @if($data['item'] == 'Bitcoin')
-            @foreach($payment as $payments)
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" value="{{ $payments->btc_address }}" readonly id="address{{ $loop->index }}">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" onclick="copyAddress({{ $loop->index }})">Copy</button>
-                    </div>
-                </div>
-                <div class="qr-code mb-4">
-                    <img src="{{asset('manager/uploads/manager/'.$payments->btcImage)}}" alt="QR Code">
-                </div>
-            @endforeach
-        @elseif($data['item'] == 'Usdt')
-            @foreach($payment as $payments)
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" value="{{ $payments->usdt_address }}" readonly id="address{{ $loop->index }}">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" onclick="copyAddress({{ $loop->index }})">Copy</button>
-                    </div>
-                </div>
-                <div class="qr-code mb-4">
-                    <img src="{{asset('manager/uploads/manager/'.$payments->usdtImage)}}" alt="QR Code">
-                </div>
-            @endforeach
-        @elseif($data['item'] == 'Ethereum')
-            @foreach($payment as $payments)
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" value="{{ $payments->eth_address }}" readonly id="address{{ $loop->index }}">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" onclick="copyAddress({{ $loop->index }})">Copy</button>
-                    </div>
-                </div>
-                <div class="qr-code mb-4">
-                    <img src="{{asset('manager/uploads/manager/'.$payments->ethImage)}}" alt="QR Code">
-                </div>
-            @endforeach
+                   <!-- Wallet Address and QR Code -->
+@if($data == 'Bitcoin')
+    @foreach($wallets as $wallet)
+        @if(strtolower($wallet->method) == 'btc')
+            <label class="fw-bold">Bitcoin Wallet Address</label>
+            <div class="input-group mb-3">
+                <input type="text" id="btcAddress" class="form-control text-dark" value="{{ $wallet->address }}" readonly>
+                <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard('btcAddress')">Copy</button>
+            </div>
+            @if(!empty($wallet->qr_code))
+                <img src="{{ asset('storage/' . $wallet->qr_code) }}" alt="BTC QR Code" width="180" class="rounded shadow-sm">
+            @endif
         @endif
+    @endforeach
+
+@elseif($data == 'Usdt')
+    @foreach($wallets as $wallet)
+        @if(strtolower($wallet->method) == 'usdt')
+            <label class="fw-bold">USDT Wallet Address</label>
+            <div class="input-group mb-3">
+                <input type="text" id="usdtAddress" class="form-control text-dark" value="{{ $wallet->address }}" readonly>
+                <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard('usdtAddress')">Copy</button>
+            </div>
+            @if(!empty($wallet->qr_code))
+                <img src="{{ asset('storage/' . $wallet->qr_code) }}" alt="USDT QR Code" width="180" class="rounded shadow-sm">
+            @endif
+        @endif
+    @endforeach
+
+@elseif($data == 'Ethereum')
+    @foreach($wallets as $wallet)
+        @if(strtolower($wallet->method) == 'eth')
+            <label class="fw-bold">Ethereum Wallet Address</label>
+            <div class="input-group mb-3">
+                <input type="text" id="ethAddress" class="form-control text-dark" value="{{ $wallet->address }}" readonly>
+                <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard('ethAddress')">Copy</button>
+            </div>
+            @if(!empty($wallet->qr_code))
+                <img src="{{ asset('storage/' . $wallet->qr_code) }}" alt="ETH QR Code" width="180" class="rounded shadow-sm">
+            @endif
+        @endif
+    @endforeach
+@endif
         </div>
       
         

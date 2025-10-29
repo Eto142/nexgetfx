@@ -2,26 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use Session;
-use App\Models\Kyc;
-use App\Models\Plan;
-use App\Models\User;
-use App\Models\Profit;
-use App\Models\Deposit;
-use App\Models\Earning;
-use App\Models\Traders;
-use App\Models\Refferal;
-use App\Models\Investment;
-use App\Models\Withdrawal;
-use App\Mail\sendUserEmail;
-use App\Models\Debitprofit;
-use App\Models\Transaction;
-use Illuminate\Http\Request;
 use App\Mail\approveDepositEmail;
 use App\Mail\ApproveWithdrawalEmail;
+use App\Mail\sendUserEmail;
+use App\Models\Debitprofit;
+use App\Models\Deposit;
+use App\Models\Earning;
+use App\Models\Investment;
+use App\Models\Kyc;
+use App\Models\Plan;
+use App\Models\Profit;
+use App\Models\Refferal;
+use App\Models\Traders;
+use App\Models\Transaction;
+use App\Models\User;
+use App\Models\Wallet;
+use App\Models\Withdrawal;
+use DB;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Session;
 
 
 
@@ -516,8 +518,12 @@ class UserManagementController extends Controller
 
     public function updateWallet()
     {
+         $wallets = Wallet::all();
 
-        return view('manager.update_wallet');
+    // Pass them to the view
+    return view('manager.update_wallet', compact('wallets'));
+
+     
     }
 
     public function saveWallet(Request $request)
