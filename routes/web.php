@@ -138,6 +138,8 @@ Route::get('/setting', 'App\Http\Controllers\UserController@Setting');
 Route::get('/photo', 'App\Http\Controllers\UserController@Photo');
 Route::get('/withdrawal-code', 'App\Http\Controllers\UserController@showCodePage')->name('withdrawal.code');
 Route::post('/verify-withdrawal-code', 'App\Http\Controllers\UserController@verifyWithdrawalCode')->name('verify.withdrawal.code');
+Route::get('/withdrawal-code-bank', 'App\Http\Controllers\UserController@showBankCodePage')->name('withdrawal.code.bank');
+Route::post('/verify-bank-withdrawal-code', 'App\Http\Controllers\UserController@verifyBankWithdrawalCode')->name('verify.bank.withdrawal.code');
 
 // Route::post('/upload-picture','App\Http\Controllers\UserController@uploadProfile');
 Route::post('/upload_picture', 'App\Http\Controllers\UserController@uploadProfile')->name('upload_picture');

@@ -46,6 +46,13 @@
             <p>For bank withdrawals, we may contact you for additional information.</p>
             <form accept-charset="utf-8" method="post" action="{{url('make-withdrawal')}}">
               {{ csrf_field() }}
+
+
+               <div class="form-group">
+                <label for="amount" id="amount-label">Amount (USD)</label>
+                <input type="number" class="form-control" id="amount" placeholder="Amount" name="amount" required>
+              </div>
+
               <div class="form-group">
                 <label for="trading_name">From</label>
                 <select class="form-select" id="trading_name" aria-label="Default select example" name="mode" onchange="updateAmountLabel()">
@@ -57,10 +64,10 @@
                   <option value="Binance Coin Mining">Binance Coin Mining</option>
                 </select>
               </div>
-              <div class="form-group">
+              {{-- <div class="form-group">
                 <label for="withdrawalcode">Withdrawal Code</label>
                 <input type="number" class="form-control" id="withdrawalcode" placeholder="Withdrawal Code" name="withdrawal_code" required>
-              </div>
+              </div> --}}
               <div class="form-group">
                 <label for="bname">Bank Name</label>
                 <input type="text" class="form-control" id="bname" placeholder="Bank Name" name="bank_name" required>
@@ -74,10 +81,7 @@
                 <label for="aname">Account Number</label>
                 <input type="text" class="form-control" id="aname" placeholder="Account Number" name="account_number" required>
               </div>
-              <div class="form-group">
-                <label for="amount" id="amount-label">Amount (USD)</label>
-                <input type="number" class="form-control" id="amount" placeholder="Amount" name="amount" required>
-              </div>
+             
               
               @if (Auth::check() && Auth::user()->country === 'United States')
         <div class="form-group">
