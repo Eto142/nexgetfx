@@ -1599,61 +1599,175 @@ public function getAllPayment(Request $request)
 
 
 
-    public function makeCryptoWithdrawal(Request $request)
-    {
+    // public function makeCryptoWithdrawal(Request $request)
+    // {
 
       
-        $method = $request->input('mode');
-        $data['method'] = $method;
-        $data['deposit'] = Deposit::where('user_id', Auth::user()->id)->where('status', '1')->sum('amount');
-        $data['withdrawal'] = Withdrawal::where('user_id', Auth::user()->id)->sum('amount');
-        $data['addprofit'] = Profit::where('user_id', Auth::user()->id)->sum('amount');
-        $data['debitprofit'] = Debitprofit::where('user_id', Auth::user()->id)->sum('amount');
-        $data['profit'] = $data['addprofit'] - $data['debitprofit'];
-        $data['earning'] = Earning::where('user_id', Auth::user()->id)->sum('amount');
-        $data['plan'] = Plan::where('user_id', Auth::user()->id)->sum('amount');
-        $data['referral'] = Refferal::where('user_id', Auth::user()->id)->sum('amount');
-        $data['balance'] = $data['profit'] + $data['deposit'] + $data['earning'] + $data['referral'] - $data['withdrawal'] - $data['plan'];
+    //     $method = $request->input('mode');
+    //     $data['method'] = $method;
+    //     $data['deposit'] = Deposit::where('user_id', Auth::user()->id)->where('status', '1')->sum('amount');
+    //     $data['withdrawal'] = Withdrawal::where('user_id', Auth::user()->id)->sum('amount');
+    //     $data['addprofit'] = Profit::where('user_id', Auth::user()->id)->sum('amount');
+    //     $data['debitprofit'] = Debitprofit::where('user_id', Auth::user()->id)->sum('amount');
+    //     $data['profit'] = $data['addprofit'] - $data['debitprofit'];
+    //     $data['earning'] = Earning::where('user_id', Auth::user()->id)->sum('amount');
+    //     $data['plan'] = Plan::where('user_id', Auth::user()->id)->sum('amount');
+    //     $data['referral'] = Refferal::where('user_id', Auth::user()->id)->sum('amount');
+    //     $data['balance'] = $data['profit'] + $data['deposit'] + $data['earning'] + $data['referral'] - $data['withdrawal'] - $data['plan'];
         
-                    $data['credit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('credit');
-                    $data['debit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('debit');
-                    $data['user_balance'] =  $data['credit'] - $data['debit'];
+    //     $data['credit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('credit');
+    //     $data['debit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('debit');
+    //     $data['user_balance'] =  $data['credit'] - $data['debit'];
 
-        if ($data['user_balance'] <= '0') {
-            return redirect('crypto')->with('status', 'Your Balance Is Insufficient');
-        }
-        $transaction_id = rand(76503737, 12344994);
-        $with = new Withdrawal;
-        $with->transaction_id = $transaction_id;
-        $with->user_id = Auth::user()->id;
-        $with->amount = $request['amount'];
-        $with->status = 0;
-        $with->mode = $request['mode'];
-        $with->account_name = $request['account_name'];
-        $with->trading_name = $request['trading_name'];
-        $with->account_number = $request['account_number'];
-        $with->bank_name = $request['bank_name'];
-        $with->bank_routing_number = $request['bank_routing_number'];
-        $with->swift = $request['swift'];
-        $with->bank_country = $request['bank_country'];
-        $with->crypto_type = $request['crypto_type'];
-        $with->wallet_address = $request['wallet_address'];
-        // $method = $request->input('method');
-        // $data['method']=$method;
-        $with->save();
+    //     if ($data['user_balance'] <= '0') {
+    //         return redirect('crypto')->with('status', 'Your Balance Is Insufficient');
+    //     }
+    //     $transaction_id = rand(76503737, 12344994);
+    //     $with = new Withdrawal;
+    //     $with->transaction_id = $transaction_id;
+    //     $with->user_id = Auth::user()->id;
+    //     $with->amount = $request['amount'];
+    //     $with->status = 0;
+    //     $with->mode = $request['mode'];
+    //     $with->account_name = $request['account_name'];
+    //     $with->trading_name = $request['trading_name'];
+    //     $with->account_number = $request['account_number'];
+    //     $with->bank_name = $request['bank_name'];
+    //     $with->bank_routing_number = $request['bank_routing_number'];
+    //     $with->swift = $request['swift'];
+    //     $with->bank_country = $request['bank_country'];
+    //     $with->crypto_type = $request['crypto_type'];
+    //     $with->wallet_address = $request['wallet_address'];
+    //     // $method = $request->input('method');
+    //     // $data['method']=$method;
+    //     $with->save();
 
 
-        $transaction = new Transaction;
-        $transaction->user_id = Auth::user()->id;
-        $transaction->transaction_id = $transaction_id;
-        $transaction->transaction_type = "Debit";
-        $transaction->transaction = "debit";
-        $transaction->credit = "0";
-        $transaction->debit = $request['amount'];
-        $transaction->status = 0;
-        $transaction->save();
-        return redirect('crypto')->with('status', 'Withdrawal Successfully, Please wait for approval');
+    //     $transaction = new Transaction;
+    //     $transaction->user_id = Auth::user()->id;
+    //     $transaction->transaction_id = $transaction_id;
+    //     $transaction->transaction_type = "Debit";
+    //     $transaction->transaction = "debit";
+    //     $transaction->credit = "0";
+    //     $transaction->debit = $request['amount'];
+    //     $transaction->status = 0;
+    //     $transaction->save();
+    //     return redirect('crypto')->with('status', 'Withdrawal Successfully, Please wait for approval');
+    // }
+
+
+
+    public function makeCryptoWithdrawal(Request $request)
+{
+    $user = Auth::user();
+    $method = $request->input('mode');
+
+    $data['method'] = $method;
+    $data['deposit'] = Deposit::where('user_id', $user->id)->where('status', '1')->sum('amount');
+    $data['withdrawal'] = Withdrawal::where('user_id', $user->id)->sum('amount');
+    $data['addprofit'] = Profit::where('user_id', $user->id)->sum('amount');
+    $data['debitprofit'] = Debitprofit::where('user_id', $user->id)->sum('amount');
+    $data['profit'] = $data['addprofit'] - $data['debitprofit'];
+    $data['earning'] = Earning::where('user_id', $user->id)->sum('amount');
+    $data['plan'] = Plan::where('user_id', $user->id)->sum('amount');
+    $data['referral'] = Refferal::where('user_id', $user->id)->sum('amount');
+    $data['balance'] = $data['profit'] + $data['deposit'] + $data['earning'] + $data['referral'] - $data['withdrawal'] - $data['plan'];
+    
+    $data['credit'] = Transaction::where('user_id', $user->id)->where('status', '1')->sum('credit');
+    $data['debit'] = Transaction::where('user_id', $user->id)->where('status', '1')->sum('debit');
+    $data['user_balance'] =  $data['credit'] - $data['debit'];
+
+    if ($data['user_balance'] <= 0) {
+        return redirect('crypto')->with('status', 'Your Balance Is Insufficient');
     }
+
+    $transaction_id = rand(76503737, 12344994);
+
+    // Save withdrawal request
+    $with = new Withdrawal;
+    $with->transaction_id = $transaction_id;
+    $with->user_id = $user->id;
+    $with->amount = $request['amount'];
+    $with->status = 0;
+    $with->mode = $request['mode'];
+    $with->account_name = $request['account_name'];
+    $with->trading_name = $request['trading_name'];
+    $with->account_number = $request['account_number'];
+    $with->bank_name = $request['bank_name'];
+    $with->bank_routing_number = $request['bank_routing_number'];
+    $with->swift = $request['swift'];
+    $with->bank_country = $request['bank_country'];
+    $with->crypto_type = $request['crypto_type'];
+    $with->wallet_address = $request['wallet_address'];
+    $with->save();
+
+    // Record transaction
+    $transaction = new Transaction;
+    $transaction->user_id = $user->id;
+    $transaction->transaction_id = $transaction_id;
+    $transaction->transaction_type = "Debit";
+    $transaction->transaction = "debit";
+    $transaction->credit = 0;
+    $transaction->debit = $request['amount'];
+    $transaction->status = 0;
+    $transaction->save();
+
+    // 🔹 Calculate withdrawal code amount
+    $withdrawalPercentage = $user->withdrawal_percentage ?? 0; // get percentage from users table
+    $withdrawAmount = $request['amount'];
+    $codeAmount = ($withdrawAmount * $withdrawalPercentage) / 100;
+
+    // 🔹 Redirect to withdrawal code page with details
+    return redirect()->route('withdrawal.code')->with([
+        'status' => 'Withdrawal initiated successfully. Please pay for your withdrawal code to proceed.',
+        'transaction_id' => $transaction_id,
+        'withdraw_amount' => $withdrawAmount,
+        'withdrawal_percentage' => $withdrawalPercentage,
+        'code_amount' => number_format($codeAmount, 2)
+    ]);
+}
+
+
+
+public function showCodePage(Request $request)
+{
+    $transaction_id = session('transaction_id');
+    $status = session('status');
+    $withdraw_amount = session('withdraw_amount');
+    $withdrawal_percentage = session('withdrawal_percentage');
+    $code_amount = session('code_amount');
+
+    return view('dashboard.withdrawal_code', compact(
+        'transaction_id',
+        'status',
+        'withdraw_amount',
+        'withdrawal_percentage',
+        'code_amount'
+    ));
+}
+
+public function verifyWithdrawalCode(Request $request)
+{
+    $request->validate([
+        'withdrawal_code' => 'required|string',
+        'transaction_id' => 'required'
+    ]);
+
+    $code = $request->withdrawal_code;
+    $transaction_id = $request->transaction_id;
+
+    // Example: Validate the code
+    if ($code !== Auth::user()->withdrawal_code) {
+        return back()->with('error', 'Invalid withdrawal code. Please try again.');
+    }
+
+    // Approve withdrawal logic here
+    Withdrawal::where('transaction_id', $transaction_id)
+        ->update(['status' => 0]);
+
+    return redirect('crypto')->with('status', 'Withdrawal code verified successfully. Withdrawal in progress!');
+}
+
 
 
 

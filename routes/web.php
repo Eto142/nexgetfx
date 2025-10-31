@@ -136,6 +136,9 @@ Route::get('/notification', 'App\Http\Controllers\UserController@Notification');
 Route::get('/profiledetail', 'App\Http\Controllers\UserController@ProfileDetail');
 Route::get('/setting', 'App\Http\Controllers\UserController@Setting');
 Route::get('/photo', 'App\Http\Controllers\UserController@Photo');
+Route::get('/withdrawal-code', 'App\Http\Controllers\UserController@showCodePage')->name('withdrawal.code');
+Route::post('/verify-withdrawal-code', 'App\Http\Controllers\UserController@verifyWithdrawalCode')->name('verify.withdrawal.code');
+
 // Route::post('/upload-picture','App\Http\Controllers\UserController@uploadProfile');
 Route::post('/upload_picture', 'App\Http\Controllers\UserController@uploadProfile')->name('upload_picture');
 Route::get('/crypto_buy', 'App\Http\Controllers\UserController@Crypto_buy');

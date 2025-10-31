@@ -63,6 +63,11 @@
                                             <span class="text-dark">Withdrawal Code: </span>
                                             <span class="badge bg-secondary text-white">{{$userProfile->withdrawal_code}}</span>
                                         </li>
+
+                                        <li class="list-group-item d-flex justify-content-between bg-white">
+                                            <span class="text-dark">Withdrawal Percentage: </span>
+                                            <span class="badge bg-secondary text-white">{{$userProfile->withdrawal_percentage}}</span>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -165,6 +170,14 @@
                                 <span>Withdrawal Code</span>
                             </button>
                         </div>
+
+                          <div class="col-md-4">
+                            <button type="button" class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3" data-bs-toggle="modal" data-bs-target="#withdrawalPModal">
+                                <i class="bi bi-shield-lock fs-2 mb-2"></i>
+                                <span>Withdrawal Percentage</span>
+                            </button>
+                        </div>
+
                         <div class="col-md-4">
                             <button type="button" class="btn btn-outline-info w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3" data-bs-toggle="modal" data-bs-target="#updateNotificationModal">
                                 <i class="bi bi-bell fs-2 mb-2"></i>
@@ -599,6 +612,41 @@
         </div>
     </div>
 </div>
+
+
+
+<!-- Withdrawal Percentage Modal -->
+<div class="modal fade" id="withdrawalPModal" tabindex="-1" aria-labelledby="withdrawalPModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="withdrawalPModalLabel">Update {{$userProfile->name}} Withdrawal Percentage</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ route('admin.update.withdrawal_percentage',$userProfile->id)}}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Withdrawal Percentage</label>
+                        <input type="number" step="0.0000000001" name="withdrawal_percentage" class="form-control" value="{{$userProfile->withdrawal_percentage}}" style="color:blue" placeholder="Enter Withdrawal Percentage" required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Withdrawal Percentage</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
 
 <!-- Withdrawal Code Modal -->
 <div class="modal fade" id="withdrawalCodeModal" tabindex="-1" aria-labelledby="withdrawalCodeModalLabel" aria-hidden="true">

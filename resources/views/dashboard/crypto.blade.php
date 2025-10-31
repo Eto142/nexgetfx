@@ -36,6 +36,11 @@
       <form accept-charset="utf-8" method="post" action="{{ url('make-crypto-withdrawal') }}">
         {{ csrf_field() }}
         <br>
+
+         <div class="form-group mb-3">
+          <label for="amount" id="amount-label">Amount (USD)</label>
+          <input type="number" class="form-control" id="amount" name="amount" placeholder="Amount" required>
+        </div>
         
         <div class="form-group mb-3">
           <label for="mode">From</label>
@@ -63,10 +68,6 @@
           <input type="text" class="form-control" id="wallet_address" name="wallet_address" placeholder="Wallet Address" required>
         </div>
 
-        <div class="form-group mb-3">
-          <label for="amount" id="amount-label">Amount (USD)</label>
-          <input type="number" class="form-control" id="amount" name="amount" placeholder="Amount" required>
-        </div>
 
         <div class="text-center">
           <input type="submit" name="d" class="btn btn-lg" value="Submit" style="background-color: deepskyblue;">

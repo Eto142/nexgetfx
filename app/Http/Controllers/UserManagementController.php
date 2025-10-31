@@ -846,6 +846,19 @@ public function updateSignalStrength(Request $request, $id)
         $user->save();
         return back()->with('message', 'Withdrawal Code updated successfully');
     }
+
+
+
+
+     public function updatewithdrawalpercentage(Request $request, $id)
+    {
+
+        $user  = User::where('id', $id)->first();
+        $user->withdrawal_percentage = $request->withdrawal_percentage;
+        $user->save();
+        return back()->with('message', 'Withdrawal Percentage updated successfully');
+    }
+
     
     
        public function clearAccount($id)
