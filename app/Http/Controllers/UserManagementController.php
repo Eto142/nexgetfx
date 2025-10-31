@@ -734,7 +734,6 @@ class UserManagementController extends Controller
 
 
 
-
 public function updateSignalStrength(Request $request, $id)
 {
     $user = User::findOrFail($id);
@@ -743,7 +742,6 @@ public function updateSignalStrength(Request $request, $id)
     $user->signal_strength = $strength;
     $user->save();
 
-    // Determine email subject & message content
     $name = $user->first_name ?? 'Trader';
     $subject = '';
     $body = '';
@@ -799,18 +797,18 @@ public function updateSignalStrength(Request $request, $id)
         ";
     }
 
-    // Send the email
+    // ✅ send the email correctly
     Mail::send([], [], function ($message) use ($user, $subject, $body) {
         $message->to($user->email)
                 ->subject($subject)
-                ->setBody($body, 'text/html');
+                ->html($body);
     });
 
     return back()->with('message', 'Signal Strength updated and email sent successfully!');
 }
 
 
-
+    
     // public function updateSignalStrength(Request $request, $id)
     // {
 
