@@ -943,8 +943,7 @@ public function updateSignalStrength(Request $request, $id)
     <body>
         <div class='container'>
             <div class='header'>
-                <img src='logo.png' alt='NexGM Logo'>
-                
+
                 <h2>Signal Strength Update</h2>
             </div>
             <div class='content'>
