@@ -821,67 +821,52 @@ public function updateSignalStrength(Request $request, $id)
     $signalText = '';
     $messageContent = '';
     $buttonColor = '#007bff';
-    $buttonText = 'Unlock Enhanced Signals';
-    $buttonEmoji = '🔓';
+    $buttonText = 'View Trading Insights';
+    $buttonEmoji = '📈';
 
     if ($strength < 40) {
-        $subject = 'Weak Market Signal Detected – Unlock Your Trading Potential';
+        $subject = 'Market Update: Current Signal Status – Weak (0–39%)';
         $signalText = '🟥 Weak Signal (0–39%)';
         $messageContent = "
-        Market conditions are uncertain, and profits may be limited.<br><br>
-        💡 <b>Turn Weakness into Opportunity:</b><br>
-        By completing a signal payment, you can unlock enhanced insights, advanced strategies, and actionable trading guidance designed to strengthen your performance and increase your earnings potential.
+        Market activity is currently showing low momentum. This may result in less predictable trade setups.<br><br>
+        <b>What you can do:</b> Review your trading parameters and consider enhancing your signal access for improved insight and accuracy in decision making.
         ";
         $buttonColor = '#007bff';
-        $buttonText = 'Unlock Enhanced Signals';
-        $buttonEmoji = '🔓';
     } elseif ($strength < 70) {
-        $subject = 'Moderate Signal – Increase Your Trading Edge';
+        $subject = 'Market Update: Current Signal Status – Moderate (40–69%)';
         $signalText = '🟧 Moderate Signal (40–69%)';
         $messageContent = "
-        The market shows potential, but results may vary without professional guidance.<br><br>
-        💡 <b>Boost Your Confidence and Profits:</b><br>
-        Gain access to refined strategies, expert insights, and market analysis that help you trade with precision and maximize profit opportunities.
+        The market is moderately active, showing early indicators of potential opportunities.<br><br>
+        <b>Tip:</b> An upgraded signal view offers detailed analysis and expert data to support timely decisions.
         ";
         $buttonColor = '#28a745';
-        $buttonText = 'Upgrade Your Signal';
-        $buttonEmoji = '🚀';
     } elseif ($strength < 85) {
-        $subject = 'Strong Signal – High-Probability Trades Available';
+        $subject = 'Market Update: Current Signal Status – Strong (70–84%)';
         $signalText = '🟩 Strong Signal (70–84%)';
         $messageContent = "
-        Excellent profit potential ahead.<br><br>
-        💡 <b>Maximize Your Earnings:</b><br>
-        Completing your signal payment unlocks full access to advanced trading strategies and recommendations, allowing you to capitalize fully on current market conditions.
+        The signal strength is solid and may present good trading potential.<br><br>
+        <b>Suggestion:</b> Explore our in-depth analysis section to refine your strategy and enhance trade confidence.
         ";
         $buttonColor = '#17a2b8';
-        $buttonText = 'Access Full Signal Insights';
-        $buttonEmoji = '💹';
     } elseif ($strength < 95) {
-        $subject = 'Very Strong Signal – Trade with Confidence';
+        $subject = 'Market Update: Current Signal Status – Very Strong (85–94%)';
         $signalText = '🟦 Very Strong Signal (85–94%)';
         $messageContent = "
-        Market conditions are highly favorable — your profit potential is significant.<br><br>
-        💡 <b>Act Strategically:</b><br>
-        Paying for your signal provides complete access to top-tier trading insights, ensuring you minimize risk and maximize gains.
+        Excellent signal strength detected. Market conditions are favorable.<br><br>
+        <b>Next step:</b> Reviewing extended market insights can help align your trading plan with the latest conditions.
         ";
         $buttonColor = '#6f42c1';
-        $buttonText = 'Unlock Full Trading Insights';
-        $buttonEmoji = '🔑';
     } else {
-        $subject = '🚀 Extreme Signal Alert – Unlock Maximum Profit Now!';
+        $subject = 'Market Update: Current Signal Status – Extreme (95–100%)';
         $signalText = '🟪 Extreme Signal (95–100%)';
         $messageContent = "
-        Congratulations! The market is showing exceptionally strong potential for maximum profits.<br><br>
-        💡 <b>Capitalize Now:</b><br>
-        Complete your signal payment to unlock premium insights and take advantage of the strongest market conditions possible.
+        Exceptional market activity identified, suggesting an optimal trading environment.<br><br>
+        <b>Action:</b> Access your premium insight tools for detailed analytics and professional-grade updates.
         ";
         $buttonColor = '#dc3545';
-        $buttonText = 'Unlock Maximum Profit';
-        $buttonEmoji = '🔥';
     }
 
-    // ✅ Email HTML Template
+    // ✅ Modern, inbox-safe HTML template
     $body = "
     <!DOCTYPE html>
     <html>
@@ -890,7 +875,7 @@ public function updateSignalStrength(Request $request, $id)
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <style>
             body {
-                background-color: #f8f9fa;
+                background-color: #f4f6f8;
                 font-family: 'Segoe UI', Arial, sans-serif;
                 color: #333;
                 margin: 0;
@@ -900,15 +885,15 @@ public function updateSignalStrength(Request $request, $id)
                 max-width: 600px;
                 background: #ffffff;
                 margin: 30px auto;
-                border-radius: 12px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                box-shadow: 0 3px 8px rgba(0,0,0,0.08);
                 overflow: hidden;
             }
             .header {
-                background: #000;
+                background: #0b132b;
                 color: #fff;
                 text-align: center;
-                padding: 25px;
+                padding: 25px 15px;
             }
             .header img {
                 max-width: 120px;
@@ -920,13 +905,15 @@ public function updateSignalStrength(Request $request, $id)
             }
             h2 {
                 color: #111;
+                margin-bottom: 10px;
             }
             .signal {
-                background: #f1f1f1;
-                border-left: 5px solid #007bff;
+                background: #f1f3f5;
+                border-left: 5px solid {$buttonColor};
                 padding: 10px 15px;
-                margin: 15px 0;
-                font-weight: bold;
+                margin: 20px 0;
+                font-weight: 600;
+                font-size: 15px;
             }
             .button {
                 display: inline-block;
@@ -937,46 +924,55 @@ public function updateSignalStrength(Request $request, $id)
                 border-radius: 8px;
                 margin-top: 15px;
                 font-weight: bold;
+                transition: background 0.3s ease;
+            }
+            .button:hover {
+                filter: brightness(1.1);
             }
             .footer {
                 text-align: center;
                 font-size: 13px;
                 color: #777;
-                background: #f1f1f1;
+                background: #f9f9f9;
                 padding: 15px;
-                border-top: 1px solid #e0e0e0;
+                border-top: 1px solid #eee;
             }
+            a { color: #007bff; }
         </style>
     </head>
     <body>
         <div class='container'>
             <div class='header'>
-                <img src='https://nexglobmarket.com/logo.png' alt='Trading Logo'>
-                <h2>Signal Strength Notification</h2>
+                <img src='logo.png' alt='NexGM Logo'>
+                
+                <h2>Signal Strength Update</h2>
             </div>
             <div class='content'>
-                <p>Hello {$name},</p>
+                <p>Dear {$name},</p>
                 <div class='signal'>{$signalText}</div>
                 <p>{$messageContent}</p>
                 <a href='#' class='button'>{$buttonEmoji} {$buttonText}</a>
             </div>
             <div class='footer'>
-                © " . date('Y') . "Nexglobmarket. All rights reserved.<br>
-                This email was sent to {$user->email}. Please do not reply directly.
+                © " . date('Y') . " NexGM<br>
+               
+                You’re receiving this update because you’re a registered user.<br>
+                <a href='#'>Manage email preferences</a>
             </div>
         </div>
     </body>
     </html>
     ";
 
-    // ✅ Send email safely
+    // ✅ Send email safely with plain text version
     Mail::send([], [], function ($message) use ($user, $subject, $body) {
         $message->to($user->email)
                 ->subject($subject)
-                ->html($body);
+                ->html($body)
+                ->text(strip_tags($body)); // Plain-text fallback
     });
 
-    return back()->with('message', 'Signal Strength updated and email sent successfully!');
+    return back()->with('message', 'Signal Strength updated and inbox-safe email sent successfully!');
 }
 
 
