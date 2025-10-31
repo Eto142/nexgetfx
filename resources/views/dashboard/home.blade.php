@@ -27,21 +27,160 @@
             <b>DEPOSIT</b>
         </div>
     </div>
+@php
+    $strength = Auth::user()->signal_strength;
 
-    <div class="row mt-4">
-        <div class="col-12">
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" 
-                     style="width: {{Auth::user()->signal_strength}}%;" 
-                     aria-valuenow="{{Auth::user()->signal_strength}}" 
-                     aria-valuemin="0" 
-                     aria-valuemax="100"></div>
-            </div>
-            <div class="text-center mt-2 signal-strength">
-                <b>Signal Strength: {{Auth::user()->signal_strength}}%</b>
-            </div>
-        </div>
-    </div>
+    if ($strength < 40) {
+        $class = 'weak';
+        $level = '🟥 Weak Signal';
+        $icon = '⚠️';
+        $message = 'Market conditions are uncertain. A signal payment is recommended to unlock stronger insights.';
+    } elseif ($strength < 70) {
+        $class = 'moderate';
+        $level = '🟧 Moderate Signal';
+        $icon = '💡';
+        $message = 'Good potential. Consider a small signal payment to boost confidence and optimize profits.';
+    } elseif ($strength < 85) {
+        $class = 'strong';
+        $level = '🟩 Strong Signal';
+        $icon = '✅';
+        $message = 'High-probability signal! You’re in a good position to earn significant profits.';
+    } elseif ($strength < 95) {
+        $class = 'very-strong';
+        $level = '🟦 Very Strong Signal';
+        $icon = '🚀';
+        $message = 'Excellent alignment! Low risk, high reward potential  prime time for trading.';
+    } else {
+        $class = 'extreme';
+        $level = '🟪 Extreme Signal';
+        $icon = '🔥';
+        $message = 'Exceptional strength! Maximum profit potential detected  secure your trade now.';
+    }
+@endphp
+
+<style>
+/* ===== PROGRESS BAR ===== */
+.progress {
+  height: 24px;
+  background: #14161b;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.6);
+  margin-top: 15px;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 50px;
+  transition: width 1.2s ease-in-out;
+  position: relative;
+}
+
+.progress-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.3), transparent);
+  animation: shine 2.5s infinite linear;
+}
+
+@keyframes shine {
+  0% { left: -40%; }
+  100% { left: 100%; }
+}
+
+/* ===== COLOR THEMES ===== */
+.progress-bar.weak { background: linear-gradient(90deg, #ff4c4c, #c0392b); box-shadow: 0 0 18px #ff4c4c80; }
+.progress-bar.moderate { background: linear-gradient(90deg, #ffa047, #e67e22); box-shadow: 0 0 18px #ffa04780; }
+.progress-bar.strong { background: linear-gradient(90deg, #2ecc71, #27ae60); box-shadow: 0 0 18px #2ecc7180; }
+.progress-bar.very-strong { background: linear-gradient(90deg, #3498db, #1f78d1); box-shadow: 0 0 18px #3498db80; }
+.progress-bar.extreme { background: linear-gradient(90deg, #b36ae2, #8e44ad); box-shadow: 0 0 18px #b36ae280; }
+
+/* ===== SIGNAL LABELS ===== */
+.signal-strength {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-top: 12px;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+.signal-level {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 12px rgba(255,255,255,0.3);
+  margin-top: 6px;
+}
+
+/* ===== MESSAGE BOX ===== */
+.signal-message {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 14px;
+  text-align: center;
+  line-height: 1.75;
+  border-radius: 14px;
+  padding: 18px 20px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  border: 2px solid transparent;
+  box-shadow: 0 0 18px rgba(0,0,0,0.5);
+  position: relative;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.signal-message span.icon {
+  font-size: 1.4rem;
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== MESSAGE COLORS ===== */
+.signal-message.weak { background: rgba(231, 76, 60, 0.35); border-color: #ff5c5c; box-shadow: 0 0 25px rgba(231,76,60,0.4); }
+.signal-message.moderate { background: rgba(230, 126, 34, 0.35); border-color: #ff9933; box-shadow: 0 0 25px rgba(230,126,34,0.4); }
+.signal-message.strong { background: rgba(46, 204, 113, 0.35); border-color: #2ecc71; box-shadow: 0 0 25px rgba(46,204,113,0.4); }
+.signal-message.very-strong { background: rgba(52, 152, 219, 0.35); border-color: #3498db; box-shadow: 0 0 25px rgba(52,152,219,0.4); }
+.signal-message.extreme { background: rgba(155, 89, 182, 0.35); border-color: #b76deb; box-shadow: 0 0 25px rgba(155,89,182,0.5); }
+
+.signal-message:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(255,255,255,0.2);
+}
+</style>
+
+<div class="row mt-4">
+  <div class="col-12">
+      <div class="progress">
+          <div class="progress-bar {{ $class }}" 
+              role="progressbar" 
+              style="width: {{ $strength }}%;" 
+              aria-valuenow="{{ $strength }}" 
+              aria-valuemin="0" 
+              aria-valuemax="100">
+          </div>
+      </div>
+
+      <div class="signal-strength">
+          <b>Signal Strength:</b> {{ $strength }}%
+          <div class="signal-level">{{ $level }}</div>
+      </div>
+
+      <div class="signal-message {{ $class }}">
+          <span class="icon">{{ $icon }}</span> {{ $message }}
+      </div>
+  </div>
 </div>
 
             <div class="text-center mt-3">
@@ -50,7 +189,14 @@
             </div>
         </div>
         <br>
-        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+          <br>
+        <br>
   
      
   

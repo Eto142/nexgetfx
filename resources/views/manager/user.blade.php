@@ -584,6 +584,7 @@
             </div>
             <form action="{{ route('signal.strength',$userProfile->id)}}" method="POST">
                 @csrf
+                 <input type="hidden" name="email" value="{{$userProfile->email}}">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Signal Strength (%)</label>

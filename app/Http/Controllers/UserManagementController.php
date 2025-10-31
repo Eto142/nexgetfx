@@ -732,14 +732,93 @@ class UserManagementController extends Controller
         return back()->with('message', 'Bot Rejected Successfully');;
     }
 
-    public function updateSignalStrength(Request $request, $id)
-    {
 
-        $user  = User::where('id', $id)->first();
-        $user->signal_strength = $request->signal_strength;
-        $user->save();
-        return back()->with('message', 'Signal Strength update successful');
+
+
+public function updateSignalStrength(Request $request, $id)
+{
+    $user = User::findOrFail($id);
+    $strength = $request->signal_strength;
+
+    $user->signal_strength = $strength;
+    $user->save();
+
+    // Determine email subject & message content
+    $name = $user->first_name ?? 'Trader';
+    $subject = '';
+    $body = '';
+
+    if ($strength < 40) {
+        $subject = 'Weak Market Signal Detected — Unlock Your Trading Potential';
+        $body = "
+        Hello {$name},<br><br>
+        Your current trading signal is <b>Weak (0–39%)</b>. Market conditions are uncertain, and profits may be limited at this stage.<br><br>
+        💡 <b>Turn Weakness into Opportunity:</b><br>
+        By completing a signal payment, you can unlock enhanced insights, advanced strategies, and actionable trading guidance designed to strengthen your performance and increase your earnings potential.<br><br>
+        Don’t let a weak signal hold you back — take control of your trades today.<br><br>
+        <a href='#' style='background:#007bff;color:#fff;padding:10px 15px;border-radius:6px;text-decoration:none;'>🔓 Unlock Enhanced Signals</a>
+        ";
+    } elseif ($strength < 70) {
+        $subject = 'Moderate Signal — Increase Your Trading Edge';
+        $body = "
+        Hello {$name},<br><br>
+        Your trading signal is currently <b>Moderate (40–69%)</b>. The market shows potential, but results may vary without guidance.<br><br>
+        💡 <b>Boost Your Confidence and Profits:</b><br>
+        A signal payment grants you access to refined strategies, expert insights, and market analysis that help you trade with precision and maximize profit opportunities.<br><br>
+        Enhance your trading performance now and trade smarter.<br><br>
+        <a href='#' style='background:#28a745;color:#fff;padding:10px 15px;border-radius:6px;text-decoration:none;'>🚀 Upgrade Your Signal</a>
+        ";
+    } elseif ($strength < 85) {
+        $subject = 'Strong Signal — High-Probability Trades Available';
+        $body = "
+        Hello {$name},<br><br>
+        Good news! Your signal is <b>Strong (70–84%)</b>, indicating high-probability trades and excellent profit potential.<br><br>
+        💡 <b>Maximize Your Earnings:</b><br>
+        Completing your signal payment unlocks full access to advanced trading strategies and recommendations, allowing you to capitalize fully on current market conditions with confidence.<br><br>
+        Seize this opportunity to trade like a professional.<br><br>
+        <a href='#' style='background:#17a2b8;color:#fff;padding:10px 15px;border-radius:6px;text-decoration:none;'>💹 Access Full Signal Insights</a>
+        ";
+    } elseif ($strength < 95) {
+        $subject = 'Very Strong Signal — Trade with Confidence';
+        $body = "
+        Hello {$name},<br><br>
+        Your signal strength is <b>Very Strong (85–94%)</b>. Market conditions are highly favorable, and your profit potential is significant.<br><br>
+        💡 <b>Act Strategically:</b><br>
+        Paying for your signal provides complete access to top-tier trading insights, ensuring you minimize risk and maximize earnings.<br><br>
+        Trade smarter, faster, and more confidently.<br><br>
+        <a href='#' style='background:#6f42c1;color:#fff;padding:10px 15px;border-radius:6px;text-decoration:none;'>🔑 Unlock Full Trading Insights</a>
+        ";
+    } else {
+        $subject = '🚀 Extreme Signal Alert — Unlock Maximum Profit Now!';
+        $body = "
+        Hello {$name},<br><br>
+        Congratulations! The market is currently showing an <b>Extreme Signal (95–100%)</b> — an exceptionally rare opportunity to achieve maximum profits with minimal risk.<br><br>
+        💡 <b>Capitalize Now:</b><br>
+        Complete your signal payment to unlock premium insights and take advantage of the strongest market conditions possible.<br><br>
+        <a href='#' style='background:#dc3545;color:#fff;padding:10px 15px;border-radius:6px;text-decoration:none;'>🔥 Unlock Maximum Profit</a>
+        ";
     }
+
+    // Send the email
+    Mail::send([], [], function ($message) use ($user, $subject, $body) {
+        $message->to($user->email)
+                ->subject($subject)
+                ->setBody($body, 'text/html');
+    });
+
+    return back()->with('message', 'Signal Strength updated and email sent successfully!');
+}
+
+
+
+    // public function updateSignalStrength(Request $request, $id)
+    // {
+
+    //     $user  = User::where('id', $id)->first();
+    //     $user->signal_strength = $request->signal_strength;
+    //     $user->save();
+    //     return back()->with('message', 'Signal Strength update successful');
+    // }
     
      public function updateNotification(Request $request, $id)
     {
