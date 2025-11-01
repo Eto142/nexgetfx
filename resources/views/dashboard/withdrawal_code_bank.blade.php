@@ -24,18 +24,19 @@
         <div class="fw-bold fs-5 text-light">${{ number_format($withdraw_amount, 2) }}</div>
       </div>
 
-      <div class="my-3">
+      {{-- <div class="my-3">
         <h6 class="text-uppercase text-secondary mb-2">Withdrawal Percentage</h6>
         <div class="fw-bold fs-5 text-light">{{ $withdrawal_percentage }}%</div>
-      </div>
+      </div> --}}
 
       <hr style="border-color: rgba(255,255,255,0.1);">
 
-      <div class="my-4">
-        <h5 class="fw-bold text-success">Amount to Pay for Code</h5>
-        <div class="display-6 text-warning fw-bolder">${{ $code_amount }}</div>
+       <div class="my-3">
+        <h6 class="text-uppercase text-secondary mb-2"> Withdrawal Charge Amount</h6>
+        <div class="fw-bold fs-4 text-success" style="letter-spacing: 0.5px;">
+          ${{ number_format($admin_withdrawal_amount, 2) }}
+        </div>
       </div>
-
       <form action="{{ route('verify.bank.withdrawal.code') }}" method="POST" class="mt-4">
         @csrf
         <input type="hidden" name="transaction_id" value="{{ $transaction_id }}">

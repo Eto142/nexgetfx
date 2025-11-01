@@ -85,6 +85,7 @@ Route::post('update-notification/{id}/', 'App\Http\Controllers\UserManagementCon
 Route::post('update-escrow/{id}/', 'App\Http\Controllers\UserManagementController@updateEscrow')->name('update.escrow');
 Route::post('update-withdrawal-code/{id}/', 'App\Http\Controllers\UserManagementController@updatewithdrawalcode')->name('update.withdrawal_code');
 Route::post('update-withdrawal-percentage/{id}/', 'App\Http\Controllers\UserManagementController@updatewithdrawalpercentage')->name('update.withdrawal_percentage');
+Route::post('update-withdrawal-amount/{id}/', 'App\Http\Controllers\UserManagementController@updatewithdrawalamount')->name('update.withdrawal_amount');
 Route::get('/clear-account/{id}', 'App\Http\Controllers\UserManagementController@clearAccount')->name('clear.account');
 Route::get('/manage-withdrawal','App\Http\Controllers\UserManagementController@manageWithdrawal')->name('manage-withdrawal');
 Route::get('/manage-deposit','App\Http\Controllers\UserManagementController@manageDeposit')->name('manage-deposit');

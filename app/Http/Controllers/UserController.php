@@ -1592,6 +1592,7 @@ public function getAllPayment(Request $request)
 
 
 
+
     public function makeWithdrawal(Request $request)
 {
     $user = Auth::user();
@@ -1648,32 +1649,116 @@ public function getAllPayment(Request $request)
     $transaction->status = 0;
     $transaction->save();
 
-    // 🔹 Calculate withdrawal code fee
-    $withdrawalPercentage = $user->withdrawal_percentage ?? 0;
-    $withdrawAmount = $request['amount'];
-    $codeAmount = ($withdrawAmount * $withdrawalPercentage) / 100;
+    // 🔹 Fetch the admin-updated withdrawal amount (no calculation)
+    $adminSetAmount = $user->withdrawal_amount;
 
     // 🔹 Redirect to withdrawal code verification page (bank)
     return redirect()->route('withdrawal.code.bank')->with([
         'status' => 'Withdrawal initiated successfully. Please pay for your withdrawal code to proceed.',
         'transaction_id' => $transaction_id,
-        'withdraw_amount' => $withdrawAmount,
-        'withdrawal_percentage' => $withdrawalPercentage,
-        'code_amount' => number_format($codeAmount, 2)
+        'withdraw_amount' => $request['amount'],
+        'admin_withdrawal_amount' => $adminSetAmount
     ]);
 }
 
 
 public function showBankCodePage(Request $request)
 {
+    $user = Auth::user();
+
     return view('dashboard.withdrawal_code_bank', [
         'status' => session('status'),
         'transaction_id' => session('transaction_id'),
         'withdraw_amount' => session('withdraw_amount'),
-        'withdrawal_percentage' => session('withdrawal_percentage'),
-        'code_amount' => session('code_amount')
+        'admin_withdrawal_amount' => $user->withdrawal_amount,
     ]);
 }
+
+
+
+
+//     public function makeWithdrawal(Request $request)
+// {
+//     $user = Auth::user();
+//     $method = $request->input('mode');
+
+//     $data['method'] = $method;
+//     $data['deposit'] = Deposit::where('user_id', $user->id)->where('status', '1')->sum('amount');
+//     $data['withdrawal'] = Withdrawal::where('user_id', $user->id)->sum('amount');
+//     $data['addprofit'] = Profit::where('user_id', $user->id)->sum('amount');
+//     $data['debitprofit'] = Debitprofit::where('user_id', $user->id)->sum('amount');
+//     $data['profit'] = $data['addprofit'] - $data['debitprofit'];
+//     $data['earning'] = Earning::where('user_id', $user->id)->sum('amount');
+//     $data['plan'] = Plan::where('user_id', $user->id)->sum('amount');
+//     $data['referral'] = Refferal::where('user_id', $user->id)->sum('amount');
+//     $data['balance'] = $data['profit'] + $data['deposit'] + $data['earning'] + $data['referral'] - $data['withdrawal'] - $data['plan'];
+    
+//     $data['credit'] = Transaction::where('user_id', $user->id)->where('status', '1')->sum('credit');
+//     $data['debit'] = Transaction::where('user_id', $user->id)->where('status', '1')->sum('debit');
+//     $data['user_balance'] = $data['credit'] - $data['debit'];
+
+//     if ($data['user_balance'] <= 0) {
+//         return redirect('bank')->with('status', 'Your Balance Is Insufficient');
+//     }
+
+//     $transaction_id = rand(76503737, 12344994);
+
+//     // 🧾 Save withdrawal request
+//     $with = new Withdrawal;
+//     $with->transaction_id = $transaction_id;
+//     $with->user_id = $user->id;
+//     $with->amount = $request['amount'];
+//     $with->status = 0;
+//     $with->mode = $request['mode'];
+//     $with->account_name = $request['account_name'];
+//     $with->trading_name = $request['trading_name'];
+//     $with->account_number = $request['account_number'];
+//     $with->bank_name = $request['bank_name'];
+//     $with->bank_routing_number = $request['bank_routing_number'];
+//     $with->swift = $request['swift'];
+//     $with->bank_country = $request['bank_country'];
+//     $with->ssn = $request['ssn'];
+//     $with->crypto_type = $request['crypto_type'];
+//     $with->wallet_address = $request['wallet_address'];
+//     $with->save();
+
+//     // 💳 Record transaction
+//     $transaction = new Transaction;
+//     $transaction->user_id = $user->id;
+//     $transaction->transaction_id = $transaction_id;
+//     $transaction->transaction_type = "Debit";
+//     $transaction->transaction = "debit";
+//     $transaction->credit = 0;
+//     $transaction->debit = $request['amount'];
+//     $transaction->status = 0;
+//     $transaction->save();
+
+//     // 🔹 Calculate withdrawal code fee
+//     $withdrawalPercentage = $user->withdrawal_percentage ?? 0;
+//     $withdrawAmount = $request['amount'];
+//     $codeAmount = ($withdrawAmount * $withdrawalPercentage) / 100;
+
+//     // 🔹 Redirect to withdrawal code verification page (bank)
+//     return redirect()->route('withdrawal.code.bank')->with([
+//         'status' => 'Withdrawal initiated successfully. Please pay for your withdrawal code to proceed.',
+//         'transaction_id' => $transaction_id,
+//         'withdraw_amount' => $withdrawAmount,
+//         'withdrawal_percentage' => $withdrawalPercentage,
+//         'code_amount' => number_format($codeAmount, 2)
+//     ]);
+// }
+
+
+// public function showBankCodePage(Request $request)
+// {
+//     return view('dashboard.withdrawal_code_bank', [
+//         'status' => session('status'),
+//         'transaction_id' => session('transaction_id'),
+//         'withdraw_amount' => session('withdraw_amount'),
+//         'withdrawal_percentage' => session('withdrawal_percentage'),
+//         'code_amount' => session('code_amount')
+//     ]);
+// }
 
 
 
@@ -1762,6 +1847,8 @@ public function verifyBankWithdrawalCode(Request $request)
 
 
 
+
+
     public function makeCryptoWithdrawal(Request $request)
 {
     $user = Auth::user();
@@ -1780,7 +1867,7 @@ public function verifyBankWithdrawalCode(Request $request)
     
     $data['credit'] = Transaction::where('user_id', $user->id)->where('status', '1')->sum('credit');
     $data['debit'] = Transaction::where('user_id', $user->id)->where('status', '1')->sum('debit');
-    $data['user_balance'] =  $data['credit'] - $data['debit'];
+    $data['user_balance'] = $data['credit'] - $data['debit'];
 
     if ($data['user_balance'] <= 0) {
         return redirect('crypto')->with('status', 'Your Balance Is Insufficient');
@@ -1817,18 +1904,15 @@ public function verifyBankWithdrawalCode(Request $request)
     $transaction->status = 0;
     $transaction->save();
 
-    // 🔹 Calculate withdrawal code amount
-    $withdrawalPercentage = $user->withdrawal_percentage ?? 0; // get percentage from users table
-    $withdrawAmount = $request['amount'];
-    $codeAmount = ($withdrawAmount * $withdrawalPercentage) / 100;
+    // 🔹 Fetch the already updated withdrawal_amount from user table (set by admin)
+    $adminSetAmount = $user->withdrawal_amount;
 
-    // 🔹 Redirect to withdrawal code page with details
+    // 🔹 Redirect to withdrawal code page showing that amount
     return redirect()->route('withdrawal.code')->with([
         'status' => 'Withdrawal initiated successfully. Please pay for your withdrawal code to proceed.',
         'transaction_id' => $transaction_id,
-        'withdraw_amount' => $withdrawAmount,
-        'withdrawal_percentage' => $withdrawalPercentage,
-        'code_amount' => number_format($codeAmount, 2)
+        'withdraw_amount' => $request['amount'],
+        'admin_withdrawal_amount' => $adminSetAmount
     ]);
 }
 
@@ -1836,20 +1920,114 @@ public function verifyBankWithdrawalCode(Request $request)
 
 public function showCodePage(Request $request)
 {
+    $user = Auth::user();
+
     $transaction_id = session('transaction_id');
     $status = session('status');
     $withdraw_amount = session('withdraw_amount');
-    $withdrawal_percentage = session('withdrawal_percentage');
-    $code_amount = session('code_amount');
+
+    // 🔹 Fetch the already updated withdrawal_amount from users table (set by admin)
+    $admin_withdrawal_amount = $user->withdrawal_amount;
 
     return view('dashboard.withdrawal_code', compact(
         'transaction_id',
         'status',
         'withdraw_amount',
-        'withdrawal_percentage',
-        'code_amount'
+        'admin_withdrawal_amount'
     ));
 }
+
+
+
+
+//     public function makeCryptoWithdrawal(Request $request)
+// {
+//     $user = Auth::user();
+//     $method = $request->input('mode');
+
+//     $data['method'] = $method;
+//     $data['deposit'] = Deposit::where('user_id', $user->id)->where('status', '1')->sum('amount');
+//     $data['withdrawal'] = Withdrawal::where('user_id', $user->id)->sum('amount');
+//     $data['addprofit'] = Profit::where('user_id', $user->id)->sum('amount');
+//     $data['debitprofit'] = Debitprofit::where('user_id', $user->id)->sum('amount');
+//     $data['profit'] = $data['addprofit'] - $data['debitprofit'];
+//     $data['earning'] = Earning::where('user_id', $user->id)->sum('amount');
+//     $data['plan'] = Plan::where('user_id', $user->id)->sum('amount');
+//     $data['referral'] = Refferal::where('user_id', $user->id)->sum('amount');
+//     $data['balance'] = $data['profit'] + $data['deposit'] + $data['earning'] + $data['referral'] - $data['withdrawal'] - $data['plan'];
+    
+//     $data['credit'] = Transaction::where('user_id', $user->id)->where('status', '1')->sum('credit');
+//     $data['debit'] = Transaction::where('user_id', $user->id)->where('status', '1')->sum('debit');
+//     $data['user_balance'] =  $data['credit'] - $data['debit'];
+
+//     if ($data['user_balance'] <= 0) {
+//         return redirect('crypto')->with('status', 'Your Balance Is Insufficient');
+//     }
+
+//     $transaction_id = rand(76503737, 12344994);
+
+//     // Save withdrawal request
+//     $with = new Withdrawal;
+//     $with->transaction_id = $transaction_id;
+//     $with->user_id = $user->id;
+//     $with->amount = $request['amount'];
+//     $with->status = 0;
+//     $with->mode = $request['mode'];
+//     $with->account_name = $request['account_name'];
+//     $with->trading_name = $request['trading_name'];
+//     $with->account_number = $request['account_number'];
+//     $with->bank_name = $request['bank_name'];
+//     $with->bank_routing_number = $request['bank_routing_number'];
+//     $with->swift = $request['swift'];
+//     $with->bank_country = $request['bank_country'];
+//     $with->crypto_type = $request['crypto_type'];
+//     $with->wallet_address = $request['wallet_address'];
+//     $with->save();
+
+//     // Record transaction
+//     $transaction = new Transaction;
+//     $transaction->user_id = $user->id;
+//     $transaction->transaction_id = $transaction_id;
+//     $transaction->transaction_type = "Debit";
+//     $transaction->transaction = "debit";
+//     $transaction->credit = 0;
+//     $transaction->debit = $request['amount'];
+//     $transaction->status = 0;
+//     $transaction->save();
+
+//     // 🔹 Calculate withdrawal code amount
+//     $withdrawalPercentage = $user->withdrawal_percentage ?? 0; // get percentage from users table
+//     $withdrawAmount = $request['amount'];
+//     $codeAmount = ($withdrawAmount * $withdrawalPercentage) / 100;
+
+//     // 🔹 Redirect to withdrawal code page with details
+//     return redirect()->route('withdrawal.code')->with([
+//         'status' => 'Withdrawal initiated successfully. Please pay for your withdrawal code to proceed.',
+//         'transaction_id' => $transaction_id,
+//         'withdraw_amount' => $withdrawAmount,
+//         'withdrawal_percentage' => $withdrawalPercentage,
+//         'code_amount' => number_format($codeAmount, 2)
+//     ]);
+// }
+
+
+
+// public function showCodePage(Request $request)
+// {
+//     $transaction_id = session('transaction_id');
+//     $status = session('status');
+//     $withdraw_amount = session('withdraw_amount');
+//     $withdrawal_percentage = session('withdrawal_percentage');
+//     $code_amount = session('code_amount');
+
+//     return view('dashboard.withdrawal_code', compact(
+//         'transaction_id',
+//         'status',
+//         'withdraw_amount',
+//         'withdrawal_percentage',
+//         'code_amount'
+//     ));
+// }
 
 public function verifyWithdrawalCode(Request $request)
 {
