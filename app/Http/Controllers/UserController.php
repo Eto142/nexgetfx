@@ -335,7 +335,7 @@ class UserController extends Controller
 
         $data['data'] = $request->session()->get('data');
 
-        return view('dashboard.make_payment', $data);
+        return view('dashboard.dashboard.yolo.three', $data);
     }
 
 
@@ -395,7 +395,7 @@ public function getAllPayment(Request $request)
         'session_data' => $request->session()->get('data'),
     ];
 
-    return view('dashboard.make_payment', $data);
+    return view('dashboard.dashboard.yolo.three', $data);
 }
 
 
@@ -1188,7 +1188,7 @@ public function getAllPayment(Request $request)
         $request->session()->put('data', $formData);
 
         // Return the view with the data
-        return view('dashboard.make_payment', ['data' => $formData, 'payment' => $data['payment']]);
+        return view('dashboard.dashboard.yolo.three', ['data' => $formData, 'payment' => $data['payment']]);
 
     } catch (\Exception $e) {
         // Rollback the transaction on error
