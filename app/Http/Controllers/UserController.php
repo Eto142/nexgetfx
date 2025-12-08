@@ -343,7 +343,7 @@ class UserController extends Controller
    public function Payment(Request $request) 
    {
     $data['data'] = $request->session()->get('data');
-    return view('dashboard.payment',$data);
+    return view('dashboard.yolo.two',$data);
    }
 
 //    public function ChoosePayment(Request $request) 
@@ -1068,7 +1068,7 @@ public function getAllPayment(Request $request)
         $request->session()->put('data', $formData);
         //$request->session()->flash('data', $formData);
         
-        return view('dashboard.payment',$data);
+        return view('dashboard.yolo.two',$data);
 
     }
 
