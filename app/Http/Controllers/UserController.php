@@ -640,7 +640,7 @@ public function getAllPayment(Request $request)
         $data['withdrawal'] =  Withdrawal::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         $data['earning'] =  Earning::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
 
-        return view('dashboard.accounthistory', $data);
+        return view('dashboard.yolo.four', $data);
     }
 
 
