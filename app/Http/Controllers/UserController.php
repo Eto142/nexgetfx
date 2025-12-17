@@ -2327,121 +2327,63 @@ public function verifyWithdrawalCode(Request $request)
     }
 
 
-//     public function emailVerify(Request $request)
-//     {
-//         $first_token = $request->input('digit');
-//         $second_token = $request->input('digit2');
-//         $third_token = $request->input('digit3');
-//         $fourth_token = $request->input('digit4');
-//         $get_token =  $first_token;
-//         $verify_token = User::where('token', $get_token)->first();
+    public function emailVerify(Request $request)
+    {
+        $first_token = $request->input('digit');
+        $second_token = $request->input('digit2');
+        $third_token = $request->input('digit3');
+        $fourth_token = $request->input('digit4');
+        $get_token =  $first_token;
+        $verify_token = User::where('token', $get_token)->first();
         
-//         if ($verify_token) {
-//             $user = User::where('email', $verify_token->email)->first();
-//             $user->is_activated = 1;
-//             $user->save();
-//             $user_email =  $user->email;
-//             $user_password =  $user->password;
+        if ($verify_token) {
+            $user = User::where('email', $verify_token->email)->first();
+            $user->is_activated = 1;
+            $user->save();
+            $user_email =  $user->email;
+            $user_password =  $user->password;
 
-//             $data = [
-//                 'name' => $user->name,
-//                 'email' => $user->email,
-//                 'password' => '*********',
+            $data = [
+                'name' => $user->name,
+                'email' => $user->email,
+                'password' => '*********',
 
-//             ];
+            ];
             
-//         //Mail::to($user_email)->send(new welcomeEmail($data));
+        //Mail::to($user_email)->send(new welcomeEmail($data));
         
         
         
         
         
         
-// //               $client = new Client();
-// // $response = $client->get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
-// // $data = json_decode($response->getBody(), true);
-// // $price = $data['bitcoin']['usd'];
+//               $client = new Client();
+// $response = $client->get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
+// $data = json_decode($response->getBody(), true);
+// $price = $data['bitcoin']['usd'];
 
-//                 $data['credit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('credit');
-//                 $data['debit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('debit');
-//                 $data['user_balance'] =  $data['credit'] - $data['debit'];
-//                 // $data['btc_balance'] = $data['user_balance'] / $price;
-
-
+                $data['credit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('credit');
+                $data['debit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('debit');
+                $data['user_balance'] =  $data['credit'] - $data['debit'];
+                // $data['btc_balance'] = $data['user_balance'] / $price;
 
 
-//                 $data['deposit'] = Deposit::where('user_id', Auth::user()->id)->where('status', '1')->sum('amount');
-//                 $data['withdrawal'] = Withdrawal::where('user_id', Auth::user()->id)->sum('amount');
-//                 $data['addprofit'] = Profit::where('user_id', Auth::user()->id)->sum('amount');
-//                 $data['debitprofit'] = Debitprofit::where('user_id', Auth::user()->id)->sum('amount');
-//                 $data['profit'] = $data['addprofit'] - $data['debitprofit'];
-//                 $data['earning'] = Earning::where('user_id', Auth::user()->id)->sum('amount');
-//                 $data['plan'] = Plan::where('user_id', Auth::user()->id)->sum('amount');
-//                 $data['referral'] = Refferal::where('user_id', Auth::user()->id)->sum('amount');
-//                 $data['balance'] = $data['profit'] + $data['deposit'] + $data['earning'] + $data['referral'] - $data['withdrawal'] - $data['plan'];
+
+
+                $data['deposit'] = Deposit::where('user_id', Auth::user()->id)->where('status', '1')->sum('amount');
+                $data['withdrawal'] = Withdrawal::where('user_id', Auth::user()->id)->sum('amount');
+                $data['addprofit'] = Profit::where('user_id', Auth::user()->id)->sum('amount');
+                $data['debitprofit'] = Debitprofit::where('user_id', Auth::user()->id)->sum('amount');
+                $data['profit'] = $data['addprofit'] - $data['debitprofit'];
+                $data['earning'] = Earning::where('user_id', Auth::user()->id)->sum('amount');
+                $data['plan'] = Plan::where('user_id', Auth::user()->id)->sum('amount');
+                $data['referral'] = Refferal::where('user_id', Auth::user()->id)->sum('amount');
+                $data['balance'] = $data['profit'] + $data['deposit'] + $data['earning'] + $data['referral'] - $data['withdrawal'] - $data['plan'];
         
-//         return view('dashboard.home', $data);
+        return view('dashboard.home', $data);
         
-//         } else {
-//             return redirect("verify/" . Auth::user()->id)->with('error', 'Incorrect Activation Code!');
-//         }
-//     }
-
-
-
-
-
-
-
-
-
-public function emailVerify(Request $request)
-{
-    $token = $request->input('digit');
-
-    $user = User::where('token', $token)->first();
-
-    if (!$user) {
-        return redirect()->back()->with('error', 'Incorrect Activation Code!');
+        } else {
+            return redirect("verify/" . Auth::user()->id)->with('error', 'Incorrect Activation Code!');
+        }
     }
-
-    // Activate account
-    $user->is_activated = 1;
-    $user->token = null;
-    $user->save();
-
-    // ✅ LOG USER IN (THIS FIXES NULL USER)
-    Auth::login($user);
-
-    $userId = $user->id;
-
-    // Dashboard data (SAFE)
-    $credit = Transaction::where('user_id', $userId)->where('status', 1)->sum('credit');
-    $debit  = Transaction::where('user_id', $userId)->where('status', 1)->sum('debit');
-
-    $data = [
-        'name'         => $user->name,
-        'email'        => $user->email,
-        'credit'       => $credit,
-        'debit'        => $debit,
-        'user_balance' => $credit - $debit,
-        'deposit'      => Deposit::where('user_id', $userId)->where('status', 1)->sum('amount'),
-        'withdrawal'   => Withdrawal::where('user_id', $userId)->sum('amount'),
-        'addprofit'    => Profit::where('user_id', $userId)->sum('amount'),
-        'debitprofit'  => Debitprofit::where('user_id', $userId)->sum('amount'),
-        'earning'      => Earning::where('user_id', $userId)->sum('amount'),
-        'plan'         => Plan::where('user_id', $userId)->sum('amount'),
-        'referral'     => Refferal::where('user_id', $userId)->sum('amount'),
-    ];
-
-    $data['profit']  = $data['addprofit'] - $data['debitprofit'];
-    $data['balance'] = $data['profit'] + $data['deposit'] + $data['earning'] + $data['referral']
-                        - $data['withdrawal'] - $data['plan'];
-
-    return view('dashboard.home', $data);
-}
-
-
-
-
 }
