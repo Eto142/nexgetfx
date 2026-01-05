@@ -18,7 +18,7 @@
 <div class="hero-card">
 <label>Call Us</label> <a href="#" class="hero-card__link"></a> </div>
 <div class="hero-card">
-<label>Email Us</label> <a href="">support@Upwardoption.com</span></a> </div>
+<label>Email Us</label> <a href="">support@nexglobmarket.com</span></a> </div>
 </div>
 
 
@@ -104,7 +104,7 @@ input[type=submit]:hover {
 <div class="newsletter-container">
 <div class="newsletter-container__body">
 <div class="nws-title">
-Start <span class="-c-accent">Earning Like the Pros</span> with Upwardoption </div>
+Start <span class="-c-accent">Earning Like the Pros</span> with Nexglobmarket </div>
 <div class="nws-subtitle">
 Stay in the Loop </div>
 <div class="nws-text">

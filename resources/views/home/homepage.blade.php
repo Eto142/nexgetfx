@@ -2246,7 +2246,7 @@
 <div class="sub-title c-heading__sub">
 Check out our FAQ page to find answers to common questions and ensure you don't miss out on your chance to get started and benefit from our wide array of investment opportunities. Read our frequently asked questions below.  </div>
 <div class="text">
-If you still need additional help, contact us today via online live chat or visit our support desk at support@Upwardoption.com </div>
+If you still need additional help, contact us today via online live chat or visit our support desk at support@Nexglobmarket.com </div>
 <div class="more-information__cta">
 <a href="{{url('questions')}}" class="c-btn -primary -inverted">Explore FAQs <span class="c-btn__ico"> <svg class="icon icon-lib-icon-arrow1 " aria-hidden="true" role="img"><use xlink:href="#lib-icon-arrow1"></use></svg></span></a> </div>
 </div>
