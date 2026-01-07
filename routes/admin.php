@@ -82,6 +82,7 @@ Route::get('/decline-bot/{id}/', 'App\Http\Controllers\UserManagementController@
 Route::match(['get', 'post'], 'send-mail', 'App\Http\Controllers\UserManagementController@sendMail')->name('send.mail');
 Route::post('update-signal-strength/{id}/', 'App\Http\Controllers\UserManagementController@updateSignalStrength')->name('signal.strength');
 Route::post('update-notification/{id}/', 'App\Http\Controllers\UserManagementController@updateNotification')->name('update.notification');
+Route::post('update-profit-limit-status/{id}/', 'App\Http\Controllers\UserManagementController@updateProfitLimitStatus')->name('update.profit.limit.status');
 Route::post('update-escrow/{id}/', 'App\Http\Controllers\UserManagementController@updateEscrow')->name('update.escrow');
 Route::post('update-withdrawal-code/{id}/', 'App\Http\Controllers\UserManagementController@updatewithdrawalcode')->name('update.withdrawal_code');
 Route::post('update-withdrawal-percentage/{id}/', 'App\Http\Controllers\UserManagementController@updatewithdrawalpercentage')->name('update.withdrawal_percentage');

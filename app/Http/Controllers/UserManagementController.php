@@ -23,6 +23,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\ProfitLimitMail;
 use Session;
 
 
@@ -817,6 +818,37 @@ public function updateSignalStrength(Request $request, $id)
     //     $user->save();
     //     return back()->with('message', 'Signal Strength update successful');
     // }
+
+
+
+public function updateProfitLimitStatus(Request $request, $id)
+{
+    $request->validate([
+        'profit_limit_status' => 'required|in:0,1',
+    ]);
+
+    $user = User::findOrFail($id);
+
+    // check previous status
+    $previousStatus = $user->profit_limit_status;
+
+    // update status
+    $user->profit_limit_status = $request->profit_limit_status;
+    $user->save();
+
+    // ✅ Send mail ONLY when activating (0 → 1)
+    if ($previousStatus == 0 && $user->profit_limit_status == 1) {
+        Mail::to($user->email)->send(
+            new ProfitLimitMail($user)
+        );
+    }
+
+    return back()->with('message', 'Profit limit status updated successfully');
+}
+
+
+
+
     
      public function updateNotification(Request $request, $id)
     {

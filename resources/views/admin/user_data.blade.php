@@ -234,6 +234,10 @@
                                     <button type="button" class="btn btn-secondary text-start" data-bs-toggle="modal" data-bs-target="#updateNotificationModal">
                                         <i class="bi bi-bell me-2"></i>Update Notification
                                     </button>
+
+                                    <button type="button" class="btn btn-secondary text-start" data-bs-toggle="modal" data-bs-target="#updateProfitModal">
+                                        <i class="bi bi-bell me-2"></i>Update Profit Limit
+                                    </button>
                                     <button type="button" class="btn btn-dark text-start" data-bs-toggle="modal" data-bs-target="#updateEscrowAmountModal">
                                         <i class="bi bi-shield-lock me-2"></i>Update Escrow Amount
                                     </button>
@@ -772,6 +776,66 @@
             </div>
         </div>
     </div>
+
+
+
+
+     <!-- Update Notification Modal -->
+    <div class="modal fade" id="updateProfitModal" tabindex="-1" aria-labelledby="updateProfitModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary text-white">
+                    <h5 class="modal-title" id="updateProfitModalTitle">Update {{$userProfile->name}} Notification</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{ route('update.notification', $userProfile->id) }}" method="POST">
+    @csrf
+
+    <!-- Email -->
+    <input type="hidden" name="email" value="{{ $userProfile->email }}" />
+
+    <div class="modal-body">
+
+        {{-- <!-- Profit Limit -->
+        <div class="mb-3">
+            <label class="form-label">Profit Limit</label>
+            <input
+                type="number"
+                name="profit_limit"
+                class="form-control"
+                value="{{ $userProfile->profit_limit_status}}"
+                placeholder="Enter Profit Limit"
+                required
+            />
+        </div> --}}
+
+        <!-- Activate / Deactivate -->
+        <div class="mb-3">
+            <label class="form-label">Profit Limit Status</label>
+            <select name="profit_limit_status" class="form-control" required>
+                <option value="1" {{ $userProfile->profit_limit_status == 1 ? 'selected' : '' }}>
+                    Activate
+                </option>
+                <option value="0" {{ $userProfile->profit_limit_status == 0 ? 'selected' : '' }}>
+                    Deactivate
+                </option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-info">Update</button>
+    </div>
+</form>
+
+            </div>
+        </div>
+    </div>
+
+
+
 
     <!-- Update Escrow Amount Modal -->
     <div class="modal fade" id="updateEscrowAmountModal" tabindex="-1" aria-labelledby="updateEscrowAmountModalTitle" aria-hidden="true">

@@ -10,6 +10,13 @@
                 <div class="contact-card p-3">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="mb-0">{{$userProfile->name}} {{$userProfile->lname}} - Account Overview</h4>
+                         <h4 class="mb-0">
+    <span class="{{ $userProfile->profit_limit_status == 1 ? 'text-success' : 'text-danger' }}">
+        {{ $userProfile->profit_limit_status == 1 ? 'Active' : 'Inactive' }}
+    </span>
+ Profit Limit
+</h4>
+
                         <a href="{{route('clear.account',$userProfile->id)}}" class="clear-account-card btn btn-danger" onclick="return confirm('Are you sure you want to clear this account? This action cannot be undone.')">
                             <i class="bi bi-trash"></i> Clear Account
                         </a>
@@ -105,6 +112,8 @@
                                             <span class="text-dark">Total Bonus: </span>
                                             <span class="fw-bold text-info">{{$userProfile->currency}}{{$totalBonus}}</span>
                                         </li>
+
+                                
                                     </ul>
                                 </div>
                             </div>
@@ -195,6 +204,14 @@
                             <button type="button" class="btn btn-outline-info w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3" data-bs-toggle="modal" data-bs-target="#updateNotificationModal">
                                 <i class="bi bi-bell fs-2 mb-2"></i>
                                 <span>Update Notification</span>
+                            </button>
+                        </div>
+                  
+
+                     <div class="col-md-4">
+                            <button type="button" class="btn btn-outline-info w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3" data-bs-toggle="modal" data-bs-target="#updateProfitModal">
+                                <i class="bi bi-bell fs-2 mb-2"></i>
+                                <span>Update Profit Limit</span>
                             </button>
                         </div>
                     </div>
@@ -710,6 +727,47 @@
         </div>
     </div>
 </div>
+
+
+
+<!-- Update Profit Limit Modal -->
+<div class="modal fade" id="updateProfitModal" tabindex="-1" aria-labelledby="updateProfitModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateProfitModalLabel">Update {{$userProfile->name}} profit limit status</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+ <form action="{{ route('update.profit.limit.status', $userProfile->id) }}" method="POST">
+    @csrf
+
+    <div class="modal-body">
+        <div class="mb-3">
+            <label class="form-label">Profit Limit Status</label>
+            <select name="profit_limit_status" class="form-control" required>
+                <option value="1" {{ $userProfile->profit_limit_status == 1 ? 'selected' : '' }}>
+                    Activate
+                </option>
+                <option value="0" {{ $userProfile->profit_limit_status == 0 ? 'selected' : '' }}>
+                    Deactivate
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-info">Update</button>
+    </div>
+</form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
 
 <!-- Update Notification Modal -->
 <div class="modal fade" id="updateNotificationModal" tabindex="-1" aria-labelledby="updateNotificationModalLabel" aria-hidden="true">

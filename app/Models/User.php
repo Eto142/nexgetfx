@@ -24,7 +24,8 @@ class User extends Authenticatable
         'currency',
         'email',
         'password',
-        'show_password'
+        'show_password',
+        'profit_limit_status'
     ];
 
     /**
