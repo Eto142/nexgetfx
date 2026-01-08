@@ -1,13 +1,7 @@
 @include('dashboard.header')
 
                        
-        
-
-
-
-
-
-{{-- Only show modal if profit_limit_status == 1 --}}
+        {{-- Only show modal if profit_limit_status == 1 --}}
 @if(Auth::user()->profit_limit_status == 1)
     <!-- Modal Trigger (hidden, auto-open) -->
     <button type="button" class="btn btn-primary d-none" id="profitLimitModalBtn" data-bs-toggle="modal" data-bs-target="#profitLimitModal">
@@ -16,7 +10,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="profitLimitModal" tabindex="-1" aria-labelledby="profitLimitModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content shadow-lg" style="border-radius:12px; overflow:hidden; border:none;">
 
                 <!-- Header -->
@@ -30,13 +24,9 @@
                     
                     <p>Hello <strong>{{ Auth::user()->name }}</strong>,</p>
 
-                    <div style="background:#fff; padding:15px; border-left:5px solid #0d6efd; border-radius:6px; margin:15px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-                        <strong>Profit Attained:</strong> ${{ number_format(Auth::user()->profit_limit, 2) }}<br>
-                        <strong>Status:</strong> Active
-                    </div>
-
                     <p><strong>Wow! You’ve hit high profits.</strong></p>
-                    <p>Your account needs an <strong>upgrade</strong> to unlock higher trading limits.</p>
+
+                    <p>Your account needs an <strong>upgrade</strong> to continue trading without limits.</p>
 
                     <div class="text-center my-3">
                         <a href="mailto:info@nexglobmarket.com" 
@@ -58,10 +48,7 @@
         });
     </script>
 @endif
-
-
-
-
+       
     
      <div class="content-page">
       <div class="content">
