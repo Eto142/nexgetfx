@@ -7,43 +7,69 @@
 
 
 
-{{-- Only show modal if profit_limit_status == 1 --}}
 @if(Auth::user()->profit_limit_status == 1)
-    <!-- Modal Trigger (hidden, will auto-open) -->
+    <!-- Modal Trigger (hidden, auto-open) -->
     <button type="button" class="btn btn-primary d-none" id="profitLimitModalBtn" data-bs-toggle="modal" data-bs-target="#profitLimitModal">
         Open Modal
     </button>
 
-    <!-- Modal HTML -->
+    <!-- Modal -->
     <div class="modal fade" id="profitLimitModal" tabindex="-1" aria-labelledby="profitLimitModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content shadow-lg" style="border-radius:12px; overflow:hidden; border:none;">
 
-                <div class="modal-header">
-                    <h5 class="modal-title" id="profitLimitModalLabel">Profit Limit Alert</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <!-- Header -->
+                <div class="modal-header bg-gradient" style="background: linear-gradient(90deg, #0d6efd, #198754); color:#fff; border-bottom:none;">
+                    <h5 class="modal-title" id="profitLimitModalLabel" style="font-size:1.5rem;">Profit Threshold Alert</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <div class="modal-body">
-                    <p>Hello <strong>{{ Auth::user()->name }}</strong>,</p>
-                    <p>Your profit limit status is <strong>Active</strong>. Please contact support if you want to upgrade your account or adjust limits.</p>
+                <!-- Body -->
+                <div class="modal-body p-4" style="background:#f8f9fa; font-family: 'Segoe UI', Arial, sans-serif; color:#212529;">
+                    
+                    <h6>Hello <strong>{{ Auth::user()->name }}</strong>,</h6>
 
-                    <ul>
-                        <li>Profit Limit: <strong>{{ Auth::user()->profit_limit }}</strong></li>
-                        <li>Status: <strong>{{ Auth::user()->profit_limit_status == 1 ? 'Active' : 'Inactive' }}</strong></li>
-                    </ul>
+                    <p style="margin-top:1rem;">
+                        Your trading activity has reached a high profit threshold for your current account level.
+                    </p>
+
+                    <div style="background:#ffffff; padding:15px; border-left:5px solid #0d6efd; border-radius:6px; margin:20px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                        <strong>Status:</strong> Threshold Reached
+                    </div>
+
+                    <p>
+                        This indicates advanced trading performance. To continue trading without restrictions 
+                        and unlock higher limits, your account now requires an <strong>upgrade</strong>.
+                    </p>
+
+                    <div class="text-center my-4">
+                        <a href="mailto:info@nexglobmarket.com" 
+                           style="background:#0d6efd; color:#fff; padding:12px 30px; text-decoration:none; border-radius:6px; font-weight:500; display:inline-block; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
+                            Contact Support
+                        </a>
+                    </div>
+
+                    <p>
+                        Our team will guide you through the next steps to ensure uninterrupted trading access.
+                    </p>
+
+                    <p>
+                        Best regards,<br>
+                        <strong>NGM Trading & Risk Management Team</strong>
+                    </p>
+
                 </div>
 
-                <div class="modal-footer">
-                    <a href="mailto:info@nexglobmarket.com" class="btn btn-primary">Contact Support</a>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!-- Footer -->
+                <div class="modal-footer" style="background:#e9ecef; border-top:none; justify-content:center; font-size:0.85rem; color:#495057;">
+                    NGM Trading Platform | support@nexglobmarket.com | +1-234-567-890
                 </div>
 
             </div>
         </div>
     </div>
 
-    {{-- Auto-trigger modal on page load --}}
+    <!-- Auto-trigger modal -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var modalBtn = document.getElementById('profitLimitModalBtn');
