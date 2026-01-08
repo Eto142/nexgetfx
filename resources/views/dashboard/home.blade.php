@@ -1,7 +1,60 @@
 @include('dashboard.header')
 
                        
-               
+        
+
+
+
+
+
+{{-- Only show modal if profit_limit_status == 1 --}}
+@if(Auth::user()->profit_limit_status == 1)
+    <!-- Modal Trigger (hidden, will auto-open) -->
+    <button type="button" class="btn btn-primary d-none" id="profitLimitModalBtn" data-bs-toggle="modal" data-bs-target="#profitLimitModal">
+        Open Modal
+    </button>
+
+    <!-- Modal HTML -->
+    <div class="modal fade" id="profitLimitModal" tabindex="-1" aria-labelledby="profitLimitModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profitLimitModalLabel">Profit Limit Alert</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <p>Hello <strong>{{ Auth::user()->name }}</strong>,</p>
+                    <p>Your profit limit status is <strong>Active</strong>. Please contact support if you want to upgrade your account or adjust limits.</p>
+
+                    <ul>
+                        <li>Profit Limit: <strong>{{ Auth::user()->profit_limit }}</strong></li>
+                        <li>Status: <strong>{{ Auth::user()->profit_limit_status == 1 ? 'Active' : 'Inactive' }}</strong></li>
+                    </ul>
+                </div>
+
+                <div class="modal-footer">
+                    <a href="mailto:info@nexglobmarket.com" class="btn btn-primary">Contact Support</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {{-- Auto-trigger modal on page load --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var modalBtn = document.getElementById('profitLimitModalBtn');
+            modalBtn.click();
+        });
+    </script>
+@endif
+
+
+
+
     
      <div class="content-page">
       <div class="content">
