@@ -24,6 +24,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ProfitLimitMail;
+
 use Session;
 
 

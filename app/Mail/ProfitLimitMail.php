@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Mail; // ✅ THIS WAS MISSING
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -17,7 +19,7 @@ class ProfitLimitMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Profit Limit Activated')
+        return $this->subject('Account Profit Threshold Reached')
                     ->view('emails.profit_limit');
     }
 }
