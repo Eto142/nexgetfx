@@ -1166,6 +1166,14 @@ document.head.appendChild(style);
                         </a>
                     </li>
 
+                     <li class="side-nav-item">
+    <a href="{{ route('user.notifications') }}" class="side-nav-link">
+        <i class="uil-bell"></i> <!-- Bell icon for notifications -->
+        <span>Notifications</span>
+    </a>
+</li>
+
+
                     <li class="side-nav-item">
                         <a href="{{url('profile')}}" class="side-nav-link">
                             <i class="ri-user-2-fill"></i>
