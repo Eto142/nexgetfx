@@ -87,13 +87,13 @@
                                         </div>
 
                                         <!-- Actions (optional) -->
-                                        <div class="notification-actions mt-2 mt-sm-0 flex-shrink-0">
+                                        {{-- <div class="notification-actions mt-2 mt-sm-0 flex-shrink-0">
                                             @if(!$note->read)
                                                 <span class="badge bg-primary">Unread</span>
                                             @else
                                                 <span class="badge bg-success">Read</span>
                                             @endif
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 @endforeach
                             </div>
