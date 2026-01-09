@@ -106,8 +106,8 @@ Auth::routes();
 
 
 
- Route::get('/notifications', [UserController::class, 'UserNotification'])->name('user.notifications'); // user.forex
-      Route::post('/notifications/mark-all-read', [UserController::class, 'markAllRead'])->name('user.notifications.markAllRead');
+ Route::get('/notifications', 'App\Http\Controllers\UserController@UserNotification')->name('user.notifications'); // user.forex
+      Route::post('/notifications/mark-all-read', 'App\Http\Controllers\UserController@markAllRead')->name('user.notifications.markAllRead');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', 'App\Http\Controllers\UserController@redirect')->middleware('verifyUser')->name('home');
 //Route::get('/home', 'App\Http\Controllers\UserController@redirect')->name('home');
