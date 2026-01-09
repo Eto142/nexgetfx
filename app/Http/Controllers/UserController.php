@@ -14,6 +14,7 @@ use App\Models\Profit;
 use App\Models\Refferal;
 use App\Models\Traders;
 use App\Models\Transaction;
+use App\Models\Notification;
 use App\Models\User;
 use App\Models\verifyToken;
 use App\Models\Wallet;
@@ -2386,4 +2387,67 @@ public function verifyWithdrawalCode(Request $request)
             return redirect("verify/" . Auth::user()->id)->with('error', 'Incorrect Activation Code!');
         }
     }
+
+
+    
+public function UserNotification()
+{
+      $client = new Client();
+// $response = $client->get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
+// $data = json_decode($response->getBody(), true);
+// $price = $data['bitcoin']['usd'];
+
+                $data['credit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('credit');
+                $data['debit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('debit');
+                $data['user_balance'] =  $data['credit'] - $data['debit'];
+                // $data['btc_balance'] = $data['user_balance'] / $price;
+
+
+
+
+                $data['deposit'] = Deposit::where('user_id', Auth::user()->id)->where('status', '1')->sum('amount');
+                $data['withdrawal'] = Withdrawal::where('user_id', Auth::user()->id)->sum('amount');
+                $data['addprofit'] = Profit::where('user_id', Auth::user()->id)->sum('amount');
+                $data['debitprofit'] = Debitprofit::where('user_id', Auth::user()->id)->sum('amount');
+                $data['profit'] = $data['addprofit'] - $data['debitprofit'];
+                $data['earning'] = Earning::where('user_id', Auth::user()->id)->sum('amount');
+                $data['plan'] = Plan::where('user_id', Auth::user()->id)->sum('amount');
+                $data['referral'] = Refferal::where('user_id', Auth::user()->id)->sum('amount');
+                $data['balance'] = $data['profit'] + $data['deposit'] + $data['earning'] + $data['referral'] - $data['withdrawal'] - $data['plan'];
+    $data['notifications'] = Notification::where('user_id', auth()->id())
+        ->latest()
+        ->get();
+
+    return view('dashboard.all-notifications', $data);
+}
+
+
+
+ // AJAX - mark as read
+    public function markRead(Request $request)
+    {
+        $message = Message::find($request->id);
+
+        if ($message && $message->is_read == 0) {
+            $message->update(['is_read' => 1]);
+        }
+
+        $newCount = Message::where('is_read', 0)->count();
+
+        return response()->json(['count' => $newCount]);
+    }
+
+
+
+
+     public function markAllRead(Request $request)
+    {
+        Notification::where('user_id', auth()->id())
+            ->where('is_read', 0)
+            ->update(['is_read' => 1]);
+
+        return response()->json(['success' => true]);
+    }
+
+
 }

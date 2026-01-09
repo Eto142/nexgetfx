@@ -189,6 +189,9 @@ href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.mi
                         </div>
                     </button>
 
+
+
+
                     <!-- Topbar Search Form -->
                     <div class="app-search dropdown d-none d-lg-block">
                         
@@ -415,6 +418,618 @@ href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.mi
 
                         </div>
                     </li>
+
+
+
+
+
+
+                    @php 
+$userNotifications = \App\Models\Notification::where('user_id', auth()->id())
+    ->latest()
+    ->take(10)
+    ->get(); 
+$unreadCount = $userNotifications->where('is_read', 0)->count();
+@endphp 
+
+
+
+
+
+
+
+
+
+
+
+ <li class="dropdown notification-list">
+<div class="dropdown d-inline-block">
+    <button type="button" class="btn header-item noti-icon position-relative ai-notification-btn" 
+            id="page-header-notifications-dropdown"
+            data-bs-toggle="dropdown" 
+            aria-haspopup="true" 
+            aria-expanded="false">
+        <div class="ai-bell-container">
+            <i class="ri-notification-3-line font-22"   class="icon-lg ai-bell-icon"></i>
+
+            @if($unreadCount > 0)
+            <span class="badge bg-danger rounded-pill ai-notification-badge animate__animated animate__bounceIn">
+                {{ $unreadCount }}
+            </span>
+            @endif
+            <div class="ai-bell-ring"></div>
+        </div>
+    </button>
+    
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0 ai-notification-dropdown" 
+         aria-labelledby="page-header-notifications-dropdown">
+        
+        <!-- Header -->
+        <div class="p-3 ai-notification-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h6 class="m-0 text-dark fw-bold">
+                        <i class="mdi mdi-bell-ring-outline me-2 text-primary"></i>
+                        Notifications
+                    </h6>
+                </div>
+                <div class="col-auto">
+                    <span class="badge bg-primary ai-pulse-badge">
+                        Unread ({{ $unreadCount }})
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification List -->
+        <div data-simplebar style="max-height: 280px;" class="ai-notification-list">
+            @forelse($userNotifications as $note)
+            <div class="ai-notification-item animate__animated animate__fadeInRight" 
+                 data-notification-id="{{ $note->id }}"
+                 data-read="{{ $note->is_read ? 'true' : 'false' }}"
+                 style="animation-delay: {{ $loop->index * 0.05 }}s">
+                <div class="d-flex align-items-start p-3">
+                    <!-- Notification Icon -->
+                    <div class="flex-shrink-0 me-3">
+                        <div class="ai-notification-icon bg-{{ $note->is_read ? 'secondary' : 'primary' }}-subtle">
+                            <i class="bx bx-{{ $note->is_read ? 'bell' : 'bell-ring' }} text-{{ $note->is_read ? 'secondary' : 'primary' }} fs-5"></i>
+                            @if(!$note->is_read)
+                            <div class="ai-pulse-dot"></div>
+                            @endif
+                        </div>
+                    </div>
+                    
+                    <!-- Notification Content -->
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                            <h6 class="mb-0 text-dark fw-semibold {{ $note->is_read ? '' : 'unread-text' }}">
+                                {{ $note->message }}
+                            </h6>
+                            <div class="ai-notification-actions">
+                               
+                            </div>
+                        </div>
+                        <div class="font-size-13 text-muted">
+                            <p class="mb-0">
+                                <i class="mdi mdi-clock-outline me-1"></i>
+                                <span class="ai-time-ago">{{ $note->created_at->diffForHumans() }}</span>
+                                <small class="ms-2 text-muted">{{ $note->created_at->format('h:i A') }}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Progress bar for new notifications -->
+                @if(!$note->is_read)
+                <div class="ai-notification-progress">
+                    <div class="ai-progress-bar"></div>
+                </div>
+                @endif
+            </div>
+            @empty
+            <div class="text-center py-5 ai-empty-state">
+                <div class="ai-empty-icon mb-3">
+                    <i class="mdi mdi-bell-off-outline display-4 text-muted"></i>
+                </div>
+                <h6 class="text-muted mb-2">No notifications yet</h6>
+                <p class="text-muted small">We'll notify you when something arrives</p>
+            </div>
+            @endforelse
+        </div>
+
+        <!-- Footer -->
+        <div class="p-3 border-top bg-light-subtle ai-notification-footer">
+            <div class="d-grid">
+                <a class="btn btn-primary btn-sm ai-view-all-btn" href="{{ route('user.notifications') }}">
+                    <i class="mdi mdi-arrow-right-circle me-2"></i>
+                    <span>View All Notifications</span>
+                    <i class="mdi mdi-chevron-right ms-1"></i>
+                </a>
+            </div>
+            @if($unreadCount > 0)
+            <div class="text-center mt-2">
+
+            </div>
+            @endif
+        </div>
+    </div>
+</div>
+</li>
+
+<style>
+    /* Enhanced Notification Styles */
+    .ai-notification-btn {
+        position: relative;
+        border: none;
+        background: transparent;
+        transition: all 0.3s ease;
+        padding: 8px 12px;
+    }
+
+    .ai-notification-btn:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .ai-bell-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ai-bell-icon {
+        transition: all 0.3s ease;
+        color: #060101ff;
+    }
+
+    .ai-notification-btn:hover .ai-bell-icon {
+        color: #4361ee;
+        transform: scale(1.1);
+    }
+
+    .ai-notification-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        padding: 4px 6px;
+        min-width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: badgePulse 2s infinite;
+        box-shadow: 0 2px 8px rgba(220, 53, 69, 0.4);
+    }
+
+    @keyframes badgePulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+
+    .ai-bell-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 40px;
+        height: 40px;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: bellRing 3s infinite;
+        opacity: 0;
+    }
+
+    @keyframes bellRing {
+        0% {
+            border-color: rgba(67, 97, 238, 0.3);
+            width: 40px;
+            height: 40px;
+            opacity: 1;
+        }
+        100% {
+            border-color: rgba(67, 97, 238, 0);
+            width: 60px;
+            height: 60px;
+            opacity: 0;
+        }
+    }
+
+    /* Dropdown Styles */
+    .ai-notification-dropdown {
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        background: white;
+        min-width: 380px;
+        overflow: hidden;
+    }
+
+    .ai-notification-header {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .ai-pulse-badge {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    /* Notification Items */
+    .ai-notification-list {
+        background: white;
+    }
+
+    .ai-notification-item {
+        border-bottom: 1px solid #f8f9fa;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ai-notification-item:hover {
+        background: rgba(67, 97, 238, 0.03);
+        transform: translateX(5px);
+    }
+
+    .ai-notification-item[data-read="false"] {
+        background: rgba(67, 97, 238, 0.05);
+        border-left: 3px solid #4361ee;
+    }
+
+    .ai-notification-item[data-read="false"]:hover {
+        background: rgba(67, 97, 238, 0.08);
+    }
+
+    .ai-notification-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .ai-notification-item:hover .ai-notification-icon {
+        transform: scale(1.1);
+    }
+
+    .ai-pulse-dot {
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        width: 8px;
+        height: 8px;
+        background: #4361ee;
+        border-radius: 50%;
+        animation: dotPulse 1.5s infinite;
+    }
+
+    @keyframes dotPulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.5); opacity: 0.7; }
+    }
+
+    .unread-text {
+        color: #2c3e50;
+        font-weight: 700 !important;
+    }
+
+    .ai-notification-actions {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        gap: 4px;
+    }
+
+    .ai-notification-item:hover .ai-notification-actions {
+        opacity: 1;
+    }
+
+    .ai-mark-read-btn, .ai-delete-btn {
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        transition: all 0.3s ease;
+    }
+
+    .ai-mark-read-btn:hover {
+        background: #28a745 !important;
+        color: white;
+        transform: scale(1.1);
+    }
+
+    .ai-delete-btn:hover {
+        background: #dc3545 !important;
+        color: white;
+        transform: scale(1.1);
+    }
+
+    /* Progress Bar */
+    .ai-notification-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: rgba(67, 97, 238, 0.1);
+    }
+
+    .ai-progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #4361ee, #3a0ca3);
+        width: 0%;
+        animation: progressFill 3s ease-in-out infinite;
+    }
+
+    @keyframes progressFill {
+        0% { width: 0%; }
+        50% { width: 100%; }
+        100% { width: 0%; }
+    }
+
+    /* Empty State */
+    .ai-empty-state {
+        padding: 40px 20px;
+    }
+
+    .ai-empty-icon {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+    }
+
+    /* Footer */
+    .ai-notification-footer {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .ai-view-all-btn {
+        border: none;
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ai-view-all-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.5s;
+    }
+
+    .ai-view-all-btn:hover::before {
+        left: 100%;
+    }
+
+    .ai-view-all-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+    }
+
+    .ai-mark-all-btn {
+        border-radius: 6px;
+        padding: 4px 12px;
+        font-size: 0.75rem;
+        transition: all 0.3s ease;
+    }
+
+    .ai-mark-all-btn:hover {
+        background: #28a745;
+        color: white;
+        transform: translateY(-1px);
+    }
+
+    /* Time ago styling */
+    .ai-time-ago {
+        font-weight: 500;
+        color: #6c757d;
+    }
+
+    /* Simplebar customization */
+    .simplebar-scrollbar::before {
+        background: rgba(67, 97, 238, 0.6) !important;
+    }
+
+    .simplebar-track.simplebar-vertical {
+        width: 6px;
+    }
+</style>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize notification animations
+    const notificationBtn = document.querySelector('.ai-notification-btn');
+    const notificationDropdown = document.querySelector('.ai-notification-dropdown');
+    
+    // Add click animation to bell icon
+    notificationBtn.addEventListener('click', function() {
+        const bellIcon = this.querySelector('.ai-bell-icon');
+        bellIcon.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+            bellIcon.style.transform = 'scale(1)';
+        }, 300);
+    });
+
+    // Show/hide bell ring animation based on unread count
+    const unreadCount = {{ $unreadCount }};
+    const bellRing = document.querySelector('.ai-bell-ring');
+    
+    if (unreadCount > 0) {
+        bellRing.style.display = 'block';
+    } else {
+        bellRing.style.display = 'none';
+    }
+
+    // Add hover effects to notification items
+    const notificationItems = document.querySelectorAll('.ai-notification-item');
+    notificationItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateX(5px)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateX(0)';
+        });
+    });
+
+    // Clear unread count and mark all notifications read on dropdown open
+    const dropdownEl = document.getElementById('page-header-notifications-dropdown');
+    const badge = document.querySelector('.ai-notification-badge');
+    const unreadSpan = document.querySelector('.ai-pulse-badge');
+
+    dropdownEl.addEventListener('show.bs.dropdown', function () {
+        // Clear badge UI
+        if (badge) badge.textContent = '';
+        if (unreadSpan) unreadSpan.textContent = 'Unread (0)';
+
+        // Update notification items visually
+        const unreadItems = document.querySelectorAll('.ai-notification-item[data-read="false"]');
+        unreadItems.forEach(item => {
+            item.setAttribute('data-read', 'true');
+            item.querySelector('.ai-notification-icon').classList.remove('bg-primary-subtle');
+            item.querySelector('.ai-notification-icon').classList.add('bg-secondary-subtle');
+            const icon = item.querySelector('.ai-notification-icon i');
+            if (icon) {
+                icon.classList.remove('bx-bell-ring', 'text-primary');
+                icon.classList.add('bx-bell', 'text-secondary');
+            }
+            item.querySelector('.ai-pulse-dot')?.remove();
+            item.querySelector('.ai-notification-progress')?.remove();
+            item.querySelector('.unread-text')?.classList.remove('unread-text');
+            item.style.borderLeft = 'none';
+            item.style.background = 'white';
+        });
+
+        // Mark all notifications as read in backend
+        fetch('{{ route("user.notifications.markAllRead") }}', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+          .then(data => {
+              if(data.success) console.log('All notifications marked as read.');
+          });
+    });
+});
+
+// Notification actions
+function markNotificationAsRead(notificationId) {
+    const item = document.querySelector(`[data-notification-id="${notificationId}"]`);
+    
+    item.style.animation = 'fadeOutLeft 0.5s ease';
+    
+    setTimeout(() => {
+        item.setAttribute('data-read', 'true');
+        item.querySelector('.ai-notification-icon').classList.remove('bg-primary-subtle');
+        item.querySelector('.ai-notification-icon').classList.add('bg-secondary-subtle');
+        item.querySelector('.ai-notification-icon i').classList.remove('bx-bell-ring', 'text-primary');
+        item.querySelector('.ai-notification-icon i').classList.add('bx-bell', 'text-secondary');
+        item.querySelector('.ai-pulse-dot')?.remove();
+        item.querySelector('.ai-notification-progress')?.remove();
+        item.querySelector('.unread-text')?.classList.remove('unread-text');
+        item.querySelector('.ai-mark-read-btn')?.remove();
+        item.style.borderLeft = 'none';
+        item.style.background = 'white';
+        item.style.animation = 'fadeInRight 0.5s ease';
+        updateNotificationBadge();
+    }, 500);
+}
+
+function markAllNotificationsAsRead() {
+    const unreadItems = document.querySelectorAll('.ai-notification-item[data-read="false"]');
+    unreadItems.forEach((item, index) => {
+        setTimeout(() => {
+            markNotificationAsRead(item.getAttribute('data-notification-id'));
+        }, index * 100);
+    });
+}
+
+function deleteNotification(notificationId) {
+    const item = document.querySelector(`[data-notification-id="${notificationId}"]`);
+    
+    item.style.animation = 'fadeOutRight 0.5s ease';
+    
+    setTimeout(() => {
+        item.remove();
+        updateNotificationBadge();
+        const remainingItems = document.querySelectorAll('.ai-notification-item').length;
+        if (remainingItems === 0) {
+            const list = document.querySelector('.ai-notification-list');
+            list.innerHTML = `
+                <div class="text-center py-5 ai-empty-state">
+                    <div class="ai-empty-icon mb-3">
+                        <i class="mdi mdi-bell-off-outline display-4 text-muted"></i>
+                    </div>
+                    <h6 class="text-muted mb-2">No notifications yet</h6>
+                    <p class="text-muted small">We'll notify you when something arrives</p>
+                </div>
+            `;
+        }
+    }, 500);
+}
+
+function updateNotificationBadge() {
+    const unreadItems = document.querySelectorAll('.ai-notification-item[data-read="false"]').length;
+    const badge = document.querySelector('.ai-notification-badge');
+    const unreadSpan = document.querySelector('.ai-pulse-badge');
+    
+    if (unreadItems > 0) {
+        badge.textContent = unreadItems;
+        unreadSpan.textContent = `Unread (${unreadItems})`;
+    } else {
+        badge?.remove();
+        unreadSpan.textContent = 'Unread (0)';
+        document.querySelector('.ai-bell-ring').style.display = 'none';
+    }
+}
+
+// Add CSS animations
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeOutLeft {
+        from { opacity: 1; transform: translateX(0); }
+        to { opacity: 0; transform: translateX(-50px); }
+    }
+    
+    @keyframes fadeInRight {
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes fadeOutRight {
+        from { opacity: 1; transform: translateX(0); }
+        to { opacity: 0; transform: translateX(50px); }
+    }
+`;
+document.head.appendChild(style);
+</script>
+
 
                     
                     <li class="">

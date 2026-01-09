@@ -214,11 +214,67 @@
                                 <span>Update Profit Limit</span>
                             </button>
                         </div>
+
+
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-outline-info w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3" data-bs-toggle="modal" data-bs-target="#updatePushNotificationModal">
+                                <i class="bi bi-bell fs-2 mb-2"></i>
+                                <span>Push Notification</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <!-- Heading -->
+    <div class="p-3 border-bottom bg-light">
+        <h5 class="mb-0 fw-bold">User Notifications</h5>
+    </div>
+
+    <div class="tab-content p-3" id="activityTabsContent">
+
+        <!-- Notifications Tab -->
+        <div class="tab-pane fade show active" id="notifications" role="tabpanel">
+            <div class="table-responsive">
+                <table class="table table-hover table-sm">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Date</th>
+                            <th>Message</th>
+                            <th>User</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($notifications as $notification)
+                        <tr>
+                            <td>{{ \Carbon\Carbon::parse($notification->created_at)->format('M j, Y') }}</td>
+                            <td>{{ $notification->message }}</td>
+                            <td>{{ $notification->user->name ?? 'N/A' }}</td>
+                            <td>
+                                <form action="{{ route('delete.notification', $notification->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                        @if($notifications->isEmpty())
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">No notifications found</td>
+                        </tr>
+                        @endif
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
 
     <!-- History Section with Nav Tabs -->
     <div class="row gx-3 mt-3">
@@ -764,6 +820,45 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+<!-- Update Notification Modal -->
+<div class="modal fade" id="updatePushNotificationModal" tabindex="-1" aria-labelledby="updatePushNotificationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updatePushNotificationModalLabel">Update {{$userProfile->name}} Push Notification</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+             <form action="{{ route('addpush.update.notification',$userProfile->id)}}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Current Notification</label>
+                            {{-- <p class="text-muted">{{$userProfile->update_notification ?? 'No notification set'}}</p> --}}
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">New Notification Message</label>
+                            <textarea name="update_notification" class="form-control" rows="3" placeholder="Enter new notification message..."></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Update Notification</button>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
+
 
 
 

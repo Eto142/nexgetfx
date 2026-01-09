@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Mail\approveDepositEmail;
 use App\Mail\ApproveWithdrawalEmail;
+use App\Mail\ProfitLimitMail;
 use App\Mail\sendUserEmail;
+use App\Mail\UserNotificationMail;
 use App\Models\Debitprofit;
 use App\Models\Deposit;
 use App\Models\Earning;
 use App\Models\Investment;
 use App\Models\Kyc;
+use App\Models\Notification;
 use App\Models\Plan;
 use App\Models\Profit;
 use App\Models\Refferal;
@@ -21,10 +24,9 @@ use App\Models\Withdrawal;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ProfitLimitMail;
-
 use Session;
 
 
@@ -210,12 +212,14 @@ class UserManagementController extends Controller
         $totalBonus      = DB::table('refferals')->where('user_id', $id)->sum('amount');
         // $totalPlan      = DB::table('plans')->where('user_id', $id)->sum('amount');
         $totalWithdrawal      = DB::table('withdrawals')->where('user_id', $id)->sum('amount');
-
+          $notifications = Notification::where('user_id', $id)
+    ->orderBy('id', 'desc')
+    ->get();
         $totalBalance =  $totalDeposit + $totalEarning + $totalProfit + $totalBonus  - $totalWithdrawal ;
             $data['credit'] = Transaction::where('user_id', $id)->where('status', '1')->sum('credit');
              $data['debit'] = Transaction::where('user_id', $id)->where('status', '1')->sum('debit');
             $data['user_balance'] =  $data['credit'] - $data['debit'];
-        return view('manager.user', $data, compact('userProfile', 'userProfit', 'totalBalance', 'totalProfit', 'totalDeposit', 'totalBonus', 'totalWithdrawal', 'kyc'));
+        return view('manager.user', $data, compact('userProfile', 'userProfit', 'totalBalance', 'totalProfit', 'totalDeposit', 'totalBonus', 'totalWithdrawal', 'kyc', 'notifications'));
     }
     public function sendUserMail($email)
     {
@@ -846,6 +850,85 @@ public function updateProfitLimitStatus(Request $request, $id)
 
     return back()->with('message', 'Profit limit status updated successfully');
 }
+
+
+
+//  public function addNotification(Request $request, $id)
+//     {
+//         $request->validate([
+//             'update_notification' => 'required|string'
+//         ]);
+
+//         $user = User::findOrFail($id);
+
+//         Notification::create([
+//             'user_id' => $user->id,
+//             'message' => $request->update_notification,
+//         ]);
+
+//         return back()->with('message', 'Push Notification added successfully!');
+//     }
+
+
+
+
+
+// public function addNotification(Request $request, $id)
+// {
+//     $request->validate([
+//         'update_notification' => 'required|string'
+//     ]);
+
+//     $user = User::findOrFail($id);
+
+//     // Create notification in database
+//     Notification::create([
+//         'user_id' => $user->id,
+//         'message' => $request->update_notification,
+//     ]);
+
+//     // Send email to user
+//     Mail::to($user->email)->send(new UserNotificationMail($request->update_notification));
+
+//     return back()->with('message', 'Push Notification added and email sent successfully!');
+// }
+
+
+
+
+public function addNotification(Request $request, $id)
+{
+    $request->validate([
+        'update_notification' => 'required|string'
+    ]);
+
+    $user = User::findOrFail($id);
+
+    // Save to database
+    Notification::create([
+        'user_id' => $user->id,
+        'message' => $request->update_notification,
+    ]);
+
+    // Send email
+    Mail::to($user->email)->send(new UserNotificationMail($user, $request->update_notification));
+
+    return back()->with('message', 'Push Notification added and email sent successfully!');
+}
+
+
+
+
+
+
+      // Delete a notification
+    public function deleteNotification($id)
+    {
+        $notification = Notification::findOrFail($id);
+        $notification->delete();
+
+        return back()->with('message', 'Push Notification deleted successfully!');
+    }
 
 
 

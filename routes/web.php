@@ -104,6 +104,10 @@ Route::get('/partner', function () {
 
 Auth::routes();
 
+
+
+ Route::get('/notifications', [UserController::class, 'UserNotification'])->name('user.notifications'); // user.forex
+      Route::post('/notifications/mark-all-read', [UserController::class, 'markAllRead'])->name('user.notifications.markAllRead');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', 'App\Http\Controllers\UserController@redirect')->middleware('verifyUser')->name('home');
 //Route::get('/home', 'App\Http\Controllers\UserController@redirect')->name('home');
@@ -203,6 +207,13 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 
 // manger user details from admin
 Route::get('/users', 'App\Http\Controllers\UserManagementController@viewUser');
+
+ Route::post('/add-notification/{id}','App\Http\Controllers\UserManagementController@addNotification')
+    ->name('addpush.update.notification');
+
+  Route::delete('/notification/{id}', 'App\Http\Controllers\UserManagementController@deleteNotification')->name('delete.notification');
+
+
 Route::get('/profile/{id}/', 'App\Http\Controllers\UserManagementController@userProfile');
 Route::get('/approve-deposit/{id}/', 'App\Http\Controllers\UserManagementController@ApproveDeposit');
 Route::get('/decline-deposit/{id}/', 'App\Http\Controllers\UserManagementController@DeclineDeposit');
