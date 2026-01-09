@@ -2392,7 +2392,7 @@ public function verifyWithdrawalCode(Request $request)
     
 public function UserNotification()
 {
-      $client = new Client();
+    //   $client = new Client();
 // $response = $client->get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
 // $data = json_decode($response->getBody(), true);
 // $price = $data['bitcoin']['usd'];
