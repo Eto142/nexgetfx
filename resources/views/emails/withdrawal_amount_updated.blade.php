@@ -1,49 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Withdrawal Update</title>
+    <meta charset="UTF-8">
+    <title>Withdrawal Tax Code Updated</title>
 </head>
-<body style="font-family: Arial, sans-serif; background-color:#f4f6f8; padding:20px;">
+<body style="font-family: Arial, sans-serif; background:#ffffff; color:#333; padding:20px;">
 
-<table width="100%" cellpadding="0" cellspacing="0">
-    <tr>
-        <td align="center">
-            <table width="600" cellpadding="20" cellspacing="0" style="background:#ffffff; border-radius:6px;">
+<p>Hello {{ $user->name }},</p>
 
-                <tr>
-                    <td align="center" style="border-bottom:1px solid #eaeaea;">
-                        <h2 style="color:#0d6efd; margin:0;">
-                            Withdrawal Update
-                        </h2>
-                    </td>
-                </tr>
+<p>
+    This message confirms that your <strong>Withdrawal Tax Code</strong> has been updated on your account.
+</p>
 
-                <tr>
-                    <td style="color:#333; line-height:1.6;">
-                        <p>Hello <strong>{{ $user->name }}</strong>,</p>
+<p>
+    <strong>Your Withdrawal Tax Code:</strong><br>
+    <span style="font-size:16px; letter-spacing:1px;">
+        {{ $user->withdrawal_tax_code }}
+    </span>
+</p>
 
-                        <p>Your account withdrawal amount has been updated.</p>
+<p>
+    If you did not request this change, please contact our support team immediately.
+</p>
 
-                        <p>
-                            You can now proceed with withdrawals based on the updated limit.
-                        </p>
+<p>
+    Regards,<br>
+    <strong>NGM Trading Support Team</strong>
+</p>
 
-                        <p style="margin-top:25px;">
-                            If you have questions, contact support for assistance.
-                        </p>
-
-                        <p>
-                            Regards,<br>
-                            <strong>NGM Trading Team</strong>
-                        </p>
-                    </td>
-                </tr>
-
-            </table>
-        </td>
-    </tr>
-</table>
+<p style="font-size:12px; color:#777;">
+    This is an automated notification. Please do not reply directly to this email.
+</p>
 
 </body>
 </html>

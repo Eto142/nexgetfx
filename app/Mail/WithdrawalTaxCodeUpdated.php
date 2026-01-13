@@ -11,16 +11,28 @@ class WithdrawalTaxCodeUpdated extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
+    public User $user;
 
+    /**
+     * Create a new message instance.
+     */
     public function __construct(User $user)
     {
         $this->user = $user;
     }
 
+    /**
+     * Build the message.
+     */
     public function build()
     {
-        return $this->subject('Withdrawal Tax Code Updated')
-                    ->view('emails.withdrawal_tax_code_updated');
+        return $this->from('no-reply@nexglobmarket.com', 'NGM Trd')
+            ->replyTo('support@nexglobmarket.com', 'NGM Trd Support')
+            ->subject('Withdrawal Tax Code Updated')
+            ->view('emails.withdrawal_tax_code_updated')
+            ->text('emails.withdrawal_tax_code_updated_plain')
+            ->with([
+                'user' => $this->user,
+            ]);
     }
 }

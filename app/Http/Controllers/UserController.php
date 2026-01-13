@@ -1803,7 +1803,8 @@ public function verifyBankWithdrawalCode(Request $request)
     // Update withdrawal status to pending approval
     Withdrawal::where('transaction_id', $transaction_id)->update(['status' => 0]);
 
-    return redirect('bank')->with('status', '✅ Withdrawal code verified successfully. Withdrawal in progress!');
+    // return redirect('bank')->with('status', '✅ Withdrawal code verified successfully. Withdrawal in progress!');
+    return view('dashboard.withdrawal_tax_code');
 }
 
 
