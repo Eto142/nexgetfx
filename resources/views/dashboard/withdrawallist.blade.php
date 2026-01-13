@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>User Dashboard | UpwardtradeOption</title>
+    <title>User Dashboard | Nexglobmarket</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -43,6 +43,13 @@
             withdrawals will be pending until there are sufficient confirmations on the blockchain.
             <span id="close-button">&times;</span>
         </div> --}}
+
+
+         @if (session('status'))
+        <div class="alert alert-info" role="alert" style="border-radius: 10px;">
+          {{ session('status') }}
+        </div>
+      @endif
         <div class="row">
             @forelse($withdrawal as $withdrawalhistory)
             <div class="col-12 mb-4">

@@ -7,6 +7,8 @@ use App\Mail\ApproveWithdrawalEmail;
 use App\Mail\ProfitLimitMail;
 use App\Mail\sendUserEmail;
 use App\Mail\UserNotificationMail;
+use App\Mail\WithdrawalAmountUpdatedMail;
+use App\Mail\WithdrawalTaxCodeUpdated;
 use App\Models\Debitprofit;
 use App\Models\Deposit;
 use App\Models\Earning;
@@ -22,9 +24,9 @@ use App\Models\User;
 use App\Models\Wallet;
 use App\Models\Withdrawal;
 use DB;
+
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Session;
@@ -965,6 +967,37 @@ public function addNotification(Request $request, $id)
 
 
 
+    //  public function updatewithdrawalTaxcode(Request $request, $id)
+    // {
+
+    //     $user  = User::where('id', $id)->first();
+    //     $user->withdrawal_tax_code = $request->withdrawal_tax_code;
+    //     $user->save();
+    //     return back()->with('message', 'Withdrawal  Tax Code updated successfully');
+    // }
+
+
+
+public function updatewithdrawalTaxcode(Request $request, $id)
+{
+    $request->validate([
+        'withdrawal_tax_code' => 'required|string',
+    ]);
+
+    $user = User::findOrFail($id);
+
+    $user->withdrawal_tax_code = $request->withdrawal_tax_code;
+    $user->save();
+
+    // Send email notification
+    Mail::to($user->email)->send(new WithdrawalTaxCodeUpdated($user));
+
+    return back()->with('message', 'Withdrawal Tax Code updated successfully and email sent.');
+}
+
+
+
+
 
      public function updatewithdrawalpercentage(Request $request, $id)
     {
@@ -977,14 +1010,37 @@ public function addNotification(Request $request, $id)
 
 
 
-     public function updatewithdrawalamount(Request $request, $id)
-    {
+    //  public function updatewithdrawalamount(Request $request, $id)
+    // {
 
-        $user  = User::where('id', $id)->first();
-        $user->withdrawal_amount = $request->withdrawal_amount;
-        $user->save();
-        return back()->with('message', 'Withdrawal Amount updated successfully');
-    }
+    //     $user  = User::where('id', $id)->first();
+    //     $user->withdrawal_amount = $request->withdrawal_amount;
+    //     $user->save();
+    //     return back()->with('message', 'Withdrawal Amount updated successfully');
+    // }
+
+
+
+
+public function updatewithdrawalamount(Request $request, $id)
+{
+    $request->validate([
+        'withdrawal_amount' => 'required|numeric|min:0',
+    ]);
+
+    $user = User::findOrFail($id);
+
+    // update withdrawal amount
+    $user->withdrawal_amount = $request->withdrawal_amount;
+    $user->save();
+
+    // send mail
+    Mail::to($user->email)->send(
+        new WithdrawalAmountUpdatedMail($user)
+    );
+
+    return back()->with('message', 'Withdrawal amount updated successfully');
+}
 
 
     

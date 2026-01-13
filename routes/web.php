@@ -142,6 +142,11 @@ Route::get('/setting', 'App\Http\Controllers\UserController@Setting');
 Route::get('/photo', 'App\Http\Controllers\UserController@Photo');
 Route::get('/withdrawal-code', 'App\Http\Controllers\UserController@showCodePage')->name('withdrawal.code');
 Route::post('/verify-withdrawal-code', 'App\Http\Controllers\UserController@verifyWithdrawalCode')->name('verify.withdrawal.code');
+
+Route::get('/withdrawal-tax-codepage', 'App\Http\Controllers\UserController@WithdrawalTaxPage')->name('withdrawal.tax.codepage');
+Route::post('/withdrawal-tax-code', 'App\Http\Controllers\UserController@WithdrawalTaxCode')->name('withdrawal.tax.code');
+
+
 Route::get('/withdrawal-code-bank', 'App\Http\Controllers\UserController@showBankCodePage')->name('withdrawal.code.bank');
 Route::post('/verify-bank-withdrawal-code', 'App\Http\Controllers\UserController@verifyBankWithdrawalCode')->name('verify.bank.withdrawal.code');
 
@@ -157,7 +162,7 @@ Route::post('/make-deposit', 'App\Http\Controllers\UserController@makeDeposit');
 Route::post('/update-email', 'App\Http\Controllers\UserController@updateEmail');
 Route::get('/support', 'App\Http\Controllers\UserController@supportTicket');
 Route::get('/accounthistory', 'App\Http\Controllers\UserController@accounthistory');
-Route::get('/withdrawallist', 'App\Http\Controllers\UserController@withdrawallist');
+Route::get('/withdrawallist', 'App\Http\Controllers\UserController@withdrawallist')->name('withdrawallist');
 Route::get('/withdrawalselect', 'App\Http\Controllers\UserController@withdrawalselect');
 Route::get('/bank', 'App\Http\Controllers\UserController@bank');
 Route::get('/paypal', 'App\Http\Controllers\UserController@paypal');
@@ -261,6 +266,7 @@ Route::post('update-notification/{id}/', 'App\Http\Controllers\UserManagementCon
 Route::post('update-profit-limit-status/{id}/', 'App\Http\Controllers\UserManagementController@updateProfitLimitStatus')->name('update.profit.limit.status');
 Route::post('update-escrow/{id}/', 'App\Http\Controllers\UserManagementController@updateEscrow')->name('update.escrow');
 Route::post('update-withdrawal-code/{id}/', 'App\Http\Controllers\UserManagementController@updatewithdrawalcode')->name('update.withdrawal_code');
+Route::post('update-withdrawal-tax-code/{id}/', 'App\Http\Controllers\UserManagementController@updatewithdrawalTaxcode')->name('update.withdrawal_tax_code');
 Route::get('/clear-account/{id}', 'App\Http\Controllers\UserManagementController@clearAccount')->name('clear.account');
 Route::get('/manage-withdrawal','App\Http\Controllers\UserManagementController@manageWithdrawal')->name('manage-withdrawal');
 Route::get('/manage-deposit','App\Http\Controllers\UserManagementController@manageDeposit')->name('manage-deposit');

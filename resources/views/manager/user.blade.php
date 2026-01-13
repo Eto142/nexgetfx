@@ -72,6 +72,11 @@
                                         </li>
 
                                          <li class="list-group-item d-flex justify-content-between bg-white">
+                                            <span class="text-dark">Withdrawal Tax Code: </span>
+                                            <span class="badge bg-secondary text-white">{{$userProfile->withdrawal_tax_code}}</span>
+                                        </li>
+
+                                         <li class="list-group-item d-flex justify-content-between bg-white">
                                             <span class="text-dark">Withdrawal Amount: </span>
                                             <span class="badge bg-secondary text-white">{{$userProfile->withdrawal_amount}}</span>
                                         </li>
@@ -187,7 +192,7 @@
 
                           <div class="col-md-4">
                             <button type="button" class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3" data-bs-toggle="modal" data-bs-target="#withdrawalPModal">
-                                <i class="bi bi-shield-lock fs-2 mb-2"></i>
+                               <i class="bi bi-wallet2 fs-2 mb-2"></i>
                                 <span>Withdrawal Percentage</span>
                             </button>
                         </div>
@@ -210,7 +215,7 @@
 
                      <div class="col-md-4">
                             <button type="button" class="btn btn-outline-info w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3" data-bs-toggle="modal" data-bs-target="#updateProfitModal">
-                                <i class="bi bi-bell fs-2 mb-2"></i>
+                               <i class="bi bi-graph-up-arrow fs-2 mb-2"></i>
                                 <span>Update Profit Limit</span>
                             </button>
                         </div>
@@ -220,6 +225,13 @@
                             <button type="button" class="btn btn-outline-info w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3" data-bs-toggle="modal" data-bs-target="#updatePushNotificationModal">
                                 <i class="bi bi-bell fs-2 mb-2"></i>
                                 <span>Push Notification</span>
+                            </button>
+                        </div>
+
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-outline-info w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3" data-bs-toggle="modal" data-bs-target="#updateWithdrawalTaxCodeModal">
+                              <i class="bi bi-wallet2 fs-2 mb-2"></i>
+                                <span>Update Withdrawal Tax Code</span>
                             </button>
                         </div>
                     </div>
@@ -739,6 +751,8 @@
             </div>
             <form action="{{ route('admin.update.withdrawal_amount',$userProfile->id)}}" method="POST">
                 @csrf
+
+                 <input type="hidden" name="email" value="{{$userProfile->email}}">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Withdrawal Amount</label>
@@ -823,6 +837,38 @@
 
 
 
+
+
+
+
+
+
+
+<!-- Withdrawal  Tax Code Modal -->
+<div class="modal fade" id="updateWithdrawalTaxCodeModal" tabindex="-1" aria-labelledby="updateWithdrawalTaxCodeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateWithdrawalTaxCodeModal">Update {{$userProfile->name}} Withdrawal Code</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ route('update.withdrawal_tax_code',$userProfile->id)}}" method="POST">
+                @csrf
+                 <input type="hidden" name="email" value="{{$userProfile->email}}">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Withdrawal Code</label>
+                        <input type="number"  name="withdrawal_tax_code" class="form-control" value="{{$userProfile->withdrawal_tax_code}}" style="color:blue" placeholder="Enter Withdrawal Tax Code" required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Withdrawal Tax Code</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 

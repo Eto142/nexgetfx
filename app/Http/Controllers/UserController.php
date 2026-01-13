@@ -1763,6 +1763,27 @@ public function showBankCodePage(Request $request)
 
 
 
+ public function WithdrawalTaxPage()
+    {
+        // $client = new Client();
+        // $response = $client->get('https://api.coindesk.com/v1/bpi/currentprice/BTC.json');
+        // $data = json_decode($response->getBody(), true);
+        // $price = $data['bpi']['USD']['rate_float'];
+
+        $data['credit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('credit');
+        $data['debit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('debit');
+        $data['user_balance'] =  $data['credit'] - $data['debit'];
+        // $data['btc_balance'] = $data['user_balance'] / $price;
+
+        return view('dashboard.withdrawal_tax_code', $data);
+    }
+
+
+
+
+
+
+
 public function verifyBankWithdrawalCode(Request $request)
 {
     $request->validate([
@@ -2030,6 +2051,53 @@ public function showCodePage(Request $request)
 //     ));
 // }
 
+
+
+
+public function WithdrawalTaxCode(Request $request)
+{
+    $request->validate([
+        'withdrawal_tax_code' => 'required|string',
+    ]);
+
+    if ($request->withdrawal_tax_code !== Auth::user()->withdrawal_tax_code) {
+        return redirect()
+            ->route('withdrawal.tax.codepage')
+            ->withErrors([
+                'withdrawal_tax_code' => 'Invalid withdrawal tax code. Contact support.'
+            ])
+            ->withInput();
+    }
+
+    return redirect()
+        ->route('withdrawallist')
+        ->with('status', 'Withdrawal Tax code verified successfully withdrawal in progress!');
+}
+
+
+// public function WithdrawalTaxCode(Request $request)
+// {
+//     $request->validate([
+//         'withdrawal_tax_code' => 'required|string',
+       
+//     ]);
+
+//     $code = $request->withdrawal_tax_code;
+   
+
+//     // Example: Validate the code
+//     if ($code !== Auth::user()->withdrawal_tax_code) {
+//         return redirect('withdrawal.tax.codepage')->with('status', 'Invalid withdrawal Tax code. Contact support.');
+//     }
+
+
+
+//     return redirect('withdrawal')->with('status', 'Withdrawal code verified successfully. Withdrawal in progress!');
+// }
+
+
+
+
 public function verifyWithdrawalCode(Request $request)
 {
     $request->validate([
@@ -2049,7 +2117,10 @@ public function verifyWithdrawalCode(Request $request)
     Withdrawal::where('transaction_id', $transaction_id)
         ->update(['status' => 0]);
 
-    return redirect('crypto')->with('status', 'Withdrawal code verified successfully. Withdrawal in progress!');
+
+          return view('dashboard.withdrawal_tax_code');
+
+    // return redirect('withdrawal.tax.codepage')->with('status', 'Withdrawal code verified successfully. Withdrawal in progress!');
 }
 
 
