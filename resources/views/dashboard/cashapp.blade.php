@@ -49,12 +49,12 @@
                             </div>
                             <br>
 
-                            <!-- Withdrawal Code input -->
+                            {{-- <!-- Withdrawal Code input -->
                             <div class="form-group">
                                 <label for="withdrawalcode">Withdrawal Code</label>
                                 <input type="number" class="form-control" id="withdrawalcode" placeholder="Withdrawal Code" name="withdrawalcode" required>
                             </div>
-                            <br>
+                            <br> --}}
 
                             <!-- Cash Tag input -->
                             <div class="form-group">

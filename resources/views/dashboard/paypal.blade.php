@@ -44,11 +44,11 @@
                             </div>
                             <br>
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="withdrawalcode">Withdrawal Code</label>
                                 <input type="number" class="form-control" id="withdrawalcode" placeholder="Withdrawal Code" name="withdrawal_code" required>
                             </div>
-                            <br>
+                            <br> --}}
 
                             <div class="form-group">
                                 <label for="paypal_email">Paypal Email</label>

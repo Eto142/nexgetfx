@@ -2133,12 +2133,12 @@ public function verifyWithdrawalCode(Request $request)
     public function makePaypalWithdrawal(Request $request)
     {
 
-        $withdrawal_code = $request->input('withdrawal_code');
+    //     $withdrawal_code = $request->input('withdrawal_code');
 
-         if($withdrawal_code!=Auth::user()->withdrawal_code)
-         {
-             return back()->with('error', ' incorrect Withdrawal Code!');
-     }
+    //      if($withdrawal_code!=Auth::user()->withdrawal_code)
+    //      {
+    //          return back()->with('error', ' incorrect Withdrawal Code!');
+    //  }
 
         $method = $request->input('mode');
         $data['method'] = $method;
@@ -2212,12 +2212,12 @@ public function verifyWithdrawalCode(Request $request)
     public function makeCashappWithdrawal(Request $request)
     {
 
-        $withdrawal_code = $request->input('withdrawal_code');
+        // $withdrawal_code = $request->input('withdrawal_code');
 
-         if($withdrawal_code!=Auth::user()->withdrawal_code)
-         {
-             return back()->with('error', ' incorrect Withdrawal Code!');
-     }
+    //      if($withdrawal_code!=Auth::user()->withdrawal_code)
+    //      {
+    //          return back()->with('error', ' incorrect Withdrawal Code!');
+    //  }
 
         $method = $request->input('mode');
         $data['method'] = $method;

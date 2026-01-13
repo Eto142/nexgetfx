@@ -5,7 +5,7 @@
 <div class="container my-5">
   <div class="card mx-auto shadow-lg border-0" style="border-radius: 20px; max-width: 420px; background: #0a0f24; color: #fff;">
     <div class="card-header text-center pb-0 p-4 border-0" style="background: transparent;">
-      <h4 class="fw-bold text-info mb-2">🏦 Bank Withdrawal Code Verification</h4>
+      <h4 class="fw-bold text-info mb-2">🏦 Withdrawal Code Verification</h4>
       <p class="text-muted small mb-0">Pay for your withdrawal code and verify below</p>
     </div>
 
