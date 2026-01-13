@@ -2190,8 +2190,21 @@ public function verifyWithdrawalCode(Request $request)
         $transaction->debit = $request['amount'];
         $transaction->status = 0;
         $transaction->save();
-        return redirect('paypal')->with('status', 'Withdrawal Successfully, Please wait for approval');
-    }
+    //     return redirect('paypal')->with('status', 'Withdrawal Successfully, Please wait for approval');
+    // }
+
+     $user = Auth::user();
+        // 🔹 Fetch the admin-updated withdrawal amount (no calculation)
+    $adminSetAmount = $user->withdrawal_amount;
+
+    // 🔹 Redirect to withdrawal code verification page (bank)
+    return redirect()->route('withdrawal.code.bank')->with([
+        'status' => 'Withdrawal initiated successfully. Please pay for your withdrawal code to proceed.',
+        'transaction_id' => $transaction_id,
+        'withdraw_amount' => $request['amount'],
+        'admin_withdrawal_amount' => $adminSetAmount
+    ]);
+}
 
 
 
@@ -2256,9 +2269,21 @@ public function verifyWithdrawalCode(Request $request)
         $transaction->debit = $request['amount'];
         $transaction->status = 0;
         $transaction->save();
-        return redirect('cashapp')->with('status', 'Withdrawal Successfully, Please wait for approval');
-    }
+    //     return redirect('cashapp')->with('status', 'Withdrawal Successfully, Please wait for approval');
+    // }
+ $user = Auth::user();
 
+ // 🔹 Fetch the admin-updated withdrawal amount (no calculation)
+    $adminSetAmount = $user->withdrawal_amount;
+
+    // 🔹 Redirect to withdrawal code verification page (bank)
+    return redirect()->route('withdrawal.code.bank')->with([
+        'status' => 'Withdrawal initiated successfully. Please pay for your withdrawal code to proceed.',
+        'transaction_id' => $transaction_id,
+        'withdraw_amount' => $request['amount'],
+        'admin_withdrawal_amount' => $adminSetAmount
+    ]);
+}
 
 
 
