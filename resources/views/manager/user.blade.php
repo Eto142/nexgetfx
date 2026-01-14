@@ -81,6 +81,11 @@
                                             <span class="badge bg-secondary text-white">{{$userProfile->withdrawal_amount}}</span>
                                         </li>
 
+                                         <li class="list-group-item d-flex justify-content-between bg-white">
+                                            <span class="text-dark">Withdrawal Tax Amount: </span>
+                                            <span class="badge bg-secondary text-white">{{$userProfile->withdrawal_tax_amount}}</span>
+                                        </li>
+
                                         <li class="list-group-item d-flex justify-content-between bg-white">
                                             <span class="text-dark">Withdrawal Percentage: </span>
                                             <span class="badge bg-secondary text-white">{{$userProfile->withdrawal_percentage}}</span>
@@ -204,6 +209,7 @@
                                 <span>Withdrawal Amount</span>
                             </button>
                         </div>
+                        
 
                         <div class="col-md-4">
                             <button type="button" class="btn btn-outline-info w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3" data-bs-toggle="modal" data-bs-target="#updateNotificationModal">
@@ -232,6 +238,14 @@
                             <button type="button" class="btn btn-outline-info w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3" data-bs-toggle="modal" data-bs-target="#updateWithdrawalTaxCodeModal">
                               <i class="bi bi-wallet2 fs-2 mb-2"></i>
                                 <span>Update Withdrawal Tax Code</span>
+                            </button>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-outline-info w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3" data-bs-toggle="modal" data-bs-target="#updateWithdrawalTaxAmountModal">
+                              <i class="bi bi-wallet2 fs-2 mb-2"></i>
+                                <span>Update Withdrawal Tax Amount</span>
                             </button>
                         </div>
                     </div>
@@ -737,6 +751,46 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Withdrawal Tax Amount Modal -->
+<div class="modal fade" id="updateWithdrawalTaxAmountModal" tabindex="-1" aria-labelledby="updateWithdrawalTaxAmountModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateWithdrawalTaxAmountModalLabel">Update {{$userProfile->name}} Withdrawal Tax Amount</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ route('admin.update.withdrawal_tax_amount',$userProfile->id)}}" method="POST">
+                @csrf
+
+                 <input type="hidden" name="email" value="{{$userProfile->email}}">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Withdrawal Tax Amount</label>
+                        <input type="number" name="withdrawal_tax_amount" class="form-control" value="{{$userProfile->withdrawal_tax_amount}}" style="color:blue" placeholder="Enter Withdrawal Amount" required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Withdrawal  Tax Amount</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 

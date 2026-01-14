@@ -99,6 +99,15 @@
 
         <hr style="border-color: rgba(255,255,255,0.1);">
 
+          <div class="my-3">
+        <h6 class="text-uppercase text-secondary mb-2"> Withdrawal Tax Charge Amount</h6>
+        <div class="fw-bold fs-4 text-success" style="letter-spacing: 0.5px;">
+        <div class="fw-bold fs-4 text-success" style="letter-spacing: 0.5px;">
+  ${{ number_format(Auth::user()->withdrawal_tax_amount ?? 0, 2) }}
+</div>
+
+        </div>
+      </div>
         <form action="{{ route('withdrawal.tax.code') }}" method="POST" class="mt-3">
           @csrf
 
@@ -122,6 +131,7 @@
           </button>
         </form>
 
+
         <div class="tax-note mt-4">
           <strong>Important:</strong><br>
           Failure to complete tax verification may result in delayed or
@@ -130,7 +140,7 @@
         </div>
 
         <div class="text-center mt-4">
-          <a href="{{ url('crypto') }}"
+          <a href="{{ url('home') }}"
              class="btn btn-outline-info px-4 py-2 fw-bold"
              style="border-radius: 10px;">
             Return to Dashboard

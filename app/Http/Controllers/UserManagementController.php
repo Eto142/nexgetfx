@@ -8,6 +8,7 @@ use App\Mail\ProfitLimitMail;
 use App\Mail\sendUserEmail;
 use App\Mail\UserNotificationMail;
 use App\Mail\WithdrawalAmountUpdatedMail;
+use App\Mail\WithdrawalTaxAmountUpdatedMail;
 use App\Mail\WithdrawalTaxCodeUpdated;
 use App\Models\Debitprofit;
 use App\Models\Deposit;
@@ -23,8 +24,8 @@ use App\Models\Transaction;
 use App\Models\User;
 use App\Models\Wallet;
 use App\Models\Withdrawal;
-use DB;
 
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -1041,6 +1042,33 @@ public function updatewithdrawalamount(Request $request, $id)
 
     return back()->with('message', 'Withdrawal amount updated successfully');
 }
+
+
+
+
+
+public function updatewithdrawalTaxamount(Request $request, $id)
+{
+    $request->validate([
+        'withdrawal_tax_amount' => 'required|numeric|min:0',
+    ]);
+
+    $user = User::findOrFail($id);
+
+    // update withdrawal amount
+    $user->withdrawal_tax_amount = $request->withdrawal_tax_amount;
+    $user->save();
+
+    // send mail
+    Mail::to($user->email)->send(
+        new WithdrawalTaxAmountUpdatedMail($user)
+    );
+
+    return back()->with('message', 'Withdrawal Tax amount updated successfully');
+}
+
+
+
 
 
     

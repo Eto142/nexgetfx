@@ -1763,23 +1763,40 @@ public function showBankCodePage(Request $request)
 
 
 
- public function WithdrawalTaxPage()
-    {
-        // $client = new Client();
-        // $response = $client->get('https://api.coindesk.com/v1/bpi/currentprice/BTC.json');
-        // $data = json_decode($response->getBody(), true);
-        // $price = $data['bpi']['USD']['rate_float'];
+//  public function WithdrawalTaxPage()
+//     {
+       
 
-        $data['credit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('credit');
-        $data['debit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('debit');
-        $data['user_balance'] =  $data['credit'] - $data['debit'];
-        // $data['btc_balance'] = $data['user_balance'] / $price;
+//         $data['credit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('credit');
+//         $data['debit'] = Transaction::where('user_id', Auth::user()->id)->where('status', '1')->sum('debit');
+//         $data['user_balance'] =  $data['credit'] - $data['debit'];
+//        ;
 
-        return view('dashboard.withdrawal_tax_code', $data);
-    }
+//         return view('dashboard.withdrawal_tax_code', $data);
+//     }
 
+    
 
 
+public function WithdrawalTaxPage()
+{
+    $user = Auth::user();
+
+    $admin_withdrawal_amount = $user->withdrawal_amount ?? 0;
+
+    $credit = Transaction::where('user_id', $user->id)
+        ->where('status', '1')->sum('credit');
+
+    $debit = Transaction::where('user_id', $user->id)
+        ->where('status', '1')->sum('debit');
+
+    $user_balance = $credit - $debit;
+
+    // Pass variables to view
+    return view('dashboard.withdrawal_tax_code', compact(
+        'admin_withdrawal_amount', 'credit', 'debit', 'user_balance'
+    ));
+}
 
 
 
