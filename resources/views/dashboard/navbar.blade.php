@@ -62,6 +62,10 @@
     <i class="fas fa-money-bill-wave"></i>
     <span>Deposits</span>
   </a>
+  <a href="{{url('verify-account')}}">
+    <i class="fas fa-user-shield"></i>
+    <span>Verify</span>
+  </a>
   <a href="{{url('profile')}}">
     <i class="fas fa-user"></i>
     <span>Account</span>

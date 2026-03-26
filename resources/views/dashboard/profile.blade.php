@@ -5,7 +5,7 @@
 <!-- Mirrored from coderthemes.com/hyper_2/modern/{{url('home')}} by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 May 2024 09:34:18 GMT -->
 <head>
     <meta charset="utf-8" />
-    <title> User Dashboard | UpwardtradeOption</title>
+    <title> User Dashboard | Nexglob</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -43,6 +43,85 @@
         </div>
     </div>
     <!-- End Page Title -->
+
+    <!-- KYC Verification Banner -->
+    @php
+        $kycStatus = Auth::user()->kyc_status ?? null;
+    @endphp
+    <div class="row mb-3">
+        <div class="col-12">
+            @if($kycStatus == '1')
+                <a href="{{ url('verify-account') }}" class="text-decoration-none">
+                    <div class="card mb-0" style="background: linear-gradient(135deg, #1a7a4a, #28a745); border: none; border-radius: 12px;">
+                        <div class="card-body d-flex align-items-center justify-content-between py-3">
+                            <div class="d-flex align-items-center">
+                                <div style="background: rgba(255,255,255,0.2); border-radius: 50%; width: 48px; height: 48px; display:flex; align-items:center; justify-content:center; margin-right: 14px; flex-shrink:0;">
+                                    <i class="fas fa-shield-alt" style="font-size: 22px; color: #fff;"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0" style="color: #fff; font-weight: 700;">Account Verified</h5>
+                                    <small style="color: rgba(255,255,255,0.85);">Your identity has been successfully verified</small>
+                                </div>
+                            </div>
+                            <span style="background: rgba(255,255,255,0.25); color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; white-space: nowrap;">&#10003; Verified</span>
+                        </div>
+                    </div>
+                </a>
+            @elseif($kycStatus == '2')
+                <a href="{{ url('verify-account') }}" class="text-decoration-none">
+                    <div class="card mb-0" style="background: linear-gradient(135deg, #b02a37, #dc3545); border: none; border-radius: 12px;">
+                        <div class="card-body d-flex align-items-center justify-content-between py-3">
+                            <div class="d-flex align-items-center">
+                                <div style="background: rgba(255,255,255,0.2); border-radius: 50%; width: 48px; height: 48px; display:flex; align-items:center; justify-content:center; margin-right: 14px; flex-shrink:0;">
+                                    <i class="fas fa-shield-alt" style="font-size: 22px; color: #fff;"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0" style="color: #fff; font-weight: 700;">Verification Rejected</h5>
+                                    <small style="color: rgba(255,255,255,0.85);">Tap to re-submit your KYC documents</small>
+                                </div>
+                            </div>
+                            <span style="background: rgba(255,255,255,0.25); color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; white-space: nowrap;">Resubmit &rsaquo;</span>
+                        </div>
+                    </div>
+                </a>
+            @elseif($kycStatus == '0')
+                <a href="{{ url('verify-account') }}" class="text-decoration-none">
+                    <div class="card mb-0" style="background: linear-gradient(135deg, #b07d19, #fd7e14); border: none; border-radius: 12px;">
+                        <div class="card-body d-flex align-items-center justify-content-between py-3">
+                            <div class="d-flex align-items-center">
+                                <div style="background: rgba(255,255,255,0.2); border-radius: 50%; width: 48px; height: 48px; display:flex; align-items:center; justify-content:center; margin-right: 14px; flex-shrink:0;">
+                                    <i class="fas fa-hourglass-half" style="font-size: 22px; color: #fff;"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0" style="color: #fff; font-weight: 700;">Verification Pending</h5>
+                                    <small style="color: rgba(255,255,255,0.85);">Your documents are under review</small>
+                                </div>
+                            </div>
+                            <span style="background: rgba(255,255,255,0.25); color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; white-space: nowrap;">Pending &hellip;</span>
+                        </div>
+                    </div>
+                </a>
+            @else
+                <a href="{{ url('verify-account') }}" class="text-decoration-none">
+                    <div class="card mb-0" style="background: linear-gradient(135deg, #1a3a6e, #0d6efd); border: none; border-radius: 12px; box-shadow: 0 4px 15px rgba(13,110,253,0.35);">
+                        <div class="card-body d-flex align-items-center justify-content-between py-3">
+                            <div class="d-flex align-items-center">
+                                <div style="background: rgba(255,255,255,0.2); border-radius: 50%; width: 48px; height: 48px; display:flex; align-items:center; justify-content:center; margin-right: 14px; flex-shrink:0;">
+                                    <i class="fas fa-user-shield" style="font-size: 22px; color: #fff;"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0" style="color: #fff; font-weight: 700;">Verify Your Account</h5>
+                                    <small style="color: rgba(255,255,255,0.85);">Complete KYC to unlock all features</small>
+                                </div>
+                            </div>
+                            <span style="background: rgba(255,255,255,0.25); color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; white-space: nowrap;">Start &rsaquo;</span>
+                        </div>
+                    </div>
+                </a>
+            @endif
+        </div>
+    </div>
+    <!-- End KYC Verification Banner -->
 
     <!-- Content -->
     <div class="row">
@@ -108,10 +187,29 @@
                 </div>
             </a>
             <!-- Account Settings Box -->
-            <a href="{{url('setting')}}" class="card text-decoration-none">
+            <a href="{{url('setting')}}" class="card text-decoration-none mb-3">
                 <div class="card-body d-flex align-items-center">
                     <img src="settings.png" alt="Account Settings Icon" style="width: 40px; margin-right: 10px;">
                     <h5 class="mb-0">Account Settings</h5>
+                </div>
+            </a>
+            <!-- Verify Account Box -->
+            <a href="{{ url('verify-account') }}" class="card text-decoration-none">
+                <div class="card-body d-flex align-items-center">
+                    <i class="fas fa-user-shield" style="font-size: 28px; margin-right: 12px; color: #0d6efd;"></i>
+                    <div>
+                        <h5 class="mb-0">Verify Account</h5>
+                        <small class="text-muted">KYC / Identity Verification</small>
+                    </div>
+                    @if(Auth::user()->kyc_status == '1')
+                        <span class="badge bg-success ms-auto">Verified</span>
+                    @elseif(Auth::user()->kyc_status == '0')
+                        <span class="badge bg-warning ms-auto">Pending</span>
+                    @elseif(Auth::user()->kyc_status == '2')
+                        <span class="badge bg-danger ms-auto">Rejected</span>
+                    @else
+                        <span class="badge bg-secondary ms-auto">Not Submitted</span>
+                    @endif
                 </div>
             </a>
         </div>
