@@ -1188,11 +1188,11 @@ document.head.appendChild(style);
                     <li class="side-nav-item">
                         <a href="{{url('profile')}}" class="side-nav-link">
                             <i class="ri-user-2-fill"></i>
-                            <span>My Account </span>
+                            <span>My Account</span>
                         </a>
                     </li>
 
-                    
+
                     <li class="side-nav-item">
                         <a href="{{ url('verify-account') }}" class="side-nav-link d-flex align-items-center justify-content-between">
                             <span class="d-flex align-items-center">
