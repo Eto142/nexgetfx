@@ -1192,6 +1192,7 @@ document.head.appendChild(style);
                         </a>
                     </li>
 
+                    
                     <li class="side-nav-item">
                         <a href="{{ url('verify-account') }}" class="side-nav-link d-flex align-items-center justify-content-between">
                             <span class="d-flex align-items-center">
